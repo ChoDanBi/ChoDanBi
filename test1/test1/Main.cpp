@@ -65,7 +65,6 @@ int main(void)
 	Temp.push_back(new StudentScore((char*)"A몽룡", 700, 800, 900));
 	StudentScoreList["A 학교"] = Temp;
 
-
 	// ** 출력
 	Output(&StudentScoreList);
 
@@ -125,15 +124,16 @@ void AddStudent(map<string, list<StudentScore*>>* _pStudentScoreList, string _st
 // ** 숙제 : map 안의  list 내용을 출력
 void Output(map<string, list<StudentScore*>>* _pStudentScoreList)
 {
-	//	list<StudentScore*>::iterator iter = _pStudentScoreList;
-	//map < string, list<StudentScore*>>::iterator iter = _pStudentScoreList->begin();
 	for (map < string, list<StudentScore*>>::iterator iter = _pStudentScoreList->begin();
 		iter != _pStudentScoreList->end(); ++iter)
 	{
-		cout << "이름 : " << (*iter).second->Name << endl;
-		cout << "국어 점수 : " << (*iter).second->Kor << endl;
-		cout << "영어 점수 : " << (*iter).second->Eng << endl;
-		cout << "수학 점수 : " << (*iter).second->Math << endl << endl;
+		for (list<StudentScore*>::iterator iter2 = iter->second.begin();
+			iter2 != iter->second.end(); ++iter2)
+		{
+			cout << "이름 : " << (*iter2).second->Name << endl;
+			cout << "국어 점수 : " << (*iter2).second->Kor << endl;
+			cout << "영어 점수 : " << (*iter2).second->Eng << endl;
+			cout << "수학 점수 : " << (*iter2).second->Math << endl << endl;
+		}
 	}
-
 }
