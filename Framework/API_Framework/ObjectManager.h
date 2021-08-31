@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Object;
+class Prototype;
 class ObjectManager
 {
 private:
@@ -15,30 +16,52 @@ public:
 		return Instance;
 	}
 private:
+	Prototype* PrototypeObject;
+
 	// ** 플레이어
 	Object* pPlayer;
 
 	// ** 오브젝트 리스트
-	map<string, list<Object*>> ObjectList;
+	list<Object*> EnableList;
+	map<string, list<Object*>> DisableList;
 public:
-	void AddObject(Object* _Object);
+	// ** 초기화
+	void Initialize();
+
+	// ** 객체 생성
+	Object* CreateObject(string _Key);
+
+	// ** 컨테이너에서 객체를 찾음
+	void FindObject(string _Key);
+
+
+	// ** 객체 생성
+	Object* CreateObject(string _Key, Vector3 _Position);
+
+	// ** 컨테이너에서 객체를 찾음
+	void FindObject(string _Key, Vector3 _Position);
+
+	// ** 객체 추가.
+	void AddObject(string _strKey);
 	void Release();
 public:
 	// ** 플레이어를 반환.
 	Object* GetPlayer() { return pPlayer; }
 	void SetPlayer(Object* _pPlayer) { pPlayer = _pPlayer; }
 
+
 	// ** map 컨테이너를 사용하고있는 ObjectList를 반환.
-	map<string, list<Object*>>* GetObjectList() { return &ObjectList; }
+	list<Object*>* GetEnableList() { return &EnableList; }
+	map<string, list<Object*>>* GetDisableList() { return &DisableList; }
 
 
 	// ** map 컨테이너를 사용하고있는 ObjectList에 포함된 list 를 탐색하여 반환.
 	list<Object*>* FindList(string _Key) 
 	{
-		map<string, list<Object*>>::iterator iter = ObjectList.find(_Key);
+		map<string, list<Object*>>::iterator iter = DisableList.find(_Key);
 
 		// ** 존재하지 않는 key값에는 nullptr를 반환.
-		if (iter == ObjectList.end())
+		if (iter == DisableList.end())
 			return nullptr;
 
 		return &iter->second;

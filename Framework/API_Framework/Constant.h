@@ -8,3 +8,15 @@ const DWORD KEY_RIGHT	= 0x00000008;
 const DWORD KEY_ESCAPE	= 0x00000010;
 const DWORD KEY_SPACE	= 0x00000020;
 const DWORD KEY_ENTER	= 0x00000040;
+
+
+
+
+
+
+const int WindowsWidth = 1280;
+const int WindowsHeight = 720;
+
+
+
+

@@ -1,7 +1,10 @@
 #pragma once
+#include "Headers.h"
 
 class MainUpdate
 {
+private:
+	HDC		m_hdc;
 public:
 	void Initialize();
 	void Update();
@@ -11,4 +14,3 @@ public:
 	MainUpdate();
 	~MainUpdate();
 };
-

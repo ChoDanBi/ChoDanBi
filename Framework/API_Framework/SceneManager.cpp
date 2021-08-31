@@ -38,9 +38,9 @@ void SceneManager::Update()
 	pSceneState->Update();
 }
 
-void SceneManager::Render()
+void SceneManager::Render(HDC _hdc)
 {
-	pSceneState->Render();
+	pSceneState->Render(_hdc);
 }
 
 void SceneManager::Release()

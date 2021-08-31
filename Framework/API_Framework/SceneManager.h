@@ -19,7 +19,7 @@ private:
 public:
 	void SetScene(SCENEID _SceneID);
 	void Update();
-	void Render();
+	void Render(HDC _hdc);
 	void Release();
 private:
 	SceneManager() : pSceneState(nullptr) {}
