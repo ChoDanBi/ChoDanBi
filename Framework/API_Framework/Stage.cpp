@@ -23,6 +23,8 @@ void Stage::Initialize()
 {
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 
+	m_Bullet = ObjectManager::GetInstance()->CreateObject("Bullet", m_pPlayer->GetPosition());
+
 	for (int i = 0; i < 8; ++i)
 	{
 		Object* pObj = new Enemy;
@@ -42,22 +44,26 @@ void Stage::Initialize()
 		pObj->SetPosition(m_pPlayer->GetPosition());
 		BulletList.push_back(pObj);
 	}*/
-
-	/*
-	EnableList = ObjectManager::GetInstance()->GetEnableList();
-	DisableList = ObjectManager::GetInstance()->GetDisableList();
-
-	SetTime = ULONGLONG(rand() % 5000 + 3000);
-	Time = GetTickCount64();
-	*/
 }
-
+	//여기서 얘네들 생성하고 삭제하는데 그럼 여기서 bullet을 만들어야 하는데...
 void Stage::Update()
 {
 	m_pPlayer->Update();
 
+	m_Bullet->Update(); //bullet이 없는데 작동시키면 터지니까...
 
+	for (vector<Object*>::iterator iter = EnemyList.begin();
+		iter != EnemyList.end(); )
+	{
+		if (CollisionManager::EllipseCollision(m_Bullet, (*iter)))
+		{
+			iter = EnemyList.erase(iter);
+		}
+		else
+			++iter;
+	}
 
+	/*
 	for (vector<Object*>::iterator iter = EnemyList.begin();
 		iter != EnemyList.end(); )
 	{
@@ -72,43 +78,20 @@ void Stage::Update()
 			++iter;
 			itr++;
 		}
-	}
-	/*
-	for (list<Object*>::iterator iter = EnableList->begin();
-		iter != EnableList->end(); )
-	{
-		int Result = (*iter)->Update();
-
-		if (Result == 1)
-		{
-			ObjectManager::GetInstance()->RecallObject(*iter);
-			iter = EnableList->erase(iter);
-		}
-		else
-			++iter;
-	}
-
-	if (Time + SetTime < GetTickCount64())
-	{
-		for (int i = 0; i < 6; ++i)
-		{
-			Vector3 vPos = Vector3(float(WindowsWidth - 100), float(i * 110 + 60));
-			ObjectManager::GetInstance()->FindObject("Enemy", vPos);
-		}
-
-		SetTime = ULONGLONG(rand() % 5000 + 3000);
-		Time = GetTickCount64();
-	}
-	*/
+	}*/
+	
 }
 
 void Stage::Render(HDC _hdc)
 {
 	m_pPlayer->Render(_hdc);
 
+	m_Bullet->Render(_hdc);
+
 	for (int i = 0; i < EnemyList.size(); ++i)
 		EnemyList[i]->Render(_hdc);
 
+	/*
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_SPACE)
@@ -116,14 +99,8 @@ void Stage::Render(HDC _hdc)
 		for (int i = 0; i < BulletList.size(); i++)
 			BulletList[i]->Render(_hdc);
 	}
-
-	/*
-	for (list<Object*>::iterator iter = EnableList->begin();
-		iter != EnableList->end(); ++iter)
-	{
-		(*iter)->Render(_hdc);
-	}
-	*/
+*/
+	
 
 }
 

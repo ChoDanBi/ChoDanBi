@@ -8,8 +8,8 @@ class Stage : public Scene
 private:
 	Object* m_pPlayer;
 	vector<Object*> EnemyList;
-	vector<Object*> BulletList;
-
+	//vector<Object*> BulletList;
+	Object* m_Bullet;
 	/*
 	list<Object*>* EnableList;
 	map<string, list<Object*>>* DisableList;
