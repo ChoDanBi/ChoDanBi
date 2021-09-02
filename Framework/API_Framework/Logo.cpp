@@ -27,15 +27,13 @@ void Logo::Initialize()
 
 void Logo::Update()
 {
-	//cout << "Logo::Update" << endl;
-
 	if (GetAsyncKeyState('A'))
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 
 void Logo::Render(HDC _hdc)
 {
-	//cout << "Logo::Render" << endl;
+
 }
 
 void Logo::Release()

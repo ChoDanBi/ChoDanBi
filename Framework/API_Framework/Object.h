@@ -19,7 +19,10 @@ public:
 	string GetKey() const { return strKey; }
 
 	void SetPosition(Vector3 _position) { TransInfo.Position = _position; }
+	void SetPosition(float _x, float _y) { TransInfo.Position.x = _x; TransInfo.Position.y = _y; }
 	Vector3 GetPosition() { return TransInfo.Position; }
+
+	Vector3 GetScale() { return TransInfo.Scale; }
 
 	bool GetActive() const { return Active; }
 	void SetActive(const bool& _Active) { Active = _Active; }

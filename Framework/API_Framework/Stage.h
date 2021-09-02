@@ -7,11 +7,16 @@ class Stage : public Scene
 {
 private:
 	Object* m_pPlayer;
+	vector<Object*> EnemyList;
+	vector<Object*> BulletList;
+
+	/*
 	list<Object*>* EnableList;
 	map<string, list<Object*>>* DisableList;
 
 	ULONGLONG Time;
 	ULONGLONG SetTime;
+	*/
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

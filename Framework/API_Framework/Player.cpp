@@ -19,14 +19,19 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
 	TransInfo.Scale = Vector3(100.0f, 100.0f);
 
-	strKey = "Player";
-	Active = false;
+	//strKey = "Player";
+	//Active = false;
 
-	Speed = 3.0f;
+	//Speed = 3.0f;
 }
 
 int Player::Update()
 {
+	TransInfo.Position = InputManager::GetInstance()->GetMousePosition();
+
+
+
+	/*
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_UP)
@@ -46,6 +51,7 @@ int Player::Update()
 		//** ºí·¿ »ý¼º
 		ObjectManager::GetInstance()->FindObject("Bullet", TransInfo.Position);
 	}
+	*/
 
 	return 0;
 }

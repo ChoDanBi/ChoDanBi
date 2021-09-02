@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="API_Framework.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />

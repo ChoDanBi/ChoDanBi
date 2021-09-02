@@ -27,14 +27,8 @@ int Bullet::Update()
 {
 	TransInfo.Position.x += Speed;
 
-
-	if (TransInfo.Position.x >= WindowsWidth)
-	{
+	if (TransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
-	}
-
-
-
 
 	return 0;
 }

@@ -67,6 +67,9 @@
     <Filter Include="소스 파일\99. Manager\Pattern\Prototype">
       <UniqueIdentifier>{ab15e6f0-9797-4dd6-8569-a7ad3dd1b12f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\CollisionManager">
+      <UniqueIdentifier>{bfd29dc4-8124-47ff-a70c-a694a76d0c90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 파일\99. Manager\CollisionManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

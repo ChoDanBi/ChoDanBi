@@ -38,7 +38,7 @@ void ObjectManager::FindObject(string _Key)
 	map<string, list<Object*>>::iterator iter = DisableList.find(_Key);
 
 	// ** 없으면.....
-	if (iter == DisableList.end())
+	if (iter == DisableList.end() || iter->second.empty())
 	{
 		Object* pObject = CreateObject(_Key);
 
@@ -47,6 +47,15 @@ void ObjectManager::FindObject(string _Key)
 
 		// ** DisableList 삽입
 		EnableList.push_back(pObject);
+	}
+	else
+	{
+		Object* pObject = iter->second.front();
+		pObject->Initialize();
+
+		// ** DisableList 삽입
+		EnableList.push_back(pObject);
+		iter->second.pop_front();
 	}
 }
 
@@ -78,7 +87,7 @@ void ObjectManager::FindObject(string _Key, Vector3 _Position)
 	map<string, list<Object*>>::iterator iter = DisableList.find(_Key);
 
 	// ** 없으면.....
-	if (iter == DisableList.end())
+	if (iter == DisableList.end() || iter->second.empty())
 	{
 		Object* pObject = CreateObject(_Key, _Position);
 
@@ -87,6 +96,17 @@ void ObjectManager::FindObject(string _Key, Vector3 _Position)
 
 		// ** DisableList 삽입
 		EnableList.push_back(pObject);
+	}
+	else
+	{
+		Object* pObject = iter->second.front();
+		pObject->Initialize();
+		pObject->SetPosition(_Position);
+
+		// ** DisableList 삽입
+		EnableList.push_back(pObject);
+
+		iter->second.pop_front();
 	}
 }
 
@@ -118,6 +138,27 @@ void ObjectManager::AddObject(string _strKey)
 	}
 }
 
+void ObjectManager::RecallObject(Object* _Object)
+{
+	map<string, list<Object*>>::iterator iter = DisableList.find(_Object->GetKey());
+
+	// ** 만약 결과물이 존재하지 않는다면....
+	if (iter == DisableList.end())
+	{
+		// ** 새로운 리스트를 생성.
+		list<Object*> TempList;
+
+		TempList.push_back(_Object);
+
+		// ** 오브젝트가 추가된 리스트를 맵에 삽입.
+		DisableList.insert(make_pair(_Object->GetKey(), TempList));
+	}
+	// ** 결과물이 존재 한다면...
+	else
+		// ** 해당 리스트에 오브젝트를 추가
+		iter->second.push_back(_Object);
+}
+
 void ObjectManager::Release()
 {
 	// ** 안전한 삭제.
@@ -134,7 +175,6 @@ void ObjectManager::Release()
 		iter->second.clear();
 	}
 	DisableList.clear();
-
 
 	for (list<Object*>::iterator iter = EnableList.begin();
 		iter != EnableList.end(); ++iter)
