@@ -4,7 +4,10 @@
 class Enemy : public Object
 {
 private:
-	ULONGLONG tick;
+	STATE State;
+
+public:
+	STATE GetState() { return State; }
 
 
 public:

@@ -43,7 +43,7 @@ void Stage::Initialize()
 			float(rand() % (WindowsHeight - 120) + 60));
 
 		pObj->SetPosition(RandomPos.x, RandomPos.y);
-		pObj->SetColliderPosition(RandomPos.x, RandomPos.y);
+	//	pObj->SetColliderPosition(RandomPos.x, RandomPos.y);
 
 		EnemyList->push_back(pObj);
 	}
@@ -59,8 +59,16 @@ void Stage::Update()
 		iter != EnemyList->end(); )
 	{
 		int Result = (*iter)->Update();
-
-		if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider()))
+		//============================================
+	//	if (/*이거 뭐였더라...*/(Enemy(*iter)).GetState() == STATE::UPSTAY)
+		/*if ((*iter)->GetState() == STATE::UPSTAY)
+		{
+			(*iter)->SetColliderPosition((*iter)->GetPosition().x, (*iter)->GetPosition().y);
+		}
+		else (*iter)->SetColliderPosition(-1000.0f, -1000.0f);*/
+		//===========================================
+		if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
+			)//&& Enemy(*iter)->GetState() == STATE::UPSTAY)
 		{
 			Result = 1;
 		}
@@ -70,8 +78,8 @@ void Stage::Update()
 		else
 			++iter;
 	}
-
-	//===================================
+		//===================================
+	/*
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); )
 	{
@@ -81,7 +89,7 @@ void Stage::Update()
 			iter = EnemyList->erase(iter);
 		else
 			++iter;
-	}
+	}*/
 
 	// ** 총알 리스트의 progress
 	for (vector<Object*>::iterator iter = BulletList->begin();

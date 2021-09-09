@@ -13,7 +13,6 @@ Enemy::~Enemy()
 
 void Enemy::Initialize()
 {
-	tick = GetTickCount64();
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(149.0f, 124.0f);
@@ -23,6 +22,8 @@ void Enemy::Initialize()
 
 	Offset = Vector3(149.0f, 0.0f);
 
+	State = STATE::DOWNSTAY;
+
 	Active = false;
 	strKey = "Mole";
 	
@@ -31,10 +32,26 @@ void Enemy::Initialize()
 
 int Enemy::Update()
 {
-	if (tick + rand()% 6000 + 500 < GetTickCount64())
+	if (rand() % 20 + 1 == 1 && State == STATE::DOWNSTAY)		State = STATE::UP;
+	else if (rand() % 20 + 1 == 1 && State == STATE::UPSTAY)	State = STATE::DOWN;
+	
+	switch (State)
+	{
+	case STATE::UP:
+		if (!(Offset.y >= 94))
+			Offset.y += 2.5f;
+		else State = STATE::UPSTAY;
+		break;
+	case STATE::DOWN:
+		if (!(Offset.y <= 0))
+			Offset.y -= 2.5f;
+		else State = STATE::DOWNSTAY;
+		break;
+	}
+	/*
 	if( !(Offset.y >= 94) )
 		Offset.y += 2.5f;
-
+	*/
 	return 0;
 }
 
