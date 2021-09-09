@@ -3,8 +3,6 @@
 
 class Enemy : public Object
 {
-private:
-	STATE State;
 
 public:
 	STATE GetState() { return State; }

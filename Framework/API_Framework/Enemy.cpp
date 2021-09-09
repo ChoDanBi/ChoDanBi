@@ -33,7 +33,7 @@ void Enemy::Initialize()
 int Enemy::Update()
 {
 	if (rand() % 20 + 1 == 1 && State == STATE::DOWNSTAY)		State = STATE::UP;
-	else if (rand() % 20 + 1 == 1 && State == STATE::UPSTAY)	State = STATE::DOWN;
+	else if (rand() % 40 + 1 == 1 && State == STATE::UPSTAY)	State = STATE::DOWN;
 	
 	switch (State)
 	{
@@ -48,10 +48,7 @@ int Enemy::Update()
 		else State = STATE::DOWNSTAY;
 		break;
 	}
-	/*
-	if( !(Offset.y >= 94) )
-		Offset.y += 2.5f;
-	*/
+
 	return 0;
 }
 

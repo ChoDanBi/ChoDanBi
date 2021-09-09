@@ -9,7 +9,7 @@ protected:
 	Transform Collider;
 	Vector3 Offset;
 
-	//STATE State;
+	STATE State;
 
 	string strKey;
 	bool Active;
@@ -41,7 +41,7 @@ public:
 	RECT GetCollider();
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }
 	
-	//STATE GetState() { return State; }
+	STATE GetState() { return State; }
 	
 	float GetRectTop() { return TransInfo.Position.y - (TransInfo.Scale.y / 2); }
 	float GetRectBottom() { return TransInfo.Position.y + (TransInfo.Scale.y / 2); }

@@ -23,6 +23,8 @@ void Player::Initialize()
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
 	Collider.Scale = Vector3(120.0f, 60.0f);
 
+	State = STATE::WAIT;
+
 	strKey = "Hammer";
 	Active = false;
 
@@ -42,19 +44,19 @@ void Player::Initialize()
 int Player::Update()
 {
 	TransInfo.Position = InputManager::GetInstance()->GetMousePosition();
-	
+	Collider.Position = InputManager::GetInstance()->GetMousePosition();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_LBUTTON)
 	{ 
 		Frame = 1;
-		Collider.Position = InputManager::GetInstance()->GetMousePosition();
+		State = STATE::HIT;
 	}
 	else
 	{
 		Frame = 0; 
-		Collider.Position = Vector3(-100.0f, -100.0f);
+		State = STATE::WAIT;
 	}
 		
 
@@ -75,8 +77,8 @@ void Player::Render(HDC _hdc)
 		TransInfo.Scale.y,
 		RGB(255, 0, 255));
 
-	/*
-	Ellipse(_hdc,
+	
+	/*Ellipse(_hdc,
 		Collider.Position.x - Collider.Scale.x / 2,
 		Collider.Position.y - Collider.Scale.y / 2,
 		Collider.Position.x + Collider.Scale.x / 2,
