@@ -3,6 +3,10 @@
 
 class Enemy : public Object
 {
+private:
+	ULONGLONG tick;
+
+
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
