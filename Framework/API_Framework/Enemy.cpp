@@ -32,8 +32,8 @@ void Enemy::Initialize()
 
 int Enemy::Update()
 {
-	if (rand() % 20 + 1 == 1 && State == STATE::DOWNSTAY)		State = STATE::UP;
-	else if (rand() % 40 + 1 == 1 && State == STATE::UPSTAY)	State = STATE::DOWN;
+	if (rand() % 50 + 1 == 1 && State == STATE::DOWNSTAY)		State = STATE::UP;
+	else if (rand() % 50 + 1 == 1 && State == STATE::UPSTAY)	State = STATE::DOWN;
 	
 	switch (State)
 	{
