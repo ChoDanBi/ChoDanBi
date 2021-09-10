@@ -59,32 +59,24 @@ void Stage::Update()
 	m_pPlayer->Update();
 
 	if (m_pEffect->GetActive()) m_pEffect->Update();
-	/*
+
 	if (((Player*)m_pPlayer)->GetSwing() == 1) 
 	{
 		m_pEffect->SetActive(true);
 		m_pEffect->Initialize();
-	}*/
+	}
 
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); )
 	{
 		int Result = (*iter)->Update();
 
-		if (((Player*)m_pPlayer)->GetSwing() == 1)
+		if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
+			&& (*iter)->GetState() == STATE::UPSTAY && ((Player*)m_pPlayer)->GetSwing() == 1) //m_pPlayer->GetState() == STATE::HIT)
 		{
-			m_pEffect->SetActive(true);
-			m_pEffect->Initialize();
-
-			if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
-				&& (*iter)->GetState() == STATE::UPSTAY )//&& ((Player*)m_pPlayer)->GetSwing() == 1) //m_pPlayer->GetState() == STATE::HIT)
-			{
-				//m_pEffect->SetActive(true);
-				//m_pEffect->Initialize();
-
-				Result = 1;
-			}
+			Result = 1;
 		}
+
 		if (Result == 1)
 			iter = EnemyList->erase(iter);
 		else
