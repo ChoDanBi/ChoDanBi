@@ -39,6 +39,9 @@ public:
 
 	RECT GetRect();
 	RECT GetCollider();
+
+
+
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }
 	
 	STATE GetState() { return State; }

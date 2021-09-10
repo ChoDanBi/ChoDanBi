@@ -23,6 +23,8 @@ public:
 	bool GetJumpState() const { return bJump; }
 	void Jump();
 	void JumpOff() { bJump = false; }
+
+	int GetSwing() { return Frame; }
 public:
 	Player();
 	Player(const Transform& _rTransInfo) : Object(_rTransInfo) { }

@@ -14,6 +14,6 @@ enum class STATE
 	DOWN,
 	UPSTAY,
 	DOWNSTAY,
-	HIT,
-	WAIT,
+//	HIT,
+//	WAIT,
 };

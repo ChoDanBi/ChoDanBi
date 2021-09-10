@@ -61,7 +61,7 @@ void Stage::Update()
 		int Result = (*iter)->Update();
 
 		if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
-			&& (*iter)->GetState() == STATE::UPSTAY && m_pPlayer->GetState() == STATE::HIT)
+			&& (*iter)->GetState() == STATE::UPSTAY && ((Player*)m_pPlayer)->GetSwing() == 1) //m_pPlayer->GetState() == STATE::HIT)
 		{
 			Result = 1;
 		}

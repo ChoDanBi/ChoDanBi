@@ -23,7 +23,7 @@ void Player::Initialize()
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
 	Collider.Scale = Vector3(120.0f, 60.0f);
 
-	State = STATE::WAIT;
+	//State = STATE::WAIT;
 
 	strKey = "Hammer";
 	Active = false;
@@ -51,12 +51,12 @@ int Player::Update()
 	if (dwKey & KEY_LBUTTON)
 	{ 
 		Frame = 1;
-		State = STATE::HIT;
+	//	State = STATE::HIT;
 	}
 	else
 	{
 		Frame = 0; 
-		State = STATE::WAIT;
+	//	State = STATE::WAIT;
 	}
 		
 
