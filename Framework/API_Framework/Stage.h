@@ -8,6 +8,7 @@ class Stage : public Scene
 private:
 	Object* State_Back;
 	Object* m_pPlayer;
+	Object* m_pEffect;
 	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
 

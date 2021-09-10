@@ -3,6 +3,7 @@
 #include "ObjectManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "HammerEffect.h"
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
 #include "Stage_Back.h"
@@ -31,6 +32,8 @@ void Stage::Initialize()
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
 
+	m_pEffect = new HammerEffect;
+	m_pEffect->Initialize();
 
 	// ** 적 생성
 	for (int i = 0; i < 8; ++i)
@@ -55,17 +58,33 @@ void Stage::Update()
 {
 	m_pPlayer->Update();
 
+	if (m_pEffect->GetActive()) m_pEffect->Update();
+	/*
+	if (((Player*)m_pPlayer)->GetSwing() == 1) 
+	{
+		m_pEffect->SetActive(true);
+		m_pEffect->Initialize();
+	}*/
+
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); )
 	{
 		int Result = (*iter)->Update();
 
-		if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
-			&& (*iter)->GetState() == STATE::UPSTAY && ((Player*)m_pPlayer)->GetSwing() == 1) //m_pPlayer->GetState() == STATE::HIT)
+		if (((Player*)m_pPlayer)->GetSwing() == 1)
 		{
-			Result = 1;
-		}
+			m_pEffect->SetActive(true);
+			m_pEffect->Initialize();
 
+			if (CollisionManager::RectCollision((*iter)->GetCollider(), m_pPlayer->GetCollider())
+				&& (*iter)->GetState() == STATE::UPSTAY )//&& ((Player*)m_pPlayer)->GetSwing() == 1) //m_pPlayer->GetState() == STATE::HIT)
+			{
+				//m_pEffect->SetActive(true);
+				//m_pEffect->Initialize();
+
+				Result = 1;
+			}
+		}
 		if (Result == 1)
 			iter = EnemyList->erase(iter);
 		else
@@ -85,6 +104,7 @@ void Stage::Update()
 	}*/
 	//===========================
 	// ** 총알 리스트의 progress
+	
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); )
 	{
@@ -134,6 +154,9 @@ void Stage::Render(HDC _hdc)
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+
+	if (m_pEffect->GetActive())
+		m_pEffect->Render(ImageList["Buffer"]->GetMemDC());
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 

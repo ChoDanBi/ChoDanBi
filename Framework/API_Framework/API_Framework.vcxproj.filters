@@ -82,6 +82,9 @@
     <Filter Include="소스 파일\02. Object\Stage_Back">
       <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\HammerEffect">
+      <UniqueIdentifier>{7353529c-7fbe-4f59-8585-3528b7469562}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -168,6 +171,9 @@
     <ClInclude Include="Stage_Back.h">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
     </ClInclude>
+    <ClInclude Include="HammerEffect.h">
+      <Filter>소스 파일\02. Object\HammerEffect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -223,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Back.cpp">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
+    </ClCompile>
+    <ClCompile Include="HammerEffect.cpp">
+      <Filter>소스 파일\02. Object\HammerEffect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

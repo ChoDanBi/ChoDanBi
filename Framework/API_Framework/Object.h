@@ -40,7 +40,8 @@ public:
 	RECT GetRect();
 	RECT GetCollider();
 
-
+	Vector3 GetColliderPosition() { return Collider.Position; }
+	Transform GetColliderTransform() { return Collider; }
 
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }
 	

@@ -29,6 +29,7 @@ void Logo::Initialize()
 	ImageList["Hammer"] = (new Bitmap)->LoadBmp(L"../Resource/Hammer.bmp");
 	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
 	ImageList["Hole"] = (new Bitmap)->LoadBmp(L"../Resource/Hole.bmp");
+	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
 
 	Object::SetImageList(ImageList);
 }
