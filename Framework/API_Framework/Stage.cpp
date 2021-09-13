@@ -2,7 +2,8 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "Player.h"
-#include "Enemy.h"
+//#include "Enemy.h"
+#include "EnemyHole.h"
 #include "HammerEffect.h"
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
@@ -36,6 +37,7 @@ void Stage::Initialize()
 	m_pEffect->Initialize();
 
 	// ** Àû »ý¼º
+	/*
 	for (int i = 0; i < 8; ++i)
 	{
 		Object* pObj = new Enemy;
@@ -50,6 +52,26 @@ void Stage::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
+*/
+
+	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
+
+	for (int y = 0; y < TileHeightCnt; ++y)
+	{
+		for (int x = 0; x < TileWidthCnt; ++x)
+		{
+			Object* pObj = new EnemyHole;
+			pObj->Initialize();
+
+			pObj->SetPosition(
+				(Center.x - (TileWidthCnt / 2) * pObj->GetScale().x) + pObj->GetScale().x *x,
+				(Center.y - (TileHeightCnt / 2) * pObj->GetScale().y)+ pObj->GetScale().y *y);
+		//	pObj->SetColliderPosition();
+
+			EnemyList->push_back(pObj);
+		}
+	}
+
 
 	ImageList = Object::GetImageList();
 }
@@ -139,6 +161,7 @@ void Stage::Render(HDC _hdc)
 {
 	State_Back->Render(ImageList["Buffer"]->GetMemDC());
 
+	
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());

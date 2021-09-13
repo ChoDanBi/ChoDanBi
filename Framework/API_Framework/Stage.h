@@ -14,6 +14,12 @@ private:
 
 
 	map<string, Bitmap*> ImageList;
+
+	//** 타일 생성 개수
+	int TileWidthCnt = 4;
+	int TileHeightCnt = 4;
+
+
 	/*
 	list<Object*>* EnableList;
 	map<string, list<Object*>>* DisableList;

@@ -85,6 +85,9 @@
     <Filter Include="소스 파일\02. Object\HammerEffect">
       <UniqueIdentifier>{7353529c-7fbe-4f59-8585-3528b7469562}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\EnemyHole">
+      <UniqueIdentifier>{1fddb5f6-07f1-4fdd-831f-6b2b8527286b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -174,6 +177,9 @@
     <ClInclude Include="HammerEffect.h">
       <Filter>소스 파일\02. Object\HammerEffect</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyHole.h">
+      <Filter>소스 파일\02. Object\EnemyHole</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -232,6 +238,9 @@
     </ClCompile>
     <ClCompile Include="HammerEffect.cpp">
       <Filter>소스 파일\02. Object\HammerEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHole.cpp">
+      <Filter>소스 파일\02. Object\EnemyHole</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

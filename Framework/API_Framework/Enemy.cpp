@@ -54,6 +54,7 @@ int Enemy::Update()
 
 void Enemy::Render(HDC _hdc)
 {
+	/*
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
 		int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
@@ -64,7 +65,7 @@ void Enemy::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-
+*/
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
 		int(TransInfo.Position.y + (TransInfo.Scale.x / 2) - Offset.y - 50),
