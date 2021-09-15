@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.h"
 
+class Bridge;
 class Bullet : public Object
 {
 private:
@@ -16,7 +17,7 @@ public:
 public:
 //	void SetTarget(Object* _Target) { Target = _Target; }
 
-	void SetBrighr(Bridge* _pBridge) { BridgeObject = _pBridge; }
+	void SetBridge(Bridge* _pBridge) { BridgeObject = _pBridge; }
 
 public:
 	Bullet();

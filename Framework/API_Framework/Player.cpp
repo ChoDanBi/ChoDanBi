@@ -1,11 +1,10 @@
 #include "Player.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
-
 #include "ObjectFactory.h"
 
 #include "Bullet.h"
-#include "NormalBullat.h"
+#include "NormalBullet.h"
 
 
 
@@ -43,6 +42,7 @@ void Player::Initialize()
 	JumpTime = 0.0f;
 
 	Offset = Vector3(95.0f, -85.0f);
+
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
 
@@ -55,7 +55,7 @@ int Player::Update()
 
 	if (dwKey & KEY_LBUTTON)
 	{ 
-		BulletList->push_back(CreateBullet());
+		//BulletList->push_back(CreateBullet());
 		Frame = 1;
 	//	State = STATE::HIT;
 	}
@@ -64,7 +64,16 @@ int Player::Update()
 		Frame = 0; 
 	//	State = STATE::WAIT;
 	}
-		
+
+	if (GetAsyncKeyState('Q'))
+	{
+		BulletList->push_back(CreateBullet<NormalBullet>());
+	}
+
+	if (GetAsyncKeyState('W'))
+	{
+		BulletList->push_back(CreateBullet<NormalBullet>());
+	}
 
 	return 0;
 }
@@ -106,9 +115,10 @@ void Player::Jump()
 	JumpTime = 0.0f;
 } 
 
+template <typename T>
 Object* Player::CreateBullet()
 {
-	Bridge* pBridge = new NormalBullat;
+	Bridge* pBridge = new T;
 
 	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
 

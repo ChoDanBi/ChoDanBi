@@ -80,7 +80,8 @@ void Stage::Update()
 {
 	m_pPlayer->Update();
 
-	if (m_pEffect->GetActive()) m_pEffect->Update();
+	if (m_pEffect->GetActive())
+		m_pEffect->Update();
 
 	if (((Player*)m_pPlayer)->GetSwing() == 1) 
 	{

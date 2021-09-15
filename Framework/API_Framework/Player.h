@@ -10,6 +10,7 @@ private:
 	float OldPositionY;
 	float JumpTime;
 	int Frame;
+
 	vector<Object*>* BulletList;
 
 public:
@@ -25,6 +26,7 @@ public:
 	void JumpOff() { bJump = false; }
 	int GetSwing() { return Frame; }
 
+	template <typename T>
 	Object* CreateBullet();
 public:
 	Player();

@@ -5,7 +5,7 @@ class Object;
 class Bridge
 {
 protected:
-	string Drawkey;
+	string DrawKey;
 	Object* RealObject;
 public:
 	virtual void Initialize()PURE;

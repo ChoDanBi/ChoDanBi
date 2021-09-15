@@ -1,17 +1,15 @@
 #pragma once
 #include "BulletBridge.h"
 
-class NormalBullat: public BulletBridge
+class NormalBullet : public BulletBridge
 {
 public:
 	virtual void Initialize()override;
 	virtual int Update(Transform& _rTransInfo)override;
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
-
 public:
-	NormalBullat();
-	virtual ~NormalBullat();
-
+	NormalBullet();
+	virtual ~NormalBullet();
 };
 

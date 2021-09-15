@@ -195,7 +195,7 @@
     <ClInclude Include="BulletBridge.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClInclude>
-    <ClInclude Include="NormalBullat.h">
+    <ClInclude Include="NormalBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClInclude>
   </ItemGroup>
@@ -266,7 +266,7 @@
     <ClCompile Include="BulletBridge.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClCompile>
-    <ClCompile Include="NormalBullat.cpp">
+    <ClCompile Include="NormalBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
   </ItemGroup>

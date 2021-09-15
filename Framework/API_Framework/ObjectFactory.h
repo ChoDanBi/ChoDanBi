@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.h"
-//#include "Bullet.h"
+#include "Bullet.h"
 #include "Bridge.h"
 
 
@@ -25,11 +25,11 @@ public:
 		return pObj;
 	}
 
-	static Object* CreateObject(float _x,float _y)
+	static Object* CreateObject(float _x, float _y)
 	{
 		Object* pObj = new T;
 		pObj->Initialize();
-		pObj->SetPosition(_x,_y);
+		pObj->SetPosition(_x, _y);
 
 		return pObj;
 	}
@@ -37,15 +37,22 @@ public:
 	static Object* CreateObject(Vector3 _vPos, Bridge* pBridge)
 	{
 		Object* pObj = new T;
+
 		pObj->Initialize();
 		pObj->SetPosition(_vPos);
+
+		pBridge->SetObject(pObj);
+		pBridge->Initialize();
+
+		((T*)pObj)->SetBridge(pBridge);
 
 		return pObj;
 	}
 
 	static Object* CreateObject(float _x, float _y, Bridge* pBridge)
 	{
-		Object* pObj = new T; //T´Â BulletÀÌ´Ù 
+		Object* pObj = new T;
+
 		pObj->Initialize();
 		pObj->SetPosition(_x, _y);
 
@@ -56,5 +63,4 @@ public:
 
 		return pObj;
 	}
-
 };

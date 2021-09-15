@@ -1,7 +1,7 @@
 #include "Bullet.h"
 #include "ObjectManager.h"
 #include "MathManager.h"
-#include "NormalBullat.h"
+#include "NormalBullet.h"
 
 Bullet::Bullet() : BridgeObject(NULL)
 {
