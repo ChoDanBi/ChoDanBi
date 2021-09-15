@@ -4,7 +4,8 @@
 class Bullet : public Object
 {
 private:
-	Object* Target;
+	//Object* Target;
+	Bridge* BridgeObject;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -13,9 +14,9 @@ public:
 
 	virtual Object* Clone()override { return new Bullet(*this); }
 public:
-	void SetTarget(Object* _Target) { Target = _Target; }
+//	void SetTarget(Object* _Target) { Target = _Target; }
 
-
+	void SetBrighr(Bridge* _pBridge) { BridgeObject = _pBridge; }
 
 public:
 	Bullet();

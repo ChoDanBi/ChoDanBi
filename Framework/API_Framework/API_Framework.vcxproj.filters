@@ -88,6 +88,15 @@
     <Filter Include="소스 파일\02. Object\EnemyHole">
       <UniqueIdentifier>{1fddb5f6-07f1-4fdd-831f-6b2b8527286b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\Pattern\Bridge">
+      <UniqueIdentifier>{02db03d0-e8ee-4def-91f6-37a90507e209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
+      <UniqueIdentifier>{48426ef1-ed9c-4212-8539-1338a3cf04ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
+      <UniqueIdentifier>{2bb19905-60ab-4c65-ace5-e10b29b48e30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -180,11 +189,17 @@
     <ClInclude Include="EnemyHole.h">
       <Filter>소스 파일\02. Object\EnemyHole</Filter>
     </ClInclude>
+    <ClInclude Include="Bridge.h">
+      <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBridge.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullat.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="API_Framework.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="MainUpdate.cpp">
       <Filter>소스 파일\00. MainUpdate</Filter>
     </ClCompile>
@@ -241,6 +256,18 @@
     </ClCompile>
     <ClCompile Include="EnemyHole.cpp">
       <Filter>소스 파일\02. Object\EnemyHole</Filter>
+    </ClCompile>
+    <ClCompile Include="Bridge.cpp">
+      <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="API_Framework.cpp">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBridge.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullat.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

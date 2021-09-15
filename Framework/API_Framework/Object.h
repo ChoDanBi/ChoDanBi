@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Bitmap;
+class Bridge;
 class Object
 {
 protected:
@@ -19,6 +20,9 @@ protected:
 
 	static map<string, Bitmap*> ImageList;
 	//Object* Target;
+
+	Bridge* BridgeObject;
+
 public:
 	virtual void Initialize()PURE;
 	virtual int Update()PURE;

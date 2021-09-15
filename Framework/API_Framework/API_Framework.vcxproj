@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClInclude Include="API_Framework.h" />
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
@@ -156,6 +158,7 @@
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NormalBullat.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -173,7 +176,9 @@
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp" />
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletBridge.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyHole.cpp" />
     <ClCompile Include="HammerEffect.cpp" />
@@ -182,6 +187,7 @@
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="MathManager.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NormalBullat.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
