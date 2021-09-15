@@ -15,6 +15,7 @@ NormalBullet::~NormalBullet()
 void NormalBullet::Initialize()
 {
 	Speed = 3.0f;
+	Damage = 1.0f;
 
 	DrawKey = "NormalBullet";
 }

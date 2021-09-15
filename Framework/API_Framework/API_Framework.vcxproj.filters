@@ -97,6 +97,18 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
       <UniqueIdentifier>{2bb19905-60ab-4c65-ace5-e10b29b48e30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
+      <UniqueIdentifier>{205ef94f-4c74-4d67-933e-c449ab6e4124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\UpBullet">
+      <UniqueIdentifier>{b6ea60ef-751c-4d7b-92b7-34b33e922211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy">
+      <UniqueIdentifier>{c9afd44e-0ba5-4f2a-885d-2ecd9bb87a9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy">
+      <UniqueIdentifier>{925d6a3f-e0f6-4b43-8d3c-a0bd23d64539}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -198,6 +210,18 @@
     <ClInclude Include="NormalBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClInclude>
+    <ClInclude Include="UpBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\UpBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBridge.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainUpdate.cpp">
@@ -268,6 +292,18 @@
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="UpBullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\UpBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBridge.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

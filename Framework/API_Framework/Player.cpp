@@ -5,6 +5,7 @@
 
 #include "Bullet.h"
 #include "NormalBullet.h"
+#include "UpBullet.h"
 
 
 
@@ -72,7 +73,7 @@ int Player::Update()
 
 	if (GetAsyncKeyState('W'))
 	{
-		BulletList->push_back(CreateBullet<NormalBullet>());
+		BulletList->push_back(CreateBullet<UpBullet>());
 	}
 
 	return 0;

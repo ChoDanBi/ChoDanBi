@@ -1,18 +1,15 @@
 #pragma once
 #include "Bridge.h"
 
-class BulletBridge: public Bridge
+class EnemyBridge:public Bridge
 {
-protected:
-	float Speed;
-	float Damage;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& _rTransInfo)PURE;
 	virtual void Render(HDC _hdc)PURE;
 	virtual void Release()PURE;
 public:
-	BulletBridge();
-	virtual ~BulletBridge();
+	EnemyBridge();
+	virtual ~EnemyBridge();
 };
 
