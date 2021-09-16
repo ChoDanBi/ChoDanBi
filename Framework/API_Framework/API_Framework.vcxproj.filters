@@ -109,6 +109,12 @@
     <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy">
       <UniqueIdentifier>{925d6a3f-e0f6-4b43-8d3c-a0bd23d64539}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\UI">
+      <UniqueIdentifier>{b5921640-82a5-468f-949b-9955669499f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\UI\UIButton">
+      <UniqueIdentifier>{15821e21-d398-40ec-abaa-ec52b6dc150a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -222,6 +228,9 @@
     <ClInclude Include="EnemyBridge.h">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClInclude>
+    <ClInclude Include="MyButton.h">
+      <Filter>소스 파일\02. Object\UI\UIButton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainUpdate.cpp">
@@ -304,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="EnemyBridge.cpp">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="MyButton.cpp">
+      <Filter>소스 파일\02. Object\UI\UIButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

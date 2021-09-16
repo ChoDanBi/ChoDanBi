@@ -9,6 +9,7 @@ private:
 	Object* State_Back;
 	Object* m_pPlayer;
 	Object* m_pEffect;
+	Object* m_pButton;
 	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
 

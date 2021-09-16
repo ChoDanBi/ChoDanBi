@@ -160,6 +160,7 @@
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MyButton.h" />
     <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="Object.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="MathManager.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="Object.cpp" />

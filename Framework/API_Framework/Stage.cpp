@@ -8,6 +8,7 @@
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
 #include "Stage_Back.h"
+#include "MyButton.h"
 
 
 Stage::Stage() : m_pPlayer(nullptr)
@@ -35,6 +36,9 @@ void Stage::Initialize()
 
 	m_pEffect = new HammerEffect;
 	m_pEffect->Initialize();
+
+	m_pButton = new MyButton;
+	m_pButton->Initialize();
 
 	// ** Àû »ý¼º
 	/*
@@ -79,6 +83,8 @@ void Stage::Initialize()
 void Stage::Update()
 {
 	m_pPlayer->Update();
+
+	m_pButton->Update();
 
 	if (m_pEffect->GetActive())
 		m_pEffect->Update();
@@ -175,6 +181,9 @@ void Stage::Render(HDC _hdc)
 		m_pEffect->Render(ImageList["Buffer"]->GetMemDC());
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
+
+	m_pButton->Render(ImageList["Buffer"]->GetMemDC());
+
 
 	BitBlt(_hdc,
 		0, 0,
