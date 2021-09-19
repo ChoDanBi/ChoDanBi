@@ -82,9 +82,6 @@
     <Filter Include="소스 파일\02. Object\Stage_Back">
       <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\HammerEffect">
-      <UniqueIdentifier>{65f7cea3-2c63-4726-ab4e-935cfbc6f7bc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\EnemyHole">
       <UniqueIdentifier>{fd2dc172-e18e-4054-962d-a13e21893790}</UniqueIdentifier>
     </Filter>
@@ -189,9 +186,6 @@
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="HammerEffect.h">
-      <Filter>소스 파일\02. Object\HammerEffect</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyHole.h">
       <Filter>소스 파일\02. Object\EnemyHole</Filter>
     </ClInclude>
@@ -262,9 +256,6 @@
     </ClCompile>
     <ClCompile Include="Stage_Back.cpp">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
-    </ClCompile>
-    <ClCompile Include="HammerEffect.cpp">
-      <Filter>소스 파일\02. Object\HammerEffect</Filter>
     </ClCompile>
     <ClCompile Include="EnemyHole.cpp">
       <Filter>소스 파일\02. Object\EnemyHole</Filter>

@@ -6,7 +6,6 @@
 
 #include "Player.h"
 #include "EnemyHole.h"
-#include "HammerEffect.h"
 #include "ObjectFactory.h"
 #include "Stage_Back.h"
 #include "MyButton.h"
