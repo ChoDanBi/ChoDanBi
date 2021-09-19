@@ -3,11 +3,14 @@
 
 EnemyHole::EnemyHole()
 {
+
 }
 
 EnemyHole::~EnemyHole()
 {
+
 }
+
 
 void EnemyHole::Initialize()
 {
@@ -19,8 +22,6 @@ void EnemyHole::Initialize()
 
 	Offset = Vector3(149.0f, 0.0f);
 
-	State = STATE::DOWNSTAY;
-
 	Active = false;
 	strKey = "Hole";
 
@@ -28,24 +29,19 @@ void EnemyHole::Initialize()
 
 	EnemyMole = new Enemy;
 	EnemyMole->Initialize();
-
-	
 }
 
+//Transform& _TrnasPos
 int EnemyHole::Update()
 {
-	EnemyMole->SetPosition
-	(
-		TransInfo.Position.x,
-		TransInfo.Position.y
-	);
+	EnemyMole->SetPosition(TransInfo.Position.x, TransInfo.Position.y);
 	EnemyMole->Update();
+
 	return 0;
 }
 
 void EnemyHole::Render(HDC _hdc)
 {
-
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
 		int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
@@ -62,5 +58,5 @@ void EnemyHole::Render(HDC _hdc)
 
 void EnemyHole::Release()
 {
-}
 
+}

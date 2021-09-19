@@ -3,11 +3,6 @@
 
 class Enemy : public Object
 {
-
-public:
-	STATE GetState() { return State; }
-
-
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;

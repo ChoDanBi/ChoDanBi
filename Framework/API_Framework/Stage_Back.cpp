@@ -33,7 +33,7 @@ void Stage_Back::Render(HDC _hdc)
 		0, 0,
 		WindowsWidth,
 		WindowsHeight,
-		ImageList["BackGround"]->GetMemDC(),
+		ImageList["Stay"]->GetMemDC(),
 		0, 0,
 		SRCCOPY);
 }

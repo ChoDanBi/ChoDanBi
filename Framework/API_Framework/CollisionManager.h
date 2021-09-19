@@ -81,7 +81,7 @@ public:
 	static bool RectCollision(RECT V1, RECT V2)
 	{
 		if (V1.left < V2.right && V1.top < V2.bottom &&
-			V2.left < V1.right && V2.top < V1.bottom)
+			V2.left < V1.right && V2.top < V1.bottom )
 			return true;
 		return false;
 	}

@@ -4,15 +4,11 @@
 class Player : public Object
 {
 private:
-	bool bJump;
-	bool Drop;
-	float JumpSpeed;
-	float OldPositionY;
-	float JumpTime;
 	int Frame;
 
-	vector<Object*>* BulletList;
+	ULONGLONG Time;
 
+	vector<Object*>* BulletList;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -21,9 +17,6 @@ public:
 	
 	virtual Object* Clone()override { return new Player(*this); }
 public:
-	bool GetJumpState() const { return bJump; }
-	void Jump();
-	void JumpOff() { bJump = false; }
 	int GetSwing() { return Frame; }
 
 	template <typename T>

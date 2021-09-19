@@ -83,37 +83,25 @@
       <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\HammerEffect">
-      <UniqueIdentifier>{7353529c-7fbe-4f59-8585-3528b7469562}</UniqueIdentifier>
+      <UniqueIdentifier>{65f7cea3-2c63-4726-ab4e-935cfbc6f7bc}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\EnemyHole">
-      <UniqueIdentifier>{1fddb5f6-07f1-4fdd-831f-6b2b8527286b}</UniqueIdentifier>
+      <UniqueIdentifier>{fd2dc172-e18e-4054-962d-a13e21893790}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\99. Manager\Pattern\Bridge">
-      <UniqueIdentifier>{02db03d0-e8ee-4def-91f6-37a90507e209}</UniqueIdentifier>
+      <UniqueIdentifier>{c4d1bd83-aff2-4aa2-8d00-d8d24fc923b9}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
-      <UniqueIdentifier>{48426ef1-ed9c-4212-8539-1338a3cf04ab}</UniqueIdentifier>
+      <UniqueIdentifier>{c10b6be3-1b0a-465f-b4ef-f7853c366814}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
-      <UniqueIdentifier>{2bb19905-60ab-4c65-ace5-e10b29b48e30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
-      <UniqueIdentifier>{205ef94f-4c74-4d67-933e-c449ab6e4124}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\UpBullet">
-      <UniqueIdentifier>{b6ea60ef-751c-4d7b-92b7-34b33e922211}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy">
-      <UniqueIdentifier>{c9afd44e-0ba5-4f2a-885d-2ecd9bb87a9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy">
-      <UniqueIdentifier>{925d6a3f-e0f6-4b43-8d3c-a0bd23d64539}</UniqueIdentifier>
+      <UniqueIdentifier>{8158568a-9e7a-4da1-884a-02e88d0557b9}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\UI">
-      <UniqueIdentifier>{b5921640-82a5-468f-949b-9955669499f2}</UniqueIdentifier>
+      <UniqueIdentifier>{2165b69e-4544-4d99-8ffa-c6ba2056bc5a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\UI\UIButton">
-      <UniqueIdentifier>{15821e21-d398-40ec-abaa-ec52b6dc150a}</UniqueIdentifier>
+    <Filter Include="소스 파일\02. Object\UI\MyButton">
+      <UniqueIdentifier>{ae79624f-0aef-49f0-8d40-c3d54972df1d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +128,6 @@
     </ClInclude>
     <ClInclude Include="Constant.h">
       <Filter>헤더 파일\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
       <Filter>소스 파일\00. MainUpdate</Filter>
@@ -201,6 +186,9 @@
     <ClInclude Include="Stage_Back.h">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
     </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="HammerEffect.h">
       <Filter>소스 파일\02. Object\HammerEffect</Filter>
     </ClInclude>
@@ -216,23 +204,14 @@
     <ClInclude Include="NormalBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClInclude>
-    <ClInclude Include="UpBullet.h">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\UpBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalEnemy.h">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="BossEnemy.h">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyBridge.h">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
-    </ClInclude>
     <ClInclude Include="MyButton.h">
-      <Filter>소스 파일\02. Object\UI\UIButton</Filter>
+      <Filter>소스 파일\02. Object\UI\MyButton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="API_Framework.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="MainUpdate.cpp">
       <Filter>소스 파일\00. MainUpdate</Filter>
     </ClCompile>
@@ -293,29 +272,14 @@
     <ClCompile Include="Bridge.cpp">
       <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
     </ClCompile>
-    <ClCompile Include="API_Framework.cpp">
-      <Filter>헤더 파일</Filter>
-    </ClCompile>
     <ClCompile Include="BulletBridge.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
-    <ClCompile Include="UpBullet.cpp">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\UpBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="NormalEnemy.cpp">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="BossEnemy.cpp">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\BossEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyBridge.cpp">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
-    </ClCompile>
     <ClCompile Include="MyButton.cpp">
-      <Filter>소스 파일\02. Object\UI\UIButton</Filter>
+      <Filter>소스 파일\02. Object\UI\MyButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,6 @@ class EnemyHole : public Object
 {
 private:
 	Object* EnemyMole;
-
-public:
-
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -20,4 +17,3 @@ public:
 	EnemyHole(const Transform& _rTransInfo) : Object(_rTransInfo) { }
 	virtual ~EnemyHole();
 };
-

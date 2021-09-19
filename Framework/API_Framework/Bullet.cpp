@@ -10,7 +10,7 @@ Bullet::Bullet() : BridgeObject(NULL)
 
 Bullet::~Bullet()
 {
-
+	Release();
 }
 
 
@@ -24,27 +24,20 @@ void Bullet::Initialize()
 
 	strKey = "Bullet";
 	Active = false;
-
-	Speed = 3.0f;
-
-//	Target = ObjectManager::GetInstance()->GetTarget(TransInfo.Position);
 }
 
 int Bullet::Update()
 {
-//	Target = ObjectManager::GetInstance()->GetTarget(TransInfo.Position);
-
-//	if (Target)
-//		TransInfo.Direction = MathManager::GetDirection(TransInfo.Position, Target->GetPosition());	
-
-	if (BridgeObject)BridgeObject->Update(TransInfo);
+	if (BridgeObject)
+		BridgeObject->Update(TransInfo);
 
 	return 0;
 }
 
 void Bullet::Render(HDC _hdc)
 {
-	if (BridgeObject) BridgeObject->Render(_hdc);
+	if (BridgeObject)
+		BridgeObject->Render(_hdc);
 }
 
 void Bullet::Release()

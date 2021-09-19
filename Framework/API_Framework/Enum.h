@@ -7,13 +7,3 @@ enum class SCENEID
 	STAGE,
 	EXIT ,
 };
-
-enum class STATE
-{
-	UP,
-	DOWN,
-	UPSTAY,
-	DOWNSTAY,
-//	HIT,
-//	WAIT,
-};

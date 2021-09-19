@@ -46,21 +46,21 @@ int HammerEffect::Update()
 		Frame++;
 	}
 
-	return 0;
+    return 0;
 }
 
 void HammerEffect::Render(HDC _hdc)
 {
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x,
-		TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x),
+		int(TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		ImageList[strKey]->GetMemDC(),
-		TransInfo.Scale.x * Frame,
-		TransInfo.Scale.y * 0,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Scale.x * Frame),
+		int(TransInfo.Scale.y * 0),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
 }
 

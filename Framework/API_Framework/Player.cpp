@@ -5,8 +5,6 @@
 
 #include "Bullet.h"
 #include "NormalBullet.h"
-#include "UpBullet.h"
-
 
 
 Player::Player()
@@ -22,99 +20,83 @@ Player::~Player()
 void Player::Initialize()
 {
 	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
-	TransInfo.Scale = Vector3(482.0f, 424.0f);
+	TransInfo.Scale = Vector3(94.0f, 92.0f);
 
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
 	Collider.Scale = Vector3(120.0f, 60.0f);
 
-	//State = STATE::WAIT;
-
-	strKey = "Hammer";
+	strKey = "Char";
 	Active = false;
 
 	Speed = 3.0f;
-
-	Drop = false;
-	bJump = false;
-
 	Frame = 0;
-	OldPositionY = 0.0f;
-	JumpSpeed = 8.0f;
-	JumpTime = 0.0f;
 
-	Offset = Vector3(95.0f, -85.0f);
+	Time = GetTickCount64();
+//	Offset = Vector3(95.0f, -85.0f);
+	Offset = Vector3(0.0f, 0.0f);
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
 
 int Player::Update()
 {
-	TransInfo.Position = InputManager::GetInstance()->GetMousePosition();
+//	TransInfo.Position = InputManager::GetInstance()->GetMousePosition();
 	Collider.Position = InputManager::GetInstance()->GetMousePosition();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
+	/*
 	if (dwKey & KEY_LBUTTON)
-	{ 
-		//BulletList->push_back(CreateBullet());
+	{
 		Frame = 1;
-	//	State = STATE::HIT;
 	}
 	else
-	{
-		Frame = 0; 
-	//	State = STATE::WAIT;
-	}
+		Frame = 0;
+*/
 
 	if (GetAsyncKeyState('Q'))
 	{
 		BulletList->push_back(CreateBullet<NormalBullet>());
 	}
 
-	if (GetAsyncKeyState('W'))
+	if (Time + 450 <= GetTickCount64())
 	{
-		BulletList->push_back(CreateBullet<UpBullet>());
+		Time = GetTickCount64();
+		BulletList->push_back(CreateBullet<NormalBullet>());
+		if (Frame == 0) Frame = 1;
+		else if (Frame == 1) Frame = 0;
 	}
 
+	if (GetAsyncKeyState('W'))			//위로
+		TransInfo.Position.y -= Speed;
+	if (GetAsyncKeyState('S'))			//아래로
+		TransInfo.Position.y += Speed;
+	if (GetAsyncKeyState('A'))			//왼쪽으로
+		TransInfo.Position.x -= Speed;
+	if (GetAsyncKeyState('D'))			//오른쪽으로
+		TransInfo.Position.x += Speed;
 	return 0;
 }
 
 void Player::Render(HDC _hdc)
 {
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x,
-		TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
+		int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		ImageList[strKey]->GetMemDC(),
-		TransInfo.Scale.x * Frame,
-		0,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Scale.x * Frame),
+		int(TransInfo.Scale.y * 0),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-
-	
-	/*Ellipse(_hdc,
-		Collider.Position.x - Collider.Scale.x / 2,
-		Collider.Position.y - Collider.Scale.y / 2,
-		Collider.Position.x + Collider.Scale.x / 2,
-		Collider.Position.y + Collider.Scale.y / 2);*/
 }
 
 void Player::Release()
 {
 	
 }
-
-void Player::Jump()
-{
-	if (bJump)
-		return;
-
-	bJump = true;
-	OldPositionY = TransInfo.Position.y;
-	JumpTime = 0.0f;
-} 
 
 template <typename T>
 Object* Player::CreateBullet()

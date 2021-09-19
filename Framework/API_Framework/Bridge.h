@@ -17,6 +17,5 @@ public:
 public:
 	Bridge();
 	virtual ~Bridge();
-	
 };
 

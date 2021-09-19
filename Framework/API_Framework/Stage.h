@@ -8,27 +8,15 @@ class Stage : public Scene
 private:
 	Object* State_Back;
 	Object* m_pPlayer;
-	Object* m_pEffect;
-	Object* m_pButton;
 	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
-
+	vector<Object*>* ObjectList;
 
 	map<string, Bitmap*> ImageList;
 
-	//** 鸥老 积己 俺荐
-	int TileWidthCnt = 4;
-	int TileHeightCnt = 4;
-
-
-	/*
-	list<Object*>* EnableList;
-	map<string, list<Object*>>* DisableList;
-
-	ULONGLONG Time;
-	ULONGLONG SetTime;
-	*/
-	
+	// ** 鸥老 积己 俺荐
+	int TileWidthCnt;
+	int TileHeightCnt;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

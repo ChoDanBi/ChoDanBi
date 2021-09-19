@@ -19,4 +19,3 @@ public:
 	HammerEffect(const Transform& _rTransInfo) : Object(_rTransInfo) { }
 	virtual ~HammerEffect();
 };
-

@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClInclude Include="API_Framework.h" />
     <ClInclude Include="Bitmap.h" />
-    <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBridge.h" />
@@ -149,7 +148,6 @@
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyBridge.h" />
     <ClInclude Include="EnemyHole.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="framework.h" />
@@ -162,7 +160,6 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="NormalBullet.h" />
-    <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -176,17 +173,14 @@
     <ClInclude Include="Stage_Back.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="UpBullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp" />
     <ClCompile Include="Bitmap.cpp" />
-    <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBridge.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemyBridge.cpp" />
     <ClCompile Include="EnemyHole.cpp" />
     <ClCompile Include="HammerEffect.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -196,7 +190,6 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
-    <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -206,7 +199,6 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stage_Back.cpp" />
-    <ClCompile Include="UpBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_Framework.rc" />

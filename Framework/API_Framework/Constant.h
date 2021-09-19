@@ -21,5 +21,3 @@ const int WindowsWidth = 1280;
 const int WindowsHeight = 720;
 
 
-
-

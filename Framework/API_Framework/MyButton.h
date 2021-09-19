@@ -5,9 +5,8 @@ class MyButton : public Object
 {
 private:
 	int Horizontal;
-	bool Move;
-
-	int ButtonOffset[2];
+	bool MOVE;
+	int ButtonOffSet[2];
 	ULONGLONG Time;
 public:
 	virtual void Initialize()override;
@@ -16,8 +15,10 @@ public:
 	virtual void Release()override;
 
 	virtual Object* Clone()override { return new MyButton(*this); }
-
+public:
+	void Check();
 public:
 	MyButton();
+	MyButton(const Transform& _rTransInfo) : Object(_rTransInfo) { }
 	virtual ~MyButton();
 };

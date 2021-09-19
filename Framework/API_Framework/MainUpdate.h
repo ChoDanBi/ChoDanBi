@@ -14,3 +14,6 @@ public:
 	MainUpdate();
 	~MainUpdate();
 };
+
+// ** »ç¿îµå
+

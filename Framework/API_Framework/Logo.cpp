@@ -30,8 +30,13 @@ void Logo::Initialize()
 	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
 	ImageList["Hole"] = (new Bitmap)->LoadBmp(L"../Resource/Hole.bmp");
 	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
+
 	ImageList["on_off_Back"] = (new Bitmap)->LoadBmp(L"../Resource/on_off_Back.bmp");
 	ImageList["on_off_Button"] = (new Bitmap)->LoadBmp(L"../Resource/on_off_Button.bmp");
+	//=====================
+	ImageList["Stay"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stay.bmp");
+	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");
+
 
 	Object::SetImageList(ImageList);
 }

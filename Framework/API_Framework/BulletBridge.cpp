@@ -2,8 +2,10 @@
 
 BulletBridge::BulletBridge()
 {
+
 }
 
 BulletBridge::~BulletBridge()
 {
+
 }
