@@ -100,6 +100,12 @@
     <Filter Include="소스 파일\02. Object\UI\MyButton">
       <UniqueIdentifier>{ae79624f-0aef-49f0-8d40-c3d54972df1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
+      <UniqueIdentifier>{aa5d52e0-8ee8-44a4-8cb0-da9e9e885962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Enemy1">
+      <UniqueIdentifier>{1f9272c5-431c-476e-896b-279ee3a6c265}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -201,6 +207,12 @@
     <ClInclude Include="MyButton.h">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyBridge.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy1.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -271,6 +283,12 @@
     </ClCompile>
     <ClCompile Include="MyButton.cpp">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBridge.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy1.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
