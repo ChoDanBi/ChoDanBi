@@ -9,7 +9,9 @@ private:
 	Object* State_Back;
 	Object* m_pPlayer;
 	vector<Object*>* EnemyList;
+	vector<Object*>* EnemyBullet;
 	vector<Object*>* BulletList;
+
 	vector<Object*>* ObjectList;
 
 	map<string, Bitmap*> ImageList;

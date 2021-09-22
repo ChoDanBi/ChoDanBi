@@ -30,6 +30,8 @@ void Stage::Initialize()
 
 	// ** 오브젝트 매니저에서 몬스터 리스트를 받아옴. (포인터로...)
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
+
+	EnemyBullet = ObjectManager::GetInstance()->GetEnemyBullet();
 	
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
@@ -105,18 +107,45 @@ void Stage::Update()
 		else
 			++iter;
 	}
+
+	// 플레이어와 적탄환의 충돌
+	for (vector<Object*>::iterator iter = EnemyBullet->begin();
+		iter != BulletList->end(); )
+	{
+		int iResult = (*iter)->Update();
+
+		for (vector<Object*>::iterator iter2 = EnemyBullet->begin();
+			iter2 != EnemyBullet->end(); )
+		{
+			if (CollisionManager::EllipseCollision((*iter), (*iter2)))
+			{
+				iter2 = EnemyBullet->erase(iter2);
+
+				((Player*)m_pPlayer)->SetPlayerHp(1);
+
+				break;
+			}
+			else
+				++iter2;
+		}
+	}
+
 }
 
 void Stage::Render(HDC _hdc)
 {
 	State_Back->Render(ImageList["Buffer"]->GetMemDC());
 
-	for (vector<Object*>::iterator iter = EnemyList->begin();
-		iter != EnemyList->end(); ++iter)
-		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
-	
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); ++iter)
+		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+
+	for (vector<Object*>::iterator iter = EnemyBullet->begin();
+		iter != EnemyBullet->end(); ++iter)
+		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+
+for (vector<Object*>::iterator iter = EnemyList->begin();
+		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());

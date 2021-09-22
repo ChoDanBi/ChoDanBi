@@ -69,6 +69,7 @@ public:
 	
 	vector<Object*>* GetBulletList() { return &BulletList; }
 	vector<Object*>* GetEnemyList() { return &EnemyList; }
+	vector<Object*>* GetEnemyBullet() { return &EnemyBullet; }
 
 	void AddBullet(Vector3 _vPos);
 
