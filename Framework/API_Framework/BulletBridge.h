@@ -7,6 +7,9 @@ protected:
 	float Speed;
 	float Damage;
 public:
+	int GetDamage() { return Damage; }
+
+public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& _rTransInfo)PURE;
 	virtual void Render(HDC _hdc)PURE;

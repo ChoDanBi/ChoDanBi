@@ -6,7 +6,8 @@ class EnemyBridge:public Bridge
 protected:
 	float Speed;
 	int EnemyHp;
-
+public:
+	int SetHp() { return EnemyHp; }
 public:
 	virtual void Initialize()PURE;
 	virtual int Update()PURE;

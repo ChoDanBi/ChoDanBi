@@ -22,9 +22,12 @@ private:
 	Object* pPlayer;
 
 	// ** 오브젝트 리스트
-	list<Object*> EnableList;
-	vector<Object*> EnemyList;
+	
 	vector<Object*> BulletList;
+	vector<Object*> EnemyList;
+	vector<Object*> EnemyBullet;
+	
+	list<Object*> EnableList;
 	map<string, list<Object*>> DisableList;
 public:
 	// ** 초기화
