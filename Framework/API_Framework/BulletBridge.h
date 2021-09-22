@@ -5,10 +5,10 @@ class BulletBridge : public Bridge
 {
 protected:
 	float Speed;
-	float Damage;
+	int Damage;
 public:
 	int GetDamage() { return Damage; }
-
+	void SetDamage(int _Damage) { Damage = _Damage; }
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& _rTransInfo)PURE;
