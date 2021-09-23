@@ -82,9 +82,6 @@
     <Filter Include="소스 파일\02. Object\Stage_Back">
       <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\EnemyHole">
-      <UniqueIdentifier>{fd2dc172-e18e-4054-962d-a13e21893790}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager\Pattern\Bridge">
       <UniqueIdentifier>{c4d1bd83-aff2-4aa2-8d00-d8d24fc923b9}</UniqueIdentifier>
     </Filter>
@@ -108,6 +105,9 @@
     </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet">
       <UniqueIdentifier>{df4cbb1e-a4cf-4f79-bdb4-c485a23ea327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage\StageBridge">
+      <UniqueIdentifier>{9bb82cfe-90fe-4608-ad33-d98e9436a97c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +195,6 @@
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyHole.h">
-      <Filter>소스 파일\02. Object\EnemyHole</Filter>
-    </ClInclude>
     <ClInclude Include="Bridge.h">
       <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
     </ClInclude>
@@ -218,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="EnemyBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="StageBridge.h">
+      <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -275,9 +275,6 @@
     <ClCompile Include="Stage_Back.cpp">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyHole.cpp">
-      <Filter>소스 파일\02. Object\EnemyHole</Filter>
-    </ClCompile>
     <ClCompile Include="Bridge.cpp">
       <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
     </ClCompile>
@@ -298,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="StageBridge.cpp">
+      <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

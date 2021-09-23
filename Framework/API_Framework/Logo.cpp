@@ -25,17 +25,18 @@ void Logo::Initialize()
 		ObjectFactory<Player>::CreateObject() );
 
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
-	ImageList["BackGround"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround.bmp");
-	ImageList["Hammer"] = (new Bitmap)->LoadBmp(L"../Resource/Hammer.bmp");
-	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
-	ImageList["Hole"] = (new Bitmap)->LoadBmp(L"../Resource/Hole.bmp");
-	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
 
-	ImageList["on_off_Back"] = (new Bitmap)->LoadBmp(L"../Resource/on_off_Back.bmp");
-	ImageList["on_off_Button"] = (new Bitmap)->LoadBmp(L"../Resource/on_off_Button.bmp");
-	//=====================
+	//캐릭터들
+	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");			//94.0f,92.0f
+	ImageList["Enemy_1"] = (new Bitmap)->LoadBmp(L"../Resource/Enemy_1.bmp");	//164.0f,153.0f
+
+
+	// 스테이지 배경 1280,720
 	ImageList["Stay"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stay.bmp");
-	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");
+	ImageList["Stage1"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage1.bmp");
+	ImageList["Stage2"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage2.bmp");
+	ImageList["Stage3"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage3.bmp");
+	ImageList["Stage4"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage4.bmp");
 
 
 	Object::SetImageList(ImageList);

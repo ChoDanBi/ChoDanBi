@@ -23,16 +23,16 @@ void Player::Initialize()
 	TransInfo.Scale = Vector3(94.0f, 92.0f);
 
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
-	Collider.Scale = Vector3(120.0f, 60.0f);
+	Collider.Scale = Vector3(94.0f, 92.0f);
 
 	strKey = "Char";
 	Active = false;
 
+	PlayerHp = 3;
 	Speed = 3.0f;
 	Frame = 0;
 
 	Time = GetTickCount64();
-//	Offset = Vector3(95.0f, -85.0f);
 	Offset = Vector3(0.0f, 0.0f);
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
@@ -40,24 +40,9 @@ void Player::Initialize()
 
 int Player::Update()
 {
-//	TransInfo.Position = InputManager::GetInstance()->GetMousePosition();
-	Collider.Position = InputManager::GetInstance()->GetMousePosition();
+	//Collider.Position = InputManager::GetInstance()->GetMousePosition();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
-
-	/*
-	if (dwKey & KEY_LBUTTON)
-	{
-		Frame = 1;
-	}
-	else
-		Frame = 0;
-*/
-
-	if (GetAsyncKeyState('Q'))
-	{
-		BulletList->push_back(CreateBullet<NormalBullet>());
-	}
 
 	if (Time + 450 <= GetTickCount64())
 	{
@@ -75,6 +60,9 @@ int Player::Update()
 		TransInfo.Position.x -= Speed;
 	if (GetAsyncKeyState('D'))			//오른쪽으로
 		TransInfo.Position.x += Speed;
+
+	Collider.Position = TransInfo.Position;
+
 	return 0;
 }
 
@@ -91,6 +79,12 @@ void Player::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
+	/*
+	Ellipse(_hdc,
+		Collider.Position.x - Collider.Scale.x / 2,
+		Collider.Position.y - Collider.Scale.y / 2,
+		Collider.Position.x + Collider.Scale.x / 2,
+		Collider.Position.y + Collider.Scale.y / 2);*/
 }
 
 void Player::Release()

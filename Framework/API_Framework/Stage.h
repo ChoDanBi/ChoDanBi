@@ -8,17 +8,14 @@ class Stage : public Scene
 private:
 	Object* State_Back;
 	Object* m_pPlayer;
-	vector<Object*>* EnemyList;
-	vector<Object*>* EnemyBullet;
 	vector<Object*>* BulletList;
 
-	vector<Object*>* ObjectList;
+	vector<Object*>* EnemyList;
+	vector<Object*>* EBulletList;
+	
 
 	map<string, Bitmap*> ImageList;
 
-	// ** 타일 생성 개수
-	int TileWidthCnt;
-	int TileHeightCnt;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

@@ -20,7 +20,7 @@ public:
 public:
 	int GetSwing() { return Frame; }
 	int GetPlayerHP() { return PlayerHp; }
-	void SetPlayerHp(int _Hp) { PlayerHp -= _Hp; }
+	void DamagePlayerHp(int _Hp) { PlayerHp -= _Hp; }
 
 	template <typename T>
 	Object* CreateBullet();

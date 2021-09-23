@@ -34,7 +34,7 @@ void Stage_Back::Render(HDC _hdc)
 		WindowsWidth,
 		WindowsHeight,
 		ImageList["Stay"]->GetMemDC(),
-		0, 0,
+		0, 30,
 		SRCCOPY);
 }
 
@@ -42,3 +42,4 @@ void Stage_Back::Release()
 {
 
 }
+

@@ -9,6 +9,9 @@ public:
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
 
+public:
+
+
 	virtual Object* Clone()
 	{
 		return new Stage_Back(*this);
