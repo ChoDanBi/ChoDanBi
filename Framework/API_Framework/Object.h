@@ -15,6 +15,7 @@ protected:
 	string strKey;
 	bool Active;
 	float Speed;
+	int HitPoint;
 
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
@@ -54,6 +55,9 @@ public:
 	
 	Vector3 GetColliderPosition() { return Collider.Position; }
 	Transform GetColliderTransform() { return Collider; }
+
+	int GetHitPoint() { return HitPoint; }
+	void SetHitPoint(int _HitPoint, int _Damage) { _HitPoint -= _Damage; }
 
 	// ** 충돌체를 Setting
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }

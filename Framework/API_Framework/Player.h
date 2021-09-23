@@ -5,8 +5,6 @@ class Player : public Object
 {
 private:
 	int Frame;
-	int PlayerHp;
-
 	ULONGLONG Time;
 
 	vector<Object*>* BulletList;
@@ -19,8 +17,6 @@ public:
 	virtual Object* Clone()override { return new Player(*this); }
 public:
 	int GetSwing() { return Frame; }
-	int GetPlayerHP() { return PlayerHp; }
-	void DamagePlayerHp(int _Hp) { PlayerHp -= _Hp; }
 
 	template <typename T>
 	Object* CreateBullet();

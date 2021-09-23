@@ -25,15 +25,19 @@ void Player::Initialize()
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
 	Collider.Scale = Vector3(94.0f, 92.0f);
 
+
 	strKey = "Char";
 	Active = false;
 
-	PlayerHp = 3;
+
+	HitPoint = 3;
 	Speed = 3.0f;
 	Frame = 0;
 
+
 	Time = GetTickCount64();
 	Offset = Vector3(0.0f, 0.0f);
+
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
