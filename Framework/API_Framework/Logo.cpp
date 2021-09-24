@@ -26,17 +26,18 @@ void Logo::Initialize()
 
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
 
-	//캐릭터들
 	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");			//94.0f,92.0f
 	ImageList["Enemy_1"] = (new Bitmap)->LoadBmp(L"../Resource/Enemy_1.bmp");	//164.0f,153.0f
 
 
-	// 스테이지 배경 1280,720
-	ImageList["Stay"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stay.bmp");
+	//1280,720 + 30
+	ImageList["Stay"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stay2.bmp");
 	ImageList["Stage1"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage1.bmp");
 	ImageList["Stage2"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage2.bmp");
 	ImageList["Stage3"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage3.bmp");
 	ImageList["Stage4"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage4.bmp");
+
+	ImageList["Select"] = (new Bitmap)->LoadBmp(L"../Resource/SelectStage.bmp");
 
 
 	Object::SetImageList(ImageList);

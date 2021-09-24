@@ -3,6 +3,9 @@
 
 class Stage_Back : public Object
 {
+private :
+	string m_strKey[6];
+	int StageState;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -10,7 +13,7 @@ public:
 	virtual void Release()override;
 
 public:
-
+	void SetStageState(int _Num) { StageState = _Num; }
 
 	virtual Object* Clone()
 	{

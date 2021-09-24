@@ -7,6 +7,7 @@ class Bridge
 protected:
 	string DrawKey;
 	Object* RealObject;
+
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& _rTransInfo)PURE;

@@ -15,6 +15,8 @@ void EnemyBullet::Initialize()
     Speed = 5.0f;
     Damage = 1;
 
+    RealObject->SetDamage(Damage);
+
     DrawKey = "EBullet";
 }
 
@@ -23,8 +25,12 @@ int EnemyBullet::Update(Transform& _rTransInfo)
     _rTransInfo.Position.x -= _rTransInfo.Direction.x * Speed;
     _rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed;
 
+    RealObject->SetColliderPosition(_rTransInfo.Position.x, _rTransInfo.Position.y);
+
     if (_rTransInfo.Position.x <= 0)
         return 1;
+
+
 
     return 0;
 }

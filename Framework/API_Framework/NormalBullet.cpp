@@ -14,8 +14,11 @@ NormalBullet::~NormalBullet()
 
 void NormalBullet::Initialize()
 {
+
 	Speed = 5.0f;
-	Damage = 1.0f;
+	Damage = 1;
+
+	RealObject->SetDamage(Damage);
 
 	DrawKey = "Normal";
 }
@@ -25,8 +28,12 @@ int NormalBullet::Update(Transform& _rTransInfo)
 	_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed;
 	_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed;
 
+	RealObject->SetColliderPosition(_rTransInfo.Position.x,_rTransInfo.Position.y);
+
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
+
+	
 
 	return 0;
 }

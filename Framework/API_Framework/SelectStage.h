@@ -1,21 +1,11 @@
 #pragma once
 #include "Scene.h"
 
-
 class Object;
-class Stage : public Scene
+class SelectStage: public Scene
 {
 private:
-	int PlayerHitPoint;
-
-	Object* State_Back;
-	Object* m_pPlayer;
-	vector<Object*>* BulletList;
-
-	vector<Object*>* EnemyList;
-	vector<Object*>* EBulletList;
-	
-
+	Object* StageBack;
 	map<string, Bitmap*> ImageList;
 
 public:
@@ -23,7 +13,10 @@ public:
 	virtual void Update()override;
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
+
 public:
-	Stage();
-	virtual ~Stage();
+	SelectStage();
+	virtual ~SelectStage();
+
 };
+

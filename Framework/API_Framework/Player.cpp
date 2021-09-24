@@ -44,7 +44,6 @@ void Player::Initialize()
 
 int Player::Update()
 {
-	//Collider.Position = InputManager::GetInstance()->GetMousePosition();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -72,7 +71,7 @@ int Player::Update()
 
 void Player::Render(HDC _hdc)
 {
-	TransparentBlt(_hdc, // ** 최종 출력 위치
+	TransparentBlt(_hdc, 
 		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
 		int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
 		int(TransInfo.Scale.x),
@@ -83,12 +82,12 @@ void Player::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-	/*
+	
 	Ellipse(_hdc,
 		Collider.Position.x - Collider.Scale.x / 2,
 		Collider.Position.y - Collider.Scale.y / 2,
 		Collider.Position.x + Collider.Scale.x / 2,
-		Collider.Position.y + Collider.Scale.y / 2);*/
+		Collider.Position.y + Collider.Scale.y / 2);
 }
 
 void Player::Release()

@@ -22,13 +22,14 @@ void Enemy::Initialize()
 	TransInfo.Scale = Vector3(164.0f, 153.0f);
 
 	Collider.Position = Vector3(0.0f, 0.0f);
-	Collider.Scale = Vector3(164.0f, 153.0f);
+	Collider.Scale = Vector3(130.0f, 130.0f);
 
 	Offset = Vector3(0.0f, 0.0f);
 
 	Active = false;
 	strKey = "Enemy_1";
 	
+	HitPoint = 5;
 	Speed = 1.5f;
 
 	Time = GetTickCount64();
@@ -40,7 +41,7 @@ int Enemy::Update()
 {
 	Collider.Position = TransInfo.Position;
 
-	if (Time + rand() % 1000 + 500 <= GetTickCount64())
+	if (Time + rand() % 2000 + 3000 <= GetTickCount64())
 	{
 		Time = GetTickCount64();
 		EBulletList->push_back(CreateBullet<EnemyBullet>());
@@ -60,6 +61,12 @@ void Enemy::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
+
+	Ellipse(_hdc,
+		Collider.Position.x - Collider.Scale.x / 2,
+		Collider.Position.y - Collider.Scale.y / 2,
+		Collider.Position.x + Collider.Scale.x / 2,
+		Collider.Position.y + Collider.Scale.y / 2);
 }
 
 void Enemy::Release()

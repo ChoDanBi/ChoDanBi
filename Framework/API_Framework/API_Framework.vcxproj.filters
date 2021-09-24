@@ -109,6 +109,9 @@
     <Filter Include="소스 파일\01. Scene\Stage\StageBridge">
       <UniqueIdentifier>{9bb82cfe-90fe-4608-ad33-d98e9436a97c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Scene\SelectStage">
+      <UniqueIdentifier>{c00c2206-97a0-4a27-aaee-e660fce38067}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -219,6 +222,9 @@
     <ClInclude Include="StageBridge.h">
       <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
     </ClInclude>
+    <ClInclude Include="SelectStage.h">
+      <Filter>소스 파일\01. Scene\SelectStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -298,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="StageBridge.cpp">
       <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectStage.cpp">
+      <Filter>소스 파일\01. Scene\SelectStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

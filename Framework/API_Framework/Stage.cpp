@@ -24,6 +24,8 @@ void Stage::Initialize()
 {
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 
+	PlayerHitPoint = m_pPlayer->GetHitPoint();
+
 	// ** 오브젝트 매니저에서 총알 리스트를 받아옴. (포인터로...)
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 
@@ -34,7 +36,7 @@ void Stage::Initialize()
 	
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
-
+	((Stage_Back*)State_Back)->SetStageState(2);
 	
 	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
 
@@ -60,6 +62,12 @@ void Stage::Update()
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Update();
 
+for (vector<Object*>::iterator iter = EBulletList->begin();
+		iter != EBulletList->end(); ++iter)
+		(*iter)->Update();
+
+//==============================
+
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); )
 	{
@@ -68,31 +76,40 @@ void Stage::Update()
 		for (vector<Object*>::iterator iter2 = EnemyList->begin();
 			iter2 != EnemyList->end(); )
 		{
-			if (CollisionManager::EllipseCollision((*iter), (*iter2)))
+			if ((*iter2)->GetHitPoint() <= 0)
 			{
 				iter2 = EnemyList->erase(iter2);
+				break;
+			}
+			if (CollisionManager::RectCollision((*iter)->GetCollider(), (*iter2)->GetCollider()))
+			{
+				(*iter2)->CrashHitPoint(1);
 				iResult = 1;
 				break;
 			}
 			else
 				++iter2;
 		}
-
-		// ** 총알을 삭제하는 구간.
 		if (iResult == 1)
 			iter = BulletList->erase(iter);
 		else
 			++iter;
 	}
-	
-	
-	//해당 부분에서 문제가 생김
-	for (vector<Object*>::iterator iter = EBulletList->begin();
-		iter != EBulletList->end(); )
-	{
-		(*iter)->Update();
-	}
 
+
+	for (vector<Object*>::iterator iter = EBulletList->begin();
+		iter != EBulletList->end();++iter)
+	{
+		if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
+		{
+			iter = EBulletList->erase(iter);
+			PlayerHitPoint--;
+			break;
+		}
+	}
+	
+
+	if (PlayerHitPoint <= 0) SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 
 void Stage::Render(HDC _hdc)
