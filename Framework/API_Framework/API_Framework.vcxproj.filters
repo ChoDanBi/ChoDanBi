@@ -100,9 +100,6 @@
     <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
       <UniqueIdentifier>{aa5d52e0-8ee8-44a4-8cb0-da9e9e885962}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Enemy1">
-      <UniqueIdentifier>{1f9272c5-431c-476e-896b-279ee3a6c265}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet">
       <UniqueIdentifier>{df4cbb1e-a4cf-4f79-bdb4-c485a23ea327}</UniqueIdentifier>
     </Filter>
@@ -111,6 +108,21 @@
     </Filter>
     <Filter Include="소스 파일\01. Scene\SelectStage">
       <UniqueIdentifier>{c00c2206-97a0-4a27-aaee-e660fce38067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob">
+      <UniqueIdentifier>{c0c044a9-5dda-41f6-982a-f21b98c7fdbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob\BaseEnemy">
+      <UniqueIdentifier>{07155870-af3c-4ea4-9fa8-fa050cdabcd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob\NormalEnemy">
+      <UniqueIdentifier>{72a9653a-f70f-456e-8a72-7bf98439f27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob\EliteEnemy">
+      <UniqueIdentifier>{fe73bd68-9e02-42d1-b388-3c08bd30ee80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob\BossEnemy">
+      <UniqueIdentifier>{6d89dba9-2324-439b-b294-ddfaeee74765}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -210,12 +222,6 @@
     <ClInclude Include="MyButton.h">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyBridge.h">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy1.h">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
     </ClInclude>
@@ -224,6 +230,21 @@
     </ClInclude>
     <ClInclude Include="SelectStage.h">
       <Filter>소스 파일\01. Scene\SelectStage</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\BaseEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\NormalEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EliteEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\EliteEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\BossEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBridge.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -293,12 +314,6 @@
     <ClCompile Include="MyButton.cpp">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyBridge.cpp">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy1.cpp">
-      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
     </ClCompile>
@@ -307,6 +322,21 @@
     </ClCompile>
     <ClCompile Include="SelectStage.cpp">
       <Filter>소스 파일\01. Scene\SelectStage</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\BaseEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\NormalEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EliteEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\EliteEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Mob\BossEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBridge.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

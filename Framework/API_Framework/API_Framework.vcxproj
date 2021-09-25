@@ -140,15 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h" />
+    <ClInclude Include="BaseEnemy.h" />
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="EliteEnemy.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy1.h" />
     <ClInclude Include="EnemyBridge.h" />
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="Enum.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="NormalBullet.h" />
+    <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -179,12 +182,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp" />
+    <ClCompile Include="BaseEnemy.cpp" />
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBridge.cpp" />
+    <ClCompile Include="EliteEnemy.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy1.cpp" />
     <ClCompile Include="EnemyBridge.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -194,6 +199,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
+    <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />

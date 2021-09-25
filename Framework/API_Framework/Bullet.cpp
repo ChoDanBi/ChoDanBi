@@ -21,7 +21,6 @@ void Bullet::Initialize()
 	TransInfo.Scale = Vector3(30.0f, 30.0f);
 
 	BridgeObject = NULL;
-	HitPoint = 0;
 	Damage = 0;
 
 	strKey = "Bullet";

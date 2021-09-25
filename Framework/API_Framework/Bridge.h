@@ -7,6 +7,7 @@ class Bridge
 protected:
 	string DrawKey;
 	Object* RealObject;
+	static map<string, Bitmap*> ImageList;
 
 public:
 	virtual void Initialize()PURE;
