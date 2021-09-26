@@ -23,6 +23,12 @@ public:
 	virtual void Update()override;
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
+
+public:
+	template <typename T>
+	Object* CreateBullet(Vector3 _Pos);
+
+
 public:
 	Stage();
 	virtual ~Stage();

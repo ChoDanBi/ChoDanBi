@@ -1,5 +1,6 @@
 #include "BaseEnemy.h"
 #include "ObjectManager.h"
+#include "ObjectFactory.h"
 #include "Bullet.h"
 #include "EnemyBullet.h"
 
@@ -23,6 +24,9 @@ void BaseEnemy::Initialize()
     TransInfo.Scale = Vector3(120.0f, 111.0f);
     TransInfo.Position = Vector3(0.0f, 0.0f);
 
+    RealObject->SetScale(TransInfo.Scale);
+    RealObject->SetHitPoint(HitPoint);
+
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
 
@@ -33,6 +37,8 @@ int BaseEnemy::Update()
         Time = GetTickCount64();
         EBulletList->push_back(CreateBullet<EnemyBullet>());
     }
+
+    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y);
 
     return 0;
 }
@@ -49,6 +55,12 @@ void BaseEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
+
+    Ellipse(_hdc,
+        int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+        int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+        int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
+        int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
     /*
     Ellipse(_hdc,
         Collider.Position.x - Collider.Scale.x / 2,

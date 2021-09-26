@@ -52,6 +52,8 @@ int Enemy::Update()
 {
 	if (BridgeObject)
 		BridgeObject->Update(TransInfo);
+
+//	BridgeObject->SetPosintion(Vector3(TransInfo.Position.x, TransInfo.Position.y));
 	/*
 	Collider.Position = Vector3(TransInfo.Position.x,TransInfo.Position.y + 10);
 

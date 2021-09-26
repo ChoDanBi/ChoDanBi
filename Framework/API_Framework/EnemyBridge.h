@@ -7,7 +7,6 @@ protected:
 	float Speed;
 	int HitPoint;
 	ULONGLONG Time;
-	Transform TransInfo;
 	vector<Object*>* EBulletList;
 
 public:

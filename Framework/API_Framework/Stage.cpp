@@ -6,6 +6,8 @@
 
 #include "Player.h"
 #include "Enemy.h"
+#include "BaseEnemy.h"
+
 #include "ObjectFactory.h"
 #include "Stage_Back.h"
 
@@ -43,6 +45,12 @@ void Stage::Initialize()
 
 	for (int y = 0; y < 4; ++y)
 	{
+		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
+		
+	}
+	/*
+	for (int y = 0; y < 4; ++y)
+	{
 		Object* pObj = new Enemy;
 		pObj->Initialize();
 
@@ -50,7 +58,7 @@ void Stage::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
-
+*/
 
 	ImageList = Object::GetImageList();
 }
@@ -159,4 +167,36 @@ void Stage::Release()
 		iter != EnemyList->end(); ++iter)
 		iter = EnemyList->erase(iter);
 		*/
+}
+
+/*
+for (int y = 0; y < 4; ++y)
+	{
+		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
+
+	}
+* 
+static Object* CreateObject(Vector3 _vPos, Bridge* pBridge)
+	{
+		Object* pObj = new T;
+
+		pObj->Initialize();
+		pObj->SetPosition(_vPos);
+
+		pBridge->SetObject(pObj);
+		pBridge->Initialize();
+
+		((T*)pObj)->SetBridge(pBridge);
+
+		return pObj;
+	}
+	*/
+template<typename T>
+Object* Stage::CreateBullet(Vector3 _Pos)
+{
+	Bridge* eBridge = new T;
+
+	Object* eEnemy = ObjectFactory<Enemy>::CreateObject(_Pos, eBridge);
+
+	return eEnemy;
 }

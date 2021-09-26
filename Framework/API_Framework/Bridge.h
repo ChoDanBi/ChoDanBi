@@ -7,6 +7,7 @@ class Bridge
 protected:
 	string DrawKey;
 	Object* RealObject;
+	Transform TransInfo;
 	static map<string, Bitmap*> ImageList;
 
 public:
@@ -16,6 +17,7 @@ public:
 	virtual void Release()PURE;
 public:
 	void SetObject(Object* _pObject) { RealObject = _pObject; }
+	void SetPosintion(Vector3 _Pos) { TransInfo.Position = _Pos; }
 public:
 	Bridge();
 	virtual ~Bridge();

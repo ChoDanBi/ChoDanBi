@@ -68,6 +68,8 @@ public:
 	// ** 충돌체를 Setting
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }
 	
+	void SetScale(Vector3 _Scale) { TransInfo.Scale.x = _Scale.x; TransInfo.Scale.y = _Scale.y; }
+
 	// ** 충돌체의 Top 좌표를 반환.
 	// ** 오브젝트가 지면과 닿는 이벤트 발생시 사용가능.
 	float GetRectTop() { return TransInfo.Position.y - (TransInfo.Scale.y / 2); }
