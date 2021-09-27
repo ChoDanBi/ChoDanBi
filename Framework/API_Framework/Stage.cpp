@@ -42,12 +42,12 @@ void Stage::Initialize()
 	((Stage_Back*)State_Back)->SetStageState(2);
 	
 	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
-
+	/*
 	for (int y = 0; y < 4; ++y)
 	{
 		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
 		
-	}
+	}*/
 	/*
 	for (int y = 0; y < 4; ++y)
 	{
