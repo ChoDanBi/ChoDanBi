@@ -5,6 +5,7 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "InputManager.h"
 
 
 Logo::Logo()
@@ -38,14 +39,19 @@ void Logo::Initialize()
 	ImageList["Stage4"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage4.bmp");
 
 	ImageList["Select"] = (new Bitmap)->LoadBmp(L"../Resource/SelectStage.bmp");
-
+	ImageList["StageSelect"] = (new Bitmap)->LoadBmp(L"../Resource/Select2.bmp"); //57,47
+	
 
 	Object::SetImageList(ImageList);
 }
 
 void Logo::Update()
 {
-	if (GetAsyncKeyState('A'))
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	if (dwKey & KEY_LBUTTON)
+		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
+	
+	//if (GetAsyncKeyState('A'))\
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 

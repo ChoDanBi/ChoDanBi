@@ -25,8 +25,8 @@ void MyButton::Initialize()
 
 	MOVE = false;
 	Horizontal = false;
-	ButtonOffSet[0] = (187.0f / 4);
-	ButtonOffSet[1] = ButtonOffSet[0] - 85;
+	ButtonOffSet[0] = (int(187.0f / 4));
+	ButtonOffSet[1] = int(ButtonOffSet[0] - 85);
 	Time = GetTickCount64();
 	Offset = Vector3(0.0f, 0.0f);
 }

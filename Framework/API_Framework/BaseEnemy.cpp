@@ -24,14 +24,16 @@ void BaseEnemy::Initialize()
     TransInfo.Scale = Vector3(120.0f, 111.0f);
     TransInfo.Position = Vector3(0.0f, 0.0f);
 
-    RealObject->SetScale(TransInfo.Scale);
-    RealObject->SetHitPoint(HitPoint);
-
+   RealObject->SetScale(TransInfo.Scale);
+   RealObject->SetHitPoint(HitPoint);
+   
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
 
-int BaseEnemy::Update()
+int BaseEnemy::Update(Transform& _rTransInfo)
 {
+    //_rTransInfo = TransInfo; //이런식으로 넘기는 대신 setter을 이용해도 된다
+
     if (Time + rand() % 2000 + 3000 <= GetTickCount64())
     {
         Time = GetTickCount64();
@@ -45,6 +47,7 @@ int BaseEnemy::Update()
 
 void BaseEnemy::Render(HDC _hdc)
 {
+    
     TransparentBlt(_hdc,
         int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
         int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
@@ -55,6 +58,7 @@ void BaseEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
+    
 
     Ellipse(_hdc,
         int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),

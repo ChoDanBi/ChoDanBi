@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Object;
+class Bitmap;
 class Bridge
 {
 protected:

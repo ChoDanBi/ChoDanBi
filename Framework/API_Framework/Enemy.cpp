@@ -25,7 +25,7 @@ void Enemy::Initialize()
 
 	BridgeObject = NULL;
 
-	HitPoint = 0;
+	HitPoint = 3;
 	strKey = "Enemy";
 	/*
 	TransInfo.Position = Vector3(0.0f, 0.0f);
