@@ -12,3 +12,12 @@ enum class SCENEID
 	STAGE5,
 	EXIT ,
 };
+
+enum class SKILL
+{
+	ATTACK,
+	RUSH,
+	PATTERN1,
+	PATTERN2,
+	PATTERN3
+};

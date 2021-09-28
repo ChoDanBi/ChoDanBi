@@ -5,7 +5,10 @@ class Object;
 class Menu : public Scene
 {
 private:
+	int click;
+
 	Object* StageBack;
+	Transform Mouse;
 	Transform Buttom1;
 //	Transform Buttom2;
 //	Transform Buttom3;

@@ -18,9 +18,15 @@ Menu::~Menu()
 
 void Menu::Initialize()
 {
+	Mouse.Scale = Vector3(10.0f, 10.0f);
+	Mouse.Scale = Vector3(0.0f, 0.0f);
+	click = 0;
+
+
 	Buttom1.Scale = Vector3(195.0f,70.0f);
 	Buttom1.Position = Vector3(900.0f,645.0f);
-	Buttom1.Direction = Vector3(0.0f,0.0f);
+	
+
 
 
 	StageBack = new Stage_Back;
@@ -32,23 +38,37 @@ void Menu::Initialize()
 
 void Menu::Update()
 {
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	Mouse.Position = InputManager::GetInstance()->GetMousePosition();
 	
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	if (dwKey & KEY_LBUTTON)	click = 1;
+	else													click = 0;
 
+	if (CollisionManager::RectCollision(Buttom1,Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+	/*
 	if (GetAsyncKeyState('S'))
 		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+*/
 }
 
 void Menu::Render(HDC _hdc)
 {
 	StageBack->Render(ImageList["Buffer"]->GetMemDC());
 
-/*Rectangle(_hdc,
+	/*
+	Rectangle(_hdc,
 		Buttom1.Position.x - Buttom1.Scale.x / 2,
 		Buttom1.Position.y - Buttom1.Scale.y / 2,
 		Buttom1.Position.x + Buttom1.Scale.x / 2,
 		Buttom1.Position.y + Buttom1.Scale.y / 2);
-		*/
+	
+	Rectangle(_hdc,
+		Mouse.Position.x - Mouse.Scale.x / 2,
+		Mouse.Position.y - Mouse.Scale.y / 2,
+		Mouse.Position.x + Mouse.Scale.x / 2,
+		Mouse.Position.y + Mouse.Scale.y / 2);
+*/
 	BitBlt(_hdc,
 		0, 0,
 		WindowsWidth,

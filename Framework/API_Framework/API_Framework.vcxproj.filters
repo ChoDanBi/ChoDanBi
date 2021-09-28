@@ -70,9 +70,6 @@
     <Filter Include="소스 파일\99. Manager\CollisionManager">
       <UniqueIdentifier>{bfd29dc4-8124-47ff-a70c-a694a76d0c90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99. Manager\MathManager">
-      <UniqueIdentifier>{137836cd-84c4-4169-b9e4-6d74da496c31}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager\RenderManager">
       <UniqueIdentifier>{84c92547-6995-4512-be12-1aa8f8d0f0d1}</UniqueIdentifier>
     </Filter>
@@ -123,6 +120,12 @@
     </Filter>
     <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Mob\BossEnemy">
       <UniqueIdentifier>{6d89dba9-2324-439b-b294-ddfaeee74765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\UI\StageButton">
+      <UniqueIdentifier>{1778263b-5acb-4999-bf42-69a369a6c782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\MathManager">
+      <UniqueIdentifier>{137836cd-84c4-4169-b9e4-6d74da496c31}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +249,9 @@
     <ClInclude Include="EnemyBridge.h">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClInclude>
+    <ClInclude Include="StageButton.h">
+      <Filter>소스 파일\02. Object\UI\StageButton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -337,6 +343,9 @@
     </ClCompile>
     <ClCompile Include="EnemyBridge.cpp">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="StageButton.cpp">
+      <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

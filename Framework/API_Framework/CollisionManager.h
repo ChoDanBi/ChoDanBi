@@ -63,10 +63,20 @@ public:
 	//**   ¡é 
 	//**   |£þ£þ£þ£þ| 
 	//**   |       |
-	//**   |       | 
+	//**   |       | 7
 	//**   |_______| y
 	//**         x ¡è
 	//**         vector V2(x, y)
+
+	static bool RectCollision(Transform V1, Transform V2)
+	{
+		if ((V1.Position.x + (V1.Scale.x / 2)) > (V2.Position.x - (V2.Scale.x / 2)) &&
+			(V1.Position.y + (V1.Scale.y / 2)) > (V2.Position.y - (V2.Scale.y / 2)) &&
+			(V1.Position.x - (V1.Scale.x / 2)) < (V2.Position.x + (V2.Scale.x / 2)) &&
+			(V1.Position.y - (V1.Scale.y / 2)) < (V2.Position.y + (V2.Scale.y / 2)))
+			return true;
+		return false;
+	}
 
 	static bool RectCollision(Object* V1, Object* V2)
 	{
