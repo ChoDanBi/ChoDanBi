@@ -83,11 +83,11 @@ void Player::Render(HDC _hdc)
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
 	
-	Ellipse(_hdc,
+	/*Ellipse(_hdc,
 		int(Collider.Position.x - Collider.Scale.x / 2),
 		int(Collider.Position.y - Collider.Scale.y / 2),
 		int(Collider.Position.x + Collider.Scale.x / 2),
-		int(Collider.Position.y + Collider.Scale.y / 2) );
+		int(Collider.Position.y + Collider.Scale.y / 2) );*/
 }
 
 void Player::Release()
