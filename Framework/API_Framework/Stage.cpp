@@ -27,6 +27,7 @@ void Stage::Initialize()
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 
 	PlayerHitPoint = m_pPlayer->GetHitPoint();
+
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);
 
 	// ** 오브젝트 매니저에서 총알 리스트를 받아옴. (포인터로...)
@@ -117,8 +118,10 @@ for (vector<Object*>::iterator iter = EBulletList->begin();
 		}
 	}
 	
-
-	if (PlayerHitPoint <= 0) SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+	if (EnemyList->empty())
+		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+	if (PlayerHitPoint <= 0)
+		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 }
 
 void Stage::Render(HDC _hdc)
@@ -152,21 +155,25 @@ void Stage::Render(HDC _hdc)
 
 void Stage::Release()
 {
-	//오브젝트들은 안 사라지고 다시 스테이지로 들어오면 새로 만든거 + 기존에 있는거
-	//기존걸 없애야 하는데...
-	/*
-	for (vector<Object*>::iterator iter = EBulletList->begin();
-		iter != EBulletList->end(); ++iter)
-		iter = EBulletList->erase(iter);
+	if (!EnemyList->empty())
+	{
+		EnemyList->clear();
+		EnemyList = nullptr;
+	}
 
-	for (vector<Object*>::iterator iter = BulletList->begin();
-		iter != BulletList->end(); ++iter)
-		iter = BulletList->erase(iter);
+	if (!EBulletList->empty())
+	{
+		EBulletList->clear();
+		EBulletList = nullptr;
+	}
 
-	for (vector<Object*>::iterator iter = EnemyList->begin();
-		iter != EnemyList->end(); ++iter)
-		iter = EnemyList->erase(iter);
-		*/
+	if (!BulletList->empty())
+	{
+		BulletList->clear();
+		BulletList = nullptr;
+	}
+
+	PlayerHitPoint = ((Player*)m_pPlayer)->GetHitPoint();
 }
 
 /*

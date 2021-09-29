@@ -36,6 +36,7 @@ public:
 	// ** map으로 생성된 Image 보관 컨테이너틑 out
 	static map<string, Bitmap*> GetImageList() { return ImageList; }
 
+
 	// ** 이미지를 출력하는데 사용하는 Key 값을 out
 	string GetKey() const { return strKey; }
 
@@ -51,6 +52,7 @@ public:
 	// ** 크기를 Vector3로 out
 	Vector3 GetScale() { return TransInfo.Scale; }
 
+	void SetCollider(Vector3 _collider) { Collider.Scale = Vector3(_collider); }
 	// ** 충돌체를 out.
 	RECT GetCollider();
 	

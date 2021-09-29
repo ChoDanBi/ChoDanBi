@@ -22,8 +22,8 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
 	TransInfo.Scale = Vector3(94.0f, 92.0f);
 
-	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
-	Collider.Scale = Vector3(94.0f, 92.0f);
+	Collider.Position = Vector3(0.0f,0.0f);
+	Collider.Scale = Vector3(85.0f, 83.0f);
 
 
 	strKey = "Char";

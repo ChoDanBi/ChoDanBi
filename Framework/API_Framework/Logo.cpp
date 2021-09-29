@@ -39,10 +39,11 @@ void Logo::Initialize()
 	ImageList["Stage4"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround_Stage4.bmp");
 
 	ImageList["Select"] = (new Bitmap)->LoadBmp(L"../Resource/SelectStage.bmp");
-	ImageList["StageSelect"] = (new Bitmap)->LoadBmp(L"../Resource/Select2.bmp"); //57,47
+	ImageList["Star"] = (new Bitmap)->LoadBmp(L"../Resource/Star.bmp"); //128.0f,64.0f
 	
 
 	Object::SetImageList(ImageList);
+	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨
 }
 
 void Logo::Update()

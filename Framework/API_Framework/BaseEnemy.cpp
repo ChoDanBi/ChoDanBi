@@ -26,6 +26,7 @@ void BaseEnemy::Initialize()
 
    RealObject->SetScale(TransInfo.Scale);
    RealObject->SetHitPoint(HitPoint);
+   RealObject->SetCollider(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
    
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
@@ -53,18 +54,19 @@ void BaseEnemy::Render(HDC _hdc)
         int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
-        ImageList[DrawKey]->GetMemDC(),
+       ImageList[DrawKey]->GetMemDC(),
         0, 0,
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
     
-
+    /*
     Ellipse(_hdc,
         int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
         int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
         int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
         int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
+   */
     /*
     Ellipse(_hdc,
         Collider.Position.x - Collider.Scale.x / 2,

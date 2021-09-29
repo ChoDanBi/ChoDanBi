@@ -7,11 +7,10 @@ class SelectStage: public Scene
 private:
 	int click;
 
-	Transform Mouse;
 	Transform BackButtom;
+//	Transform StageButtom1;
 
-	Transform StageButtom1;
-
+	Object* Select;
 	Object* StageBack;
 	map<string, Bitmap*> ImageList;
 

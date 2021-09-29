@@ -41,6 +41,7 @@ int NormalBullet::Update(Transform& _rTransInfo)
 
 void NormalBullet::Render(HDC _hdc)
 {
+	//여기에 이미지를 출력해야함
 	/*
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
