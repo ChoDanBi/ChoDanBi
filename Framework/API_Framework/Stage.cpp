@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "BaseEnemy.h"
+#include "StageButton.h"
 
 #include "ObjectFactory.h"
 #include "Stage_Back.h"
@@ -24,6 +25,8 @@ Stage::~Stage()
 
 void Stage::Initialize()
 {
+	SelectButton = ObjectManager::GetInstance()->GetButton();
+
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 
 	PlayerHitPoint = m_pPlayer->GetHitPoint();
@@ -44,9 +47,13 @@ void Stage::Initialize()
 	
 	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
 	
-	for (int y = 0; y < 4; ++y)
+	PlayTime = GetTickCount64();
+	Timer = GetTickCount64();
+
+	for (int y = 0; y < 3; ++y)
 	{
-		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
+	//	EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
+		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
 		
 	}
 	/*
@@ -75,9 +82,23 @@ void Stage::Update()
 for (vector<Object*>::iterator iter = EBulletList->begin();
 		iter != EBulletList->end(); ++iter)
 		(*iter)->Update();
+//=
+if (PlayTime + 280000 > GetTickCount64())
+{
+	if (Timer + rand() % 1000 + 2000 < GetTickCount64())
+	{
+		Timer = GetTickCount64();
+		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1400, rand() % 580 + 50)));
+	}
+}
 
+//==
+//플레이어는 적탄환과 적에게 맞으면 hp감소
+//플레이어는 맞았을 시 3초 무적
+//플레이어 탄환은 적을 없앰
 
-//플레이어 탄환과 적 충돌
+{
+	//플레이어 탄환과 적 충돌
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); )
 	{
@@ -108,7 +129,7 @@ for (vector<Object*>::iterator iter = EBulletList->begin();
 
 	//적 탄환과 플레이어 충돌
 	for (vector<Object*>::iterator iter = EBulletList->begin();
-		iter != EBulletList->end();++iter)
+		iter != EBulletList->end(); ++iter)
 	{
 		if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
 		{
@@ -117,9 +138,17 @@ for (vector<Object*>::iterator iter = EBulletList->begin();
 			break;
 		}
 	}
-	
-	if (EnemyList->empty())
+}
+	//==
+
+
+if (PlayTime + 1000 <= GetTickCount64())
+{
 		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+		((StageButton*)SelectButton)->StageClear(0);
+}
+
+	//if (EnemyList->empty())
 	if (PlayerHitPoint <= 0)
 		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 }
@@ -198,6 +227,7 @@ static Object* CreateObject(Vector3 _vPos, Bridge* pBridge)
 		return pObj;
 	}
 	*/
+
 template<typename T>
 Object* Stage::CreateBullet(Vector3 _Pos)
 {

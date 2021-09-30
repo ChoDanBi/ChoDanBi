@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "CollisionManager.h"
+#include "ObjectManager.h"
 
 SelectStage::SelectStage()
 {
@@ -28,8 +29,7 @@ void SelectStage::Initialize()
 	StageBack->Initialize();
 	((Stage_Back*)StageBack)->SetStageState(1);
 
-	Select = new StageButton;
-	Select->Initialize();
+	s_SelectButton = ObjectManager::GetInstance()->GetButton();
 
 
 	ImageList = Object::GetImageList();
@@ -49,14 +49,14 @@ void SelectStage::Update()
 	if (CollisionManager::RectCollision(BackButtom, Mouse) && click == 1)
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 
-	Select->Update();
+	s_SelectButton->Update();
 }
 
 void SelectStage::Render(HDC _hdc)
 {
 	StageBack->Render(ImageList["Buffer"]->GetMemDC());
 
-	Select->Render(ImageList["Buffer"]->GetMemDC());
+	s_SelectButton->Render(ImageList["Buffer"]->GetMemDC());
 	
 /*
 	Rectangle(_hdc,

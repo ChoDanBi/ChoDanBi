@@ -10,7 +10,7 @@ private:
 	Transform BackButtom;
 //	Transform StageButtom1;
 
-	Object* Select;
+	Object* s_SelectButton;
 	Object* StageBack;
 	map<string, Bitmap*> ImageList;
 

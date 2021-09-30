@@ -43,6 +43,7 @@ public:
 
 		pBridge->SetObject(pObj);
 		pBridge->Initialize();
+		pBridge->SetPosintion(_vPos);
 
 		((T*)pObj)->SetBridge(pBridge);
 

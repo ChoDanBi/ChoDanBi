@@ -58,20 +58,21 @@ void StageButton::Render(HDC _hdc)
 	TransparentBlt(_hdc,
 		int(TransInfo.Position.x - (TransInfo.Scale.x/2)),
 		int(TransInfo.Position.y - (TransInfo.Scale.y/2)),
-		int(TransInfo.Position.x),
-		int(TransInfo.Position.y),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		ImageList[strKey]->GetMemDC(),
-		int(TransInfo.Position.x * clear[0]),
+		int(TransInfo.Scale.x * clear[0]),
 		0,
-		int(TransInfo.Position.x),
-		int(TransInfo.Position.y),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-
+	/*
 	Rectangle(_hdc,
 		TransInfo.Position.x - TransInfo.Scale.x / 2,
 		TransInfo.Position.y - TransInfo.Scale.y / 2,
 		TransInfo.Position.x + TransInfo.Scale.x / 2,
 		TransInfo.Position.y + TransInfo.Scale.y / 2);
+	*/
 }
 
 void StageButton::Release()
@@ -79,6 +80,7 @@ void StageButton::Release()
 }
 
 
-void StageButton::StageClear()
+void StageButton::StageClear(int _Clear)
 {
+	clear[_Clear] = true;
 }

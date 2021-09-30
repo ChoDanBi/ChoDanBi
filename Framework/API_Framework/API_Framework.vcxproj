@@ -73,6 +73,8 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="PatternBridge.h" />
+    <ClInclude Include="PatternDash.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="RenderManager.h" />
@@ -109,6 +111,8 @@
     <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="PatternBridge.cpp" />
+    <ClCompile Include="PatternDash.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Prototype.cpp" />
     <ClCompile Include="RenderManager.cpp" />

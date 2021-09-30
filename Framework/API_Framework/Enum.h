@@ -16,7 +16,7 @@ enum class SCENEID
 enum class SKILL
 {
 	ATTACK,
-	RUSH,
+	Dash,
 	PATTERN1,
 	PATTERN2,
 	PATTERN3

@@ -1,10 +1,9 @@
 #pragma once
-#include "EnemyBridge.h"
+#include "PatternBridge.h"
 
-class BaseEnemy :public EnemyBridge
+class PatternDash: public PatternBridge
 {
 public:
-//	Bridge* Pattern;
 
 public:
 	virtual void Initialize()override;
@@ -13,11 +12,9 @@ public:
 	virtual void Release()override;
 
 public:
-	template <typename T>
-	Object* CreateBullet();
-
+	
 public:
-	BaseEnemy();
-	virtual ~BaseEnemy();
+	PatternDash();
+	virtual ~PatternDash();
 };
 

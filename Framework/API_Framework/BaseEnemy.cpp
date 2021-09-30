@@ -1,6 +1,8 @@
 #include "BaseEnemy.h"
+
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+
 #include "Bullet.h"
 #include "EnemyBullet.h"
 
@@ -14,9 +16,12 @@ BaseEnemy::~BaseEnemy()
 
 void BaseEnemy::Initialize()
 {
+    //Pattern = new PatternDash;
+    //Pattern->Initialize();
+    
     DrawKey = "BaseEnemy";
 
-    Speed = 3.0f;
+    Speed = float(rand()% 3 + 2 );
     HitPoint = 3;
 
     Time = GetTickCount64();
@@ -27,6 +32,7 @@ void BaseEnemy::Initialize()
    RealObject->SetScale(TransInfo.Scale);
    RealObject->SetHitPoint(HitPoint);
    RealObject->SetCollider(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
+
    
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
@@ -35,13 +41,15 @@ int BaseEnemy::Update(Transform& _rTransInfo)
 {
     //_rTransInfo = TransInfo; //이런식으로 넘기는 대신 setter을 이용해도 된다
 
-    if (Time + rand() % 2000 + 3000 <= GetTickCount64())
+    if (Time + rand() % 1000 + 3000 <= GetTickCount64())
     {
         Time = GetTickCount64();
         EBulletList->push_back(CreateBullet<EnemyBullet>());
     }
 
-    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y);
+    TransInfo.Position.x -= Speed;
+    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y +10);
+   //Pattern->Update(TransInfo);
 
     return 0;
 }

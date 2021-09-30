@@ -47,7 +47,7 @@ int Player::Update()
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (Time + 450 <= GetTickCount64())
+	if (Time + 300 <= GetTickCount64())
 	{
 		Time = GetTickCount64();
 		BulletList->push_back(CreateBullet<NormalBullet>());

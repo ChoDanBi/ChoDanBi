@@ -7,7 +7,10 @@ class Stage : public Scene
 {
 private:
 	int PlayerHitPoint;
+	ULONGLONG PlayTime;
+	ULONGLONG Timer;
 
+	Object* SelectButton;
 	Object* State_Back;
 	Object* m_pPlayer;
 	vector<Object*>* BulletList;

@@ -27,6 +27,8 @@ void Enemy::Initialize()
 
 	HitPoint = 3;
 	strKey = "Enemy";
+
+	//BridgeObject->SetPosintion(TransInfo.Position);
 	/*
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(120.0f, 111.0f);
@@ -53,9 +55,7 @@ int Enemy::Update()
 	if (BridgeObject)
 		BridgeObject->Update(TransInfo);
 
-	Collider.Position = TransInfo.Position;
-
-	BridgeObject->SetPosintion(TransInfo.Position);
+	//Collider.Position = Vector3( TransInfo.Position.x,TransInfo.Position.y+10);
 
 //	BridgeObject->SetPosintion(Vector3(TransInfo.Position.x, TransInfo.Position.y));
 	/*
@@ -66,6 +66,9 @@ int Enemy::Update()
 		Time = GetTickCount64();
 		EBulletList->push_back(CreateBullet<EnemyBullet>());
 	}*/
+	if (TransInfo.Position.x < -100)
+		return 1;
+
 	return 0;
 }
 
@@ -84,12 +87,14 @@ void Enemy::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));*/
+	
 	/*
 	Ellipse(_hdc,
 		Collider.Position.x - Collider.Scale.x / 2,
 		Collider.Position.y - Collider.Scale.y / 2,
 		Collider.Position.x + Collider.Scale.x / 2,
-		Collider.Position.y + Collider.Scale.y / 2 );*/
+		Collider.Position.y + Collider.Scale.y / 2 );
+		*/
 }
 
 void Enemy::Release()

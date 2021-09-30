@@ -21,6 +21,9 @@ private:
 	// ** 플레이어
 	Object* pPlayer;
 
+	//스테이지 선택
+	Object* pButton;
+
 	// ** 오브젝트 리스트
 	
 	vector<Object*> BulletList;
@@ -61,6 +64,8 @@ public:
 	Object* GetPlayer() { return pPlayer; }
 	void SetPlayer(Object* _pPlayer) { pPlayer = _pPlayer; }
 
+	Object* GetButton() { return pButton; }
+	void SetButton(Object* _pButton) { pButton = _pButton; }
 
 	// ** map 컨테이너를 사용하고있는 ObjectList를 반환.
 	list<Object*>* GetEnableList() { return &EnableList; }

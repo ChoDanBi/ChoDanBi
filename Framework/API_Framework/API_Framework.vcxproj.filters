@@ -127,6 +127,15 @@
     <Filter Include="소스 파일\99. Manager\MathManager">
       <UniqueIdentifier>{137836cd-84c4-4169-b9e4-6d74da496c31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\EnemyPattern">
+      <UniqueIdentifier>{9bfa326b-b945-4b9c-90f7-3dd4471768bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\EnemyPattern\Pattern">
+      <UniqueIdentifier>{96d2e6b6-5034-4bd2-baf2-f8434aeb83df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\PatternManager">
+      <UniqueIdentifier>{8f580cae-d4e5-4773-b16a-f582872ef7dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -252,6 +261,12 @@
     <ClInclude Include="StageButton.h">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClInclude>
+    <ClInclude Include="PatternDash.h">
+      <Filter>소스 파일\02. Object\EnemyPattern\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternBridge.h">
+      <Filter>소스 파일\02. Object\EnemyPattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -346,6 +361,12 @@
     </ClCompile>
     <ClCompile Include="StageButton.cpp">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternDash.cpp">
+      <Filter>소스 파일\02. Object\EnemyPattern\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternBridge.cpp">
+      <Filter>소스 파일\02. Object\EnemyPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

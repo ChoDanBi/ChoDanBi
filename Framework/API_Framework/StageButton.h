@@ -15,7 +15,7 @@ public:
 	virtual Object* Clone()override { return new StageButton(*this); }
 
 public:
-	void StageClear();
+	void StageClear(int _Clear);
 
 public:
 	StageButton();

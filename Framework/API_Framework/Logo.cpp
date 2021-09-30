@@ -1,6 +1,7 @@
 #include "Logo.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "StageButton.h"
 
 #include "SceneManager.h"
 #include "ObjectManager.h"
@@ -25,6 +26,9 @@ void Logo::Initialize()
 	ObjectManager::GetInstance()->SetPlayer(
 		ObjectFactory<Player>::CreateObject() );
 
+	ObjectManager::GetInstance()->SetButton(
+		ObjectFactory<StageButton>::CreateObject());
+
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
 
 	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");			//94.0f,92.0f
@@ -40,6 +44,9 @@ void Logo::Initialize()
 
 	ImageList["Select"] = (new Bitmap)->LoadBmp(L"../Resource/SelectStage.bmp");
 	ImageList["Star"] = (new Bitmap)->LoadBmp(L"../Resource/Star.bmp"); //128.0f,64.0f
+
+	ImageList["PBullet"] = (new Bitmap)->LoadBmp(L"../Resource/PlayerBullet.bmp"); //128.0f,64.0f
+	ImageList["EBullet"] = (new Bitmap)->LoadBmp(L"../Resource/EnemyBullet.bmp"); //128.0f,64.0f
 	
 
 	Object::SetImageList(ImageList);

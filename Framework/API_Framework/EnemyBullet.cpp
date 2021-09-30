@@ -11,11 +11,15 @@ EnemyBullet::~EnemyBullet()
 
 void EnemyBullet::Initialize()
 {
+    TransInfo.Scale = Vector3(16.0f,12.0f);
+    TransInfo.Position = Vector3(0.0f, 0.0f);
 
     Speed = 5.0f;
     Damage = 1;
 
     RealObject->SetDamage(Damage);
+    RealObject->SetScale(TransInfo.Scale);
+    RealObject->SetCollider(TransInfo.Scale);
 
     DrawKey = "EBullet";
 }
@@ -37,11 +41,22 @@ int EnemyBullet::Update(Transform& _rTransInfo)
 
 void EnemyBullet::Render(HDC _hdc)
 {
+    TransparentBlt(_hdc, // ** 최종 출력 위치
+        int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+        int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+        int(RealObject->GetScale().x),
+        int(RealObject->GetScale().y),
+        ImageList[DrawKey]->GetMemDC(),
+        0, 0,
+        int(RealObject->GetScale().x),
+        int(RealObject->GetScale().y),
+        RGB(255, 0, 255));
+    /*
     Ellipse(_hdc,
         int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
         int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
         int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
-        int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
+        int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));*/
 }
 
 void EnemyBullet::Release()
