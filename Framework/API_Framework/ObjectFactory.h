@@ -4,6 +4,7 @@
 #include "Bridge.h"
 
 
+
 template <typename T>
 class ObjectFactory
 {
@@ -49,6 +50,30 @@ public:
 
 		return pObj;
 	}
+
+	/*
+template<typename T>
+static Object* CreateBullet(Vector3 _vPos)
+{
+	Bridge* pBridge = new T;
+
+	Object* pObj = new T;
+
+	pObj->Initialize();
+	pObj->SetPosition(_vPos);
+
+	pBridge->SetObject(pObj);
+	pBridge->Initialize();
+	pBridge->SetPosintion(_vPos);
+
+	((T*)pObj)->SetBridge(pBridge);
+
+	Object* pBullet = pObj;
+
+	return pBullet;
+}
+	*/
+
 
 	static Object* CreateObject(float _x, float _y, Bridge* pBridge)
 	{

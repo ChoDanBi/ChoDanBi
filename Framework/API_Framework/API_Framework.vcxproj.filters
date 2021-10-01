@@ -100,9 +100,6 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet">
       <UniqueIdentifier>{df4cbb1e-a4cf-4f79-bdb4-c485a23ea327}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\01. Scene\Stage\StageBridge">
-      <UniqueIdentifier>{9bb82cfe-90fe-4608-ad33-d98e9436a97c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\01. Scene\SelectStage">
       <UniqueIdentifier>{c00c2206-97a0-4a27-aaee-e660fce38067}</UniqueIdentifier>
     </Filter>
@@ -135,6 +132,9 @@
     </Filter>
     <Filter Include="소스 파일\99. Manager\PatternManager">
       <UniqueIdentifier>{8f580cae-d4e5-4773-b16a-f582872ef7dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage\StageBridge">
+      <UniqueIdentifier>{e53f1305-2bd7-4328-8e66-799d1f0d8bd5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -237,9 +237,6 @@
     <ClInclude Include="EnemyBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
     </ClInclude>
-    <ClInclude Include="StageBridge.h">
-      <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
-    </ClInclude>
     <ClInclude Include="SelectStage.h">
       <Filter>소스 파일\01. Scene\SelectStage</Filter>
     </ClInclude>
@@ -266,6 +263,21 @@
     </ClInclude>
     <ClInclude Include="PatternBridge.h">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="StageBridge.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +350,6 @@
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
     </ClCompile>
-    <ClCompile Include="StageBridge.cpp">
-      <Filter>소스 파일\01. Scene\Stage\StageBridge</Filter>
-    </ClCompile>
     <ClCompile Include="SelectStage.cpp">
       <Filter>소스 파일\01. Scene\SelectStage</Filter>
     </ClCompile>
@@ -367,6 +376,21 @@
     </ClCompile>
     <ClCompile Include="PatternBridge.cpp">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="StageBridge.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

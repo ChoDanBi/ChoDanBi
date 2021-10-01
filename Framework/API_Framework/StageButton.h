@@ -5,7 +5,11 @@ class StageButton:public Object
 {
 private:
 	bool clear[5];
+
 	int click;
+
+	Transform ButtonPos[5];
+
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;

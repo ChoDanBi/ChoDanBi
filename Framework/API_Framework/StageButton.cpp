@@ -25,19 +25,29 @@ void StageButton::Initialize()
 	//stage5 (57,47) (275,220)
 
 
-	TransInfo.Position = Vector3(450.0f, 460.0f);
-	TransInfo.Scale = Vector3(64.0f, 64.0f);
+	TransInfo.Position = Vector3(0.0f,0.0f);
+	TransInfo.Scale = Vector3(0.0f, 0.0f);
+
+	for (int i = 0; i < 5; i++)
+	{
+		clear[i] = 0;
+		ButtonPos[i].Scale = Vector3(64.0f, 64.0f);
+	}
+
+	ButtonPos[0].Position = Vector3(450.0f,460.0f);
+	ButtonPos[1] .Position= Vector3(800.0f,470.0f + 1024);
+	ButtonPos[2].Position = Vector3(975.0f,225.0f +1024);
+	ButtonPos[3].Position = Vector3(610.0f,225.0f + 1024);
+	ButtonPos[4].Position = Vector3(275.0f,220.0f + 1024);
 
 	strKey = "Star";
-
-	for (int i = 0; i < 5; ++i)
-		clear[i] = false;
-
+	
 	click = 0;
 }
 
 int StageButton::Update()
 {
+
 	Transform Mouse;
 
 	Mouse.Scale = Vector3(5.0f, 5.0f);
@@ -47,25 +57,32 @@ int StageButton::Update()
 	if (dwKey & KEY_LBUTTON)	click = 1;
 	else							click = 0;
 
-	if (CollisionManager::RectCollision(TransInfo, Mouse) && click == 1)
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	for (int i = 0; i < 5; i++)
+	{
+		if (CollisionManager::RectCollision(ButtonPos[i], Mouse) && click == 1)
+			SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	}
 
 	return 0;
 }
 
 void StageButton::Render(HDC _hdc)
 {
+	for (int i = 0; i < 5; i++)
+	{
 	TransparentBlt(_hdc,
-		int(TransInfo.Position.x - (TransInfo.Scale.x/2)),
-		int(TransInfo.Position.y - (TransInfo.Scale.y/2)),
-		int(TransInfo.Scale.x),
-		int(TransInfo.Scale.y),
+		int(ButtonPos[i].Position.x - (ButtonPos[i].Scale.x/2)),
+		int(ButtonPos[i].Position.y - (ButtonPos[i].Scale.y/2) ),
+		int(ButtonPos[i].Scale.x),
+		int(ButtonPos[i].Scale.y),
 		ImageList[strKey]->GetMemDC(),
-		int(TransInfo.Scale.x * clear[0]),
+		int(ButtonPos[i].Scale.x * clear[i]  ),
 		0,
-		int(TransInfo.Scale.x),
-		int(TransInfo.Scale.y),
+		int(ButtonPos[i].Scale.x),
+		int(ButtonPos[i].Scale.y),
 		RGB(255, 0, 255));
+	}
+	
 	/*
 	Rectangle(_hdc,
 		TransInfo.Position.x - TransInfo.Scale.x / 2,
@@ -82,5 +99,13 @@ void StageButton::Release()
 
 void StageButton::StageClear(int _Clear)
 {
-	clear[_Clear] = true;
+	for (int i = 0; i < _Clear; i++)
+	{
+		if (!clear[i])
+		{
+		clear[i] = true;
+		ButtonPos[i + 1].Position.y -= 1024;
+		break;
+		}
+	}
 }

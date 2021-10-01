@@ -10,7 +10,7 @@ protected:
 
 	// ** 충돌체의  기본 Transform
 	Transform Collider;
-	Vector3 Offset;
+	//Vector3 Offset;
 
 	string strKey;
 	bool Active;

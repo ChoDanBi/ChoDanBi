@@ -1,7 +1,9 @@
 #pragma once
-#include "Bridge.h"
+#include "Scene.h"
+//이게 브릿지가 맞나? 라는 생각이 들지만 흠^^
 
-class StageBridge:public Bridge
+
+class StageBridge:public Scene
 {
 public:
 	virtual void Initialize()PURE;
@@ -11,5 +13,9 @@ public:
 public:
 	StageBridge();
 	virtual ~StageBridge();
+};
+
+class StageBridge
+{
 };
 

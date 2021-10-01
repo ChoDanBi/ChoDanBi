@@ -36,7 +36,7 @@ void Player::Initialize()
 
 
 	Time = GetTickCount64();
-	Offset = Vector3(0.0f, 0.0f);
+	//Offset = Vector3(0.0f, 0.0f);
 
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();

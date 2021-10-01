@@ -28,7 +28,7 @@ void MyButton::Initialize()
 	ButtonOffSet[0] = (int(187.0f / 4));
 	ButtonOffSet[1] = int(ButtonOffSet[0] - 85);
 	Time = GetTickCount64();
-	Offset = Vector3(0.0f, 0.0f);
+	//Offset = Vector3(0.0f, 0.0f);
 }
 
 int MyButton::Update()
@@ -68,7 +68,7 @@ void MyButton::Render(HDC _hdc)
 
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(TransInfo.Position.x - (69.0f / 2) + ButtonOffSet[Horizontal]),
-		int(TransInfo.Position.y - (73.0f / 2) + Offset.y),
+		int(TransInfo.Position.y - (73.0f / 2) ), //Offset.y),
 		int(69.0f), int(73.0f),
 		ImageList["on_off_Button"]->GetMemDC(),
 		int(69.0f * 0), int(73.0f * 0),
