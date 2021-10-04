@@ -87,7 +87,6 @@
     <ClInclude Include="Stage3.h" />
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="Stage5.h" />
-    <ClInclude Include="StageBridge.h" />
     <ClInclude Include="StageButton.h" />
     <ClInclude Include="Stage_Back.h" />
     <ClInclude Include="Struct.h" />
@@ -128,7 +127,6 @@
     <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="Stage4.cpp" />
     <ClCompile Include="Stage5.cpp" />
-    <ClCompile Include="StageBridge.cpp" />
     <ClCompile Include="StageButton.cpp" />
     <ClCompile Include="Stage_Back.cpp" />
   </ItemGroup>

@@ -15,10 +15,7 @@ BaseEnemy::~BaseEnemy()
 }
 
 void BaseEnemy::Initialize()
-{
-    //Pattern = new PatternDash;
-    //Pattern->Initialize();
-    
+{ 
     DrawKey = "BaseEnemy";
 
     Speed = float(rand()% 3 + 2 );
@@ -49,7 +46,6 @@ int BaseEnemy::Update(Transform& _rTransInfo)
 
     TransInfo.Position.x -= Speed;
     RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y +10);
-   //Pattern->Update(TransInfo);
 
     return 0;
 }

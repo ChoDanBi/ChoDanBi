@@ -133,9 +133,6 @@
     <Filter Include="소스 파일\99. Manager\PatternManager">
       <UniqueIdentifier>{8f580cae-d4e5-4773-b16a-f582872ef7dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\01. Scene\Stage\StageBridge">
-      <UniqueIdentifier>{e53f1305-2bd7-4328-8e66-799d1f0d8bd5}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -276,9 +273,6 @@
     <ClInclude Include="Stage4.h">
       <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="StageBridge.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -388,9 +382,6 @@
     </ClCompile>
     <ClCompile Include="Stage4.cpp">
       <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="StageBridge.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

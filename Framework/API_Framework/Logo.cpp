@@ -33,6 +33,9 @@ void Logo::Initialize()
 
 	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");			//94.0f,92.0f
 	ImageList["BaseEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/BaseEnemy.bmp");	//120.0f,111.0f
+	ImageList["NormalEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/NormalEnemy.bmp");	//166.0f,212.0f
+	ImageList["EliteEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/EliteEnemy.bmp");	//212.0f,162.0f
+	ImageList["BossEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/BossEnemy.bmp");	//443.0f,434.0f
 
 
 	//1280,720 + 30
@@ -47,7 +50,12 @@ void Logo::Initialize()
 
 	ImageList["PBullet"] = (new Bitmap)->LoadBmp(L"../Resource/PlayerBullet.bmp"); //128.0f,64.0f
 	ImageList["EBullet"] = (new Bitmap)->LoadBmp(L"../Resource/EnemyBullet.bmp"); //128.0f,64.0f
+
+	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/Heart.bmp"); //384.0f,128.0f
+	ImageList["Clear"] = (new Bitmap)->LoadBmp(L"../Resource/StageClear.bmp"); //759.0f,587.0f
+	ImageList["Over"] = (new Bitmap)->LoadBmp(L"../Resource/GameOver.bmp"); //759.0f,587.0f
 	
+
 
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨

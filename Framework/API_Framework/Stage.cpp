@@ -88,7 +88,7 @@ void Stage::Update()
 		if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 		{
 			Timer = GetTickCount64();
-			EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1100, rand() % 580 + 50)));
+			EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
 		}
 	}
 
