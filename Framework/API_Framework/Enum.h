@@ -9,7 +9,7 @@ enum class SCENEID
 	STAGE2,
 	STAGE3,
 	STAGE4,
-	STAGE5,
+	Ending,
 	EXIT ,
 };
 

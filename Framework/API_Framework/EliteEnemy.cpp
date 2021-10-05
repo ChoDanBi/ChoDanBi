@@ -24,11 +24,11 @@ void EliteEnemy::Initialize()
     Time = GetTickCount64();
 
     TransInfo.Scale = Vector3(212.0f, 162.0f);
-    TransInfo.Position = Vector3(0.0f, 0.0f);
+    TransInfo.Position = Vector3(-1000.0f, -1000.0f);
 
     RealObject->SetScale(TransInfo.Scale);
     RealObject->SetHitPoint(HitPoint);
-    RealObject->SetCollider(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
+    RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 70, TransInfo.Scale.y - 100));
 
 
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
@@ -43,7 +43,7 @@ int EliteEnemy::Update(Transform& _rTransInfo)
     }
 
     TransInfo.Position.x -= Speed;
-    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y + 10);
+    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y + 30);
 
     return 0;
 }

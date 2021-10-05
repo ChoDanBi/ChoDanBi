@@ -3,14 +3,18 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "CollisionManager.h"
+#include "ObjectFactory.h"
 
 #include "Player.h"
 #include "Enemy.h"
 #include "BaseEnemy.h"
-#include "StageButton.h"
+//#include "NormalEnemy.h"
+//#include "EliteEnemy.h"
+//#include "BossEnemy.h"
 
-#include "ObjectFactory.h"
+#include "StageButton.h"
 #include "Stage_Back.h"
+#include "StageResult.h"
 
 
 Stage::Stage() 
@@ -25,132 +29,116 @@ Stage::~Stage()
 
 void Stage::Initialize()
 {
-	SelectButton = ObjectManager::GetInstance()->GetButton();
-
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);	
+//	PlayerHitPoint = m_pPlayer->GetHitPoint();
 
-	PlayerHitPoint = m_pPlayer->GetHitPoint();
 
-	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);
-
-	// ** 오브젝트 매니저에서 총알 리스트를 받아옴. (포인터로...)
+	SelectButton = ObjectManager::GetInstance()->GetButton();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
-
-	// ** 오브젝트 매니저에서 몬스터 리스트를 받아옴. (포인터로...)
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
-
 	EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
+
+
+	for (int y = 0; y < 3; ++y)
+		EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
+
+
+	PlayTime = GetTickCount64();
+	Timer = GetTickCount64();
+	Active = true;
 
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
 	((Stage_Back*)State_Back)->SetStageState(2);
 
-	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
-
-	PlayTime = GetTickCount64();
-	Timer = GetTickCount64();
-
-	for (int y = 0; y < 3; ++y)
-	{
-		//	EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
-		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
-
-	}
-	/*
-	for (int y = 0; y < 4; ++y)
-	{
-		Object* pObj = new Enemy;
-		pObj->Initialize();
-
-		pObj->SetPosition(1000, 100 + y * 150);
-
-		EnemyList->push_back(pObj);
-	}
-*/
+	Result = new StageResult;
+	Result->Initialize();
+	((StageResult*)Result)->SetStageNumber(1);
 
 	ImageList = Object::GetImageList();
 }
 
 void Stage::Update()
 {
-	m_pPlayer->Update();
-
-	for (vector<Object*>::iterator iter = EnemyList->begin();
-		iter != EnemyList->end(); ++iter)
-		(*iter)->Update();
-
-	for (vector<Object*>::iterator iter = EBulletList->begin();
-		iter != EBulletList->end(); ++iter)
-		(*iter)->Update();
-	//=
-	if (PlayTime > GetTickCount64() - 20000)
+	if (Active)
 	{
-		if (Timer + rand() % 1000 + 2000 < GetTickCount64())
-		{
-			Timer = GetTickCount64();
-			EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
-		}
-	}
+		m_pPlayer->Update();
 
-	//==
-	//플레이어는 적탄환과 적에게 맞으면 hp감소
-	//플레이어는 맞았을 시 3초 무적
-	//플레이어 탄환은 적을 없앰
-	//
-	{
-		//플레이어 탄환과 적 충돌
-		for (vector<Object*>::iterator iter = BulletList->begin();
-			iter != BulletList->end(); )
+		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
+			Pb_iter != BulletList->end(); Pb_iter++)
 		{
-			int iResult = (*iter)->Update();
-
-			for (vector<Object*>::iterator iter2 = EnemyList->begin();
-				iter2 != EnemyList->end(); )
-			{
-				if ((*iter2)->GetHitPoint() <= 0)
-				{
-					iter2 = EnemyList->erase(iter2);
-					break;
-				}
-				if (CollisionManager::RectCollision((*iter)->GetCollider(), (*iter2)->GetCollider()))
-				{
-					(*iter2)->CrashHitPoint((*iter)->GetDamage());
-					iResult = 1;
-					break;
-				}
-				else
-					++iter2;
-			}
+			int iResult = (*Pb_iter)->Update();
 			if (iResult == 1)
-				iter = BulletList->erase(iter);
-			else
-				++iter;
+				Pb_iter = BulletList->erase(Pb_iter);
 		}
 
-		//적 탄환과 플레이어 충돌
 		for (vector<Object*>::iterator iter = EBulletList->begin();
 			iter != EBulletList->end(); ++iter)
 		{
+			(*iter)->Update();
 			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
 			{
 				iter = EBulletList->erase(iter);
-				PlayerHitPoint--;
+				m_pPlayer->CrashHitPoint(1);
 				break;
 			}
 		}
+
+		for (vector<Object*>::iterator E_iter = EnemyList->begin();
+			E_iter != EnemyList->end(); )
+		{
+			int iResult = (*E_iter)->Update();
+
+			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
+				Pb_iter != BulletList->end(); )
+			{
+				if ((*E_iter)->GetHitPoint() <= 0)
+				{
+					iResult = 1;
+					break;
+				}
+				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
+				{
+					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
+					Pb_iter = BulletList->erase(Pb_iter);
+					break;
+				}
+				else Pb_iter++;
+			}
+
+			if (iResult == 1)
+				E_iter = EnemyList->erase(E_iter);
+			else
+				++E_iter;
+		}
+
+		if (PlayTime > GetTickCount64() - 25000)
+		{
+			if (Timer + rand() % 1000 + 2000 < GetTickCount64())
+			{
+				Timer = GetTickCount64();
+				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
+			}
+		}
+
+
+		if (PlayTime + 30000 <= GetTickCount64())
+		{
+			((StageButton*)SelectButton)->StageClear(1);
+			Active = false;
+			((StageResult*)Result)->SetClear(true);
+		}
+		if (m_pPlayer->GetHitPoint() <= 0)
+		{
+			Active = false;
+			((StageResult*)Result)->SetClear(false);
+		}
 	}
-	//==
-
-
-	if (PlayTime + 30000 <= GetTickCount64())
+	if (!Active)
 	{
-		((StageButton*)SelectButton)->StageClear(1);
-		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+		Result->Update();
 	}
-
-	//if (EnemyList->empty())
-	if (PlayerHitPoint <= 0)
-		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 }
 
 void Stage::Render(HDC _hdc)
@@ -171,7 +159,10 @@ void Stage::Render(HDC _hdc)
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 
-
+	if (!Active)
+	{
+		Result->Render(ImageList["Buffer"]->GetMemDC());
+	}
 
 	BitBlt(_hdc,
 		0, 0,
@@ -202,34 +193,11 @@ void Stage::Release()
 		BulletList = nullptr;
 	}
 
-	PlayerHitPoint = ((Player*)m_pPlayer)->GetHitPoint();
+	m_pPlayer->SetHitPoint(3);
 }
 
-/*
-for (int y = 0; y < 4; ++y)
-	{
-		EnemyList->push_back(CreateBullet<BaseEnemy>(Vector3(1000, 100 + y * 150)));
-
-	}
-*
-static Object* CreateObject(Vector3 _vPos, Bridge* pBridge)
-	{
-		Object* pObj = new T;
-
-		pObj->Initialize();
-		pObj->SetPosition(_vPos);
-
-		pBridge->SetObject(pObj);
-		pBridge->Initialize();
-
-		((T*)pObj)->SetBridge(pBridge);
-
-		return pObj;
-	}
-	*/
-
 template<typename T>
-Object* Stage::CreateBullet(Vector3 _Pos)
+Object* Stage::CreateEnemy(Vector3 _Pos)
 {
 	Bridge* eBridge = new T;
 

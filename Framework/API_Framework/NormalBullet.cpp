@@ -22,7 +22,7 @@ void NormalBullet::Initialize()
 
 	RealObject->SetDamage(Damage);
 	RealObject->SetScale(TransInfo.Scale);
-	RealObject->SetCollider(TransInfo.Scale);
+	RealObject->SetColliderScale(TransInfo.Scale);
 
 	DrawKey = "PBullet";
 }

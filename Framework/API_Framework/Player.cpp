@@ -25,19 +25,12 @@ void Player::Initialize()
 	Collider.Position = Vector3(0.0f,0.0f);
 	Collider.Scale = Vector3(85.0f, 83.0f);
 
-
 	strKey = "Char";
 	Active = false;
-
-
 	HitPoint = 3;
 	Speed = 3.0f;
 	Frame = 0;
-
-
 	Time = GetTickCount64();
-	//Offset = Vector3(0.0f, 0.0f);
-
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
@@ -83,6 +76,15 @@ void Player::Render(HDC _hdc)
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
 	
+	TransparentBlt(_hdc, 
+		860,
+		570,
+		384 - 128 * (3 - HitPoint),
+		128,
+		ImageList["Heart"]->GetMemDC(),
+		0, 0,
+		384- 128*(3-HitPoint),128,
+		RGB(255, 0, 255));
 	/*Ellipse(_hdc,
 		int(Collider.Position.x - Collider.Scale.x / 2),
 		int(Collider.Position.y - Collider.Scale.y / 2),

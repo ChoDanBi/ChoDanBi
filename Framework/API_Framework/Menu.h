@@ -10,8 +10,6 @@ private:
 	Object* StageBack;
 
 	Transform Buttom1;
-//	Transform Buttom2;
-//	Transform Buttom3;
 	map<string, Bitmap*> ImageList;
 
 public:

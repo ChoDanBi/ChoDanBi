@@ -4,6 +4,8 @@
 class StageResult:public Object
 {
 private:
+	int StageNumber;
+	int Click;
 	bool Clear;
 	Transform Buttom[2];
 
@@ -18,6 +20,8 @@ public:
 public:
 	bool GetClear() { return Clear; }
 	void SetClear(bool _Clear) { Clear = _Clear; }
+
+	void SetStageNumber(int _Num) { StageNumber = _Num; }
 
 public:
 	StageResult();

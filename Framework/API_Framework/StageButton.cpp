@@ -57,11 +57,20 @@ int StageButton::Update()
 	if (dwKey & KEY_LBUTTON)	click = 1;
 	else							click = 0;
 
-	for (int i = 0; i < 5; i++)
-	{
-		if (CollisionManager::RectCollision(ButtonPos[i], Mouse) && click == 1)
-			SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
-	}
+	if (CollisionManager::RectCollision(ButtonPos[0], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+
+	if (CollisionManager::RectCollision(ButtonPos[1], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE2);
+
+	if (CollisionManager::RectCollision(ButtonPos[2], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE3);
+
+	if (CollisionManager::RectCollision(ButtonPos[3], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
+
+	if (CollisionManager::RectCollision(ButtonPos[4], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE5);
 
 	return 0;
 }

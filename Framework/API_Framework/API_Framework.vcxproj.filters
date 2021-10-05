@@ -136,6 +136,12 @@
     <Filter Include="소스 파일\02. Object\UI\StageResult">
       <UniqueIdentifier>{03c3f0db-6728-44c2-9629-9d30a81491b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage\SceneBridge">
+      <UniqueIdentifier>{540a3e75-e300-47f6-918c-f47f51a2bdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Ending">
+      <UniqueIdentifier>{0a30a37a-776f-4af0-a842-8f23b08b533e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -258,14 +264,8 @@
     <ClInclude Include="StageButton.h">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClInclude>
-    <ClInclude Include="PatternDash.h">
-      <Filter>소스 파일\02. Object\EnemyPattern\Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="PatternBridge.h">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage5.h">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Stage2.h">
       <Filter>소스 파일\01. Scene\Stage</Filter>
@@ -278,6 +278,12 @@
     </ClInclude>
     <ClInclude Include="StageResult.h">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneBridge.h">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>소스 파일\01. Scene\Ending</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -371,14 +377,8 @@
     <ClCompile Include="StageButton.cpp">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClCompile>
-    <ClCompile Include="PatternDash.cpp">
-      <Filter>소스 파일\02. Object\EnemyPattern\Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="PatternBridge.cpp">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage5.cpp">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Stage2.cpp">
       <Filter>소스 파일\01. Scene\Stage</Filter>
@@ -391,6 +391,12 @@
     </ClCompile>
     <ClCompile Include="StageResult.cpp">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBridge.cpp">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>소스 파일\01. Scene\Ending</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

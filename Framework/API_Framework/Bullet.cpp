@@ -32,6 +32,10 @@ int Bullet::Update()
 	if (BridgeObject)
 		BridgeObject->Update(TransInfo);
 
+	if (TransInfo.Position.x >= 2000 || TransInfo.Position.x <= -2000
+		|| TransInfo.Position.y >= 2000 || TransInfo.Position.y <= -2000)
+		return 1;
+
 	return 0;
 }
 

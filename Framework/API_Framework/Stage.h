@@ -1,11 +1,8 @@
 #pragma once
-#include "Scene.h"
+#include "SceneBridge.h"
 
-class Object;
-class Stage : public Scene
+class Stage : public SceneBridge
 {
-
-
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
@@ -14,8 +11,7 @@ public:
 
 public:
 	template <typename T>
-	Object* CreateBullet(Vector3 _Pos);
-
+	Object* CreateEnemy(Vector3 _Pos);
 
 public:
 	Stage();

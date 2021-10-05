@@ -52,7 +52,7 @@ public:
 	// ** 크기를 Vector3로 out
 	Vector3 GetScale() { return TransInfo.Scale; }
 
-	void SetCollider(Vector3 _collider) { Collider.Scale = Vector3(_collider); }
+	void SetColliderScale(Vector3 _collider) { Collider.Scale = Vector3(_collider); }
 	// ** 충돌체를 out.
 	RECT GetCollider();
 	

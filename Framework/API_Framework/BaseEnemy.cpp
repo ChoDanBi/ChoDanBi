@@ -24,13 +24,12 @@ void BaseEnemy::Initialize()
     Time = GetTickCount64();
 
     TransInfo.Scale = Vector3(120.0f, 111.0f);
-    TransInfo.Position = Vector3(0.0f, 0.0f);
+    TransInfo.Position = Vector3(-1000.0f, -1000.0f);
 
    RealObject->SetScale(TransInfo.Scale);
    RealObject->SetHitPoint(HitPoint);
-   RealObject->SetCollider(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
+   RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
 
-   
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
 
@@ -52,7 +51,6 @@ int BaseEnemy::Update(Transform& _rTransInfo)
 
 void BaseEnemy::Render(HDC _hdc)
 {
-    
     TransparentBlt(_hdc,
         int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
         int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
@@ -63,20 +61,6 @@ void BaseEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
-    
-    /*
-    Ellipse(_hdc,
-        int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-        int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-        int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
-        int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
-   */
-    /*
-    Ellipse(_hdc,
-        Collider.Position.x - Collider.Scale.x / 2,
-        Collider.Position.y - Collider.Scale.y / 2,
-        Collider.Position.x + Collider.Scale.x / 2,
-        Collider.Position.y + Collider.Scale.y / 2 );*/
 }
 
 void BaseEnemy::Release()

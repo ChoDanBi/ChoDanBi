@@ -6,12 +6,11 @@ class SelectStage: public Scene
 {
 private:
 	int click;
-
 	Transform BackButtom;
-//	Transform StageButtom1;
 
 	Object* s_SelectButton;
 	Object* StageBack;
+
 	map<string, Bitmap*> ImageList;
 
 public:

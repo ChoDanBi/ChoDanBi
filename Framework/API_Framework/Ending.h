@@ -1,8 +1,13 @@
 #pragma once
-#include "SceneBridge.h"
+#include "Scene.h"
 
-class Stage3 :public SceneBridge
+class Object;
+class Ending:public Scene
 {
+private:
+	Object* StageBack;
+	map<string, Bitmap*> ImageList;
+
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
@@ -10,11 +15,7 @@ public:
 	virtual void Release()override;
 
 public:
-	template <typename T>
-	Object* CreateEnemy(Vector3 _Pos);
-
-public:
-	Stage3();
-	virtual ~Stage3();
+	Ending();
+	virtual ~Ending();
 };
 

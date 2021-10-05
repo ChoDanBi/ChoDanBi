@@ -4,6 +4,10 @@
 #include "Menu.h"
 #include "SelectStage.h"
 #include "Stage.h"
+#include "Stage2.h"
+#include "Stage3.h"
+#include "Stage4.h"
+#include "Ending.h"
 
 SceneManager* SceneManager::Instance = nullptr;
 
@@ -28,6 +32,22 @@ void SceneManager::SetScene(SCENEID _SceneID)
 
 	case SCENEID::STAGE:
 		pSceneState = new Stage;
+		break;
+
+	case SCENEID::STAGE2:
+		pSceneState = new Stage2;
+		break;
+
+	case SCENEID::STAGE3:
+		pSceneState = new Stage3;
+		break;
+
+	case SCENEID::STAGE4:
+		pSceneState = new Stage4;
+		break;
+
+	case SCENEID::Ending:
+		pSceneState = new Ending;
 		break;
 
 	case SCENEID::EXIT:
