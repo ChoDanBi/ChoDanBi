@@ -88,6 +88,7 @@
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="Stage5.h" />
     <ClInclude Include="StageButton.h" />
+    <ClInclude Include="StageResult.h" />
     <ClInclude Include="Stage_Back.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="Stage4.cpp" />
     <ClCompile Include="Stage5.cpp" />
     <ClCompile Include="StageButton.cpp" />
+    <ClCompile Include="StageResult.cpp" />
     <ClCompile Include="Stage_Back.cpp" />
   </ItemGroup>
   <ItemGroup>

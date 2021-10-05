@@ -5,9 +5,7 @@ class StageButton:public Object
 {
 private:
 	bool clear[5];
-
 	int click;
-
 	Transform ButtonPos[5];
 
 public:
@@ -25,6 +23,5 @@ public:
 	StageButton();
 	StageButton(const Transform& _rTransInfo): Object(_rTransInfo) {}
 	virtual ~StageButton();
-
 };
 
