@@ -70,7 +70,7 @@ int StageButton::Update()
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
 
 	if (CollisionManager::RectCollision(ButtonPos[4], Mouse) && click == 1)
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE5);
+		SceneManager::GetInstance()->SetScene(SCENEID::END);
 
 	return 0;
 }

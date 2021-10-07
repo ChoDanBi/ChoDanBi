@@ -10,7 +10,6 @@
 #include "BaseEnemy.h"
 #include "NormalEnemy.h"
 #include "EliteEnemy.h"
-//#include "BossEnemy.h"
 
 #include "StageButton.h"
 #include "Stage_Back.h"
@@ -193,7 +192,7 @@ void Stage3::Release()
 		BulletList = nullptr;
 	}
 
-	PlayerHitPoint = ((Player*)m_pPlayer)->GetHitPoint();
+	m_pPlayer->SetHitPoint(3);
 }
 
 template<typename T>

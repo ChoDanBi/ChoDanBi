@@ -31,7 +31,6 @@ void Stage::Initialize()
 {
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);	
-//	PlayerHitPoint = m_pPlayer->GetHitPoint();
 
 
 	SelectButton = ObjectManager::GetInstance()->GetButton();

@@ -177,7 +177,7 @@ void Stage4::Release()
 		BulletList = nullptr;
 	}
 
-	PlayerHitPoint = ((Player*)m_pPlayer)->GetHitPoint();
+	m_pPlayer->SetHitPoint(3);
 }
 
 template<typename T>

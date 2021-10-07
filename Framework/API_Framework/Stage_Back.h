@@ -4,7 +4,7 @@
 class Stage_Back : public Object
 {
 private :
-	string m_strKey[6];
+	string m_strKey[7];
 	int StageState;
 public:
 	virtual void Initialize()override;

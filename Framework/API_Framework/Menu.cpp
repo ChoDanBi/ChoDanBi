@@ -20,8 +20,11 @@ void Menu::Initialize()
 {	
 	click = 0;
 
-	Buttom1.Scale = Vector3(195.0f,70.0f);
-	Buttom1.Position = Vector3(900.0f,645.0f);
+	for (int i = 0; i < 2; i++)
+	{
+	Buttom[i].Scale = Vector3(195.0f,70.0f);
+	Buttom[i].Position = Vector3(900.0f - i * 230,645.0f);
+	}
 	
 
 	StageBack = new Stage_Back;
@@ -42,12 +45,10 @@ void Menu::Update()
 	if (dwKey & KEY_LBUTTON)	click = 1;
 	else							click = 0;
 
-	if (CollisionManager::RectCollision(Buttom1,Mouse) && click == 1)
+	if (CollisionManager::RectCollision(Buttom[0],Mouse) && click == 1)
 		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
-	/*
-	if (GetAsyncKeyState('S'))
-		SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
-*/
+	if (CollisionManager::RectCollision(Buttom[1], Mouse) && click == 1)
+		SceneManager::GetInstance()->SetScene(SCENEID::SHOP);
 }
 
 void Menu::Render(HDC _hdc)
@@ -56,10 +57,10 @@ void Menu::Render(HDC _hdc)
 
 	/*
 	Rectangle(_hdc,
-		Buttom1.Position.x - Buttom1.Scale.x / 2,
-		Buttom1.Position.y - Buttom1.Scale.y / 2,
-		Buttom1.Position.x + Buttom1.Scale.x / 2,
-		Buttom1.Position.y + Buttom1.Scale.y / 2);
+		Buttom[1].Position.x - Buttom[1].Scale.x / 2,
+		Buttom[1].Position.y - Buttom[1].Scale.y / 2,
+		Buttom[1].Position.x + Buttom[1].Scale.x / 2,
+		Buttom[1].Position.y + Buttom[1].Scale.y / 2);
 	
 	Rectangle(_hdc,
 		Mouse.Position.x - Mouse.Scale.x / 2,

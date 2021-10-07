@@ -2,14 +2,12 @@
 #include "Scene.h"
 
 class Object;
-class Menu : public Scene
+class Shop :public Scene
 {
-private:
+ private:
 	int click;
-
 	Object* StageBack;
-
-	Transform Buttom[2];
+	Transform Buttom[5];
 	map<string, Bitmap*> ImageList;
 
 public:
@@ -17,7 +15,9 @@ public:
 	virtual void Update()override;
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
+
 public:
-	Menu();
-	virtual ~Menu();
+	Shop();
+	virtual ~Shop();
+
 };

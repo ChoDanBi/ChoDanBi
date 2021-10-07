@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -17,9 +18,19 @@ using namespace std;
 
 #pragma comment(lib, "msimg32.lib")
 
+/*
+// ** 이미지
+#pragma comment(lib, "msimg32.lib")
+
+
+// ** 동영상
+#include <Vfw.h>
+#pragma comment(lib, "vfw32.lib")
+
+*/
+
 
 extern HWND g_hWnd;
-
 
 
 template <typename T>

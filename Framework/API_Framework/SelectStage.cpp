@@ -39,6 +39,8 @@ void SelectStage::Initialize()
 
 void SelectStage::Update()
 {
+	s_SelectButton->Update();
+
 	Transform Mouse;
 
 	Mouse.Scale = Vector3(10.0f, 10.0f);
@@ -51,7 +53,6 @@ void SelectStage::Update()
 	if (CollisionManager::RectCollision(BackButtom, Mouse) && click == 1)
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 
-	s_SelectButton->Update();
 }
 
 void SelectStage::Render(HDC _hdc)

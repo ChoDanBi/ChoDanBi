@@ -54,6 +54,9 @@ void Logo::Initialize()
 	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/Heart.bmp"); //384.0f,128.0f
 	ImageList["Clear"] = (new Bitmap)->LoadBmp(L"../Resource/StageClear.bmp"); //759.0f,587.0f
 	ImageList["Over"] = (new Bitmap)->LoadBmp(L"../Resource/GameOver.bmp"); //759.0f,587.0f
+
+	ImageList["Bar"] = (new Bitmap)->LoadBmp(L"../Resource/StateBar.bmp"); //759.0f,587.0f
+	ImageList["Shop"] = (new Bitmap)->LoadBmp(L"../Resource/Store.bmp"); //759.0f,587.0f
 	
 
 
@@ -66,14 +69,10 @@ void Logo::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 	if (dwKey & KEY_LBUTTON)
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
-	
-	//if (GetAsyncKeyState('A'))\
-		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 
 void Logo::Render(HDC _hdc)
 {
-    
 }
 
 void Logo::Release()

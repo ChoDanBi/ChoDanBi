@@ -26,6 +26,8 @@ void Stage_Back::Initialize()
 	m_strKey[4] = "Stage3";
 	m_strKey[5] = "Stage4";
 
+	m_strKey[6] = "Shop";
+
 	Active = false;
 }
 

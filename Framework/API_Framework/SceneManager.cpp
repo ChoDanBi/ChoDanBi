@@ -2,6 +2,7 @@
 
 #include "Logo.h"
 #include "Menu.h"
+#include "Shop.h"
 #include "SelectStage.h"
 #include "Stage.h"
 #include "Stage2.h"
@@ -26,6 +27,10 @@ void SceneManager::SetScene(SCENEID _SceneID)
 		pSceneState = new Menu;
 		break;
 
+	case SCENEID::SHOP:
+		pSceneState = new Shop;
+		break;
+
 	case SCENEID::SELECTSTAGE:
 		pSceneState = new SelectStage;
 		break;
@@ -46,7 +51,7 @@ void SceneManager::SetScene(SCENEID _SceneID)
 		pSceneState = new Stage4;
 		break;
 
-	case SCENEID::Ending:
+	case SCENEID::END:
 		pSceneState = new Ending;
 		break;
 

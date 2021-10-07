@@ -4,7 +4,6 @@
 class Logo : public Scene
 {
 private:
-	//Object* StageBack;
 	map<string, Bitmap*> ImageList;
 public:
 	virtual void Initialize()override;

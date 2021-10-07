@@ -4,12 +4,13 @@ enum class SCENEID
 {
 	LOGO ,
 	MENU ,
+	SHOP ,
 	SELECTSTAGE,
 	STAGE,
 	STAGE2,
 	STAGE3,
 	STAGE4,
-	Ending,
+	END,
 	EXIT ,
 };
 

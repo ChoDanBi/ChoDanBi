@@ -85,9 +85,6 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
       <UniqueIdentifier>{c10b6be3-1b0a-465f-b4ef-f7853c366814}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
-      <UniqueIdentifier>{8158568a-9e7a-4da1-884a-02e88d0557b9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\UI">
       <UniqueIdentifier>{2165b69e-4544-4d99-8ffa-c6ba2056bc5a}</UniqueIdentifier>
     </Filter>
@@ -141,6 +138,21 @@
     </Filter>
     <Filter Include="소스 파일\01. Scene\Ending">
       <UniqueIdentifier>{0a30a37a-776f-4af0-a842-8f23b08b533e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Shop">
+      <UniqueIdentifier>{16ccc843-2b38-487b-a30b-6a6b71078e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet">
+      <UniqueIdentifier>{38e82a50-8ed4-404d-b708-f2703b255432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\NormalBullet">
+      <UniqueIdentifier>{8158568a-9e7a-4da1-884a-02e88d0557b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom">
+      <UniqueIdentifier>{39b819ae-c595-42cb-b4bb-797d68403de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\ScoreManager">
+      <UniqueIdentifier>{045e3517-d8b7-4929-a48a-c1954362858a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -235,7 +247,7 @@
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClInclude>
     <ClInclude Include="NormalBullet.h">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\NormalBullet</Filter>
     </ClInclude>
     <ClInclude Include="MyButton.h">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
@@ -284,6 +296,15 @@
     </ClInclude>
     <ClInclude Include="Ending.h">
       <Filter>소스 파일\01. Scene\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>소스 파일\01. Scene\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="Boom.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -348,7 +369,7 @@
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\NormalBullet</Filter>
     </ClCompile>
     <ClCompile Include="MyButton.cpp">
       <Filter>소스 파일\02. Object\UI\MyButton</Filter>
@@ -397,6 +418,15 @@
     </ClCompile>
     <ClCompile Include="Ending.cpp">
       <Filter>소스 파일\01. Scene\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>소스 파일\01. Scene\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="Boom.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

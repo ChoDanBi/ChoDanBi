@@ -39,12 +39,12 @@ int StageResult::Update()
 		if (dwKey & KEY_LBUTTON)	Click = 1;
 		else							Click = 0;
 
-	if (Clear)
-	{
-		if (CollisionManager::RectCollision(Buttom[0], Mouse) && Click == 1)
+		if (Clear)
+		{
+			if (CollisionManager::RectCollision(Buttom[0], Mouse) && Click == 1)
 			SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 
-		if (CollisionManager::RectCollision(Buttom[0], Mouse) && Click == 1)
+		if (CollisionManager::RectCollision(Buttom[1], Mouse) && Click == 1)
 		{
 			switch (StageNumber)
 			{
@@ -58,7 +58,7 @@ int StageResult::Update()
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
 				break;
 			case 4:
-				SceneManager::GetInstance()->SetScene(SCENEID::STAGE5);
+				SceneManager::GetInstance()->SetScene(SCENEID::END);
 				break;
 			}
 		}

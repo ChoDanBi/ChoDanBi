@@ -48,6 +48,7 @@
     <ClInclude Include="API_Framework.h" />
     <ClInclude Include="BaseEnemy.h" />
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Boom.h" />
     <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
@@ -82,7 +83,9 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneBridge.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SelectStage.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Stage2.h" />
     <ClInclude Include="Stage3.h" />
@@ -97,6 +100,7 @@
     <ClCompile Include="API_Framework.cpp" />
     <ClCompile Include="BaseEnemy.cpp" />
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Boom.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -123,7 +127,9 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneBridge.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="SelectStage.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stage2.cpp" />
     <ClCompile Include="Stage3.cpp" />

@@ -29,7 +29,9 @@ void Ending::Update()
 	Mouse.Scale = Vector3(5.0f, 5.0f);
 	Mouse.Position = Vector3(5.0f, 5.0f);
 
-
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	if (dwKey & KEY_LBUTTON)
+		SceneManager::GetInstance()->SetScene(SCENEID::EXIT);
 }
 
 void Ending::Render(HDC _hdc)
