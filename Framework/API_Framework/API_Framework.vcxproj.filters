@@ -154,6 +154,15 @@
     <Filter Include="소스 파일\99. Manager\ScoreManager">
       <UniqueIdentifier>{045e3517-d8b7-4929-a48a-c1954362858a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\InventoryManager">
+      <UniqueIdentifier>{2c3dee22-0068-468e-945e-8d7365d8bb9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern">
+      <UniqueIdentifier>{443e1fd0-418e-4c3b-a07b-b3a7de5ec6a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\UI\StateBar">
+      <UniqueIdentifier>{5c83d5d5-eaf8-4231-b6ae-a34e9466eccf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -306,6 +315,15 @@
     <ClInclude Include="ScoreManager.h">
       <Filter>소스 파일\99. Manager\ScoreManager</Filter>
     </ClInclude>
+    <ClInclude Include="InventoryManager.h">
+      <Filter>소스 파일\99. Manager\InventoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalPattern.h">
+      <Filter>소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="StateBar.h">
+      <Filter>소스 파일\02. Object\UI\StateBar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -427,6 +445,15 @@
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
       <Filter>소스 파일\99. Manager\ScoreManager</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryManager.cpp">
+      <Filter>소스 파일\99. Manager\InventoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalPattern.cpp">
+      <Filter>소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="StateBar.cpp">
+      <Filter>소스 파일\02. Object\UI\StateBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

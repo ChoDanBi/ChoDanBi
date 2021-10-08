@@ -3,6 +3,9 @@
 
 class PatternBridge :public Bridge
 {
+protected:
+	float Speed;
+
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& _rTransInfo)PURE;

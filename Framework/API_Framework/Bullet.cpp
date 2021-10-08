@@ -17,7 +17,7 @@ Bullet::~Bullet()
 void Bullet::Initialize()
 {
 	TransInfo.Position = Vector3(0.0f, 0.0f);
-	TransInfo.Direction = Vector3(1.0f, 0.0f);
+	TransInfo.Direction = Vector3(1.0f, 1.0f);
 	TransInfo.Scale = Vector3(30.0f, 30.0f);
 
 	BridgeObject = NULL;

@@ -18,7 +18,15 @@ enum class SKILL
 {
 	ATTACK,
 	Dash,
-	PATTERN1,
+	NORMALPATTERN,
 	PATTERN2,
 	PATTERN3
+};
+
+enum class INVENTORY
+{
+	DAMAGE,
+	SPEED,
+	BOMB,
+	SHIELD
 };

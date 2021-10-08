@@ -2,6 +2,7 @@
 #include "InputManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "InventoryManager.h"
 
 #include "Bullet.h"
 #include "NormalBullet.h"
@@ -28,7 +29,7 @@ void Player::Initialize()
 	strKey = "Char";
 	Active = false;
 	HitPoint = 3;
-	Speed = 3.0f;
+	Speed = InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED);
 	Frame = 0;
 	Time = GetTickCount64();
 

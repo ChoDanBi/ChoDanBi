@@ -20,7 +20,6 @@ protected:
 
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
-	//Object* Target;
 
 public:
 	virtual void Initialize()PURE;
@@ -32,6 +31,8 @@ public:
 public:
 	// ** map으로 생성된 Image 보관 컨테이너틑 Setting
 	static void SetImageList(const map<string, Bitmap*>& _ImageList) { ImageList = _ImageList; }
+
+
 
 	// ** map으로 생성된 Image 보관 컨테이너틑 out
 	static map<string, Bitmap*> GetImageList() { return ImageList; }

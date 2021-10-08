@@ -7,7 +7,7 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "InputManager.h"
-
+#include "InventoryManager.h"
 
 Logo::Logo()
 {
@@ -22,6 +22,15 @@ Logo::~Logo()
 void Logo::Initialize()
 {
 	ObjectManager::GetInstance()->Initialize();
+
+	map<INVENTORY, int> Inventory;
+
+	Inventory.insert(make_pair(INVENTORY::DAMAGE, 1));
+	Inventory.insert(make_pair(INVENTORY::SPEED, 3));
+	Inventory.insert(make_pair(INVENTORY::BOMB, 0));
+	Inventory.insert(make_pair(INVENTORY::SHIELD, 0));
+
+	InventoryManager::GetInstance()->SetInventory(Inventory);
 
 	ObjectManager::GetInstance()->SetPlayer(
 		ObjectFactory<Player>::CreateObject() );
@@ -58,10 +67,10 @@ void Logo::Initialize()
 	ImageList["Bar"] = (new Bitmap)->LoadBmp(L"../Resource/StateBar.bmp"); //759.0f,587.0f
 	ImageList["Shop"] = (new Bitmap)->LoadBmp(L"../Resource/Store.bmp"); //759.0f,587.0f
 	
-
-
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨
+
+	
 }
 
 void Logo::Update()

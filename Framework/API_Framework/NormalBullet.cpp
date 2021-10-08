@@ -1,4 +1,5 @@
 #include "NormalBullet.h"
+#include "InventoryManager.h"
 #include "Object.h"
 
 NormalBullet::NormalBullet()
@@ -18,7 +19,7 @@ void NormalBullet::Initialize()
 	TransInfo.Scale = Vector3(15.0f, 12.0f);
 
 	Speed = 8.0f;
-	Damage = 1;
+	Damage = InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE);
 
 	RealObject->SetDamage(Damage);
 	RealObject->SetScale(TransInfo.Scale);
@@ -30,14 +31,12 @@ void NormalBullet::Initialize()
 int NormalBullet::Update(Transform& _rTransInfo)
 {
 	_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed;
-	_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed;
+	_rTransInfo.Position.y += _rTransInfo.Direction.y * 0;
 
 	RealObject->SetColliderPosition(_rTransInfo.Position.x,_rTransInfo.Position.y);
 
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
-
-	
 
 	return 0;
 }

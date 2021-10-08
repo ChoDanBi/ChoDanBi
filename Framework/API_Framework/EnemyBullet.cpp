@@ -26,8 +26,8 @@ void EnemyBullet::Initialize()
 
 int EnemyBullet::Update(Transform& _rTransInfo)
 {
-    _rTransInfo.Position.x -= _rTransInfo.Direction.x * Speed;
-    _rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed;
+    _rTransInfo.Position.x -= _rTransInfo.Direction.x * Speed ;
+    _rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed ;
 
     RealObject->SetColliderPosition(_rTransInfo.Position.x, _rTransInfo.Position.y);
 

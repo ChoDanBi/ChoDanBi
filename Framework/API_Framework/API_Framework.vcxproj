@@ -65,6 +65,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="InventoryManager.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
@@ -72,6 +73,7 @@
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="NormalEnemy.h" />
+    <ClInclude Include="NormalPattern.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -93,6 +95,7 @@
     <ClInclude Include="StageButton.h" />
     <ClInclude Include="StageResult.h" />
     <ClInclude Include="Stage_Back.h" />
+    <ClInclude Include="StateBar.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -111,6 +114,7 @@
     <ClCompile Include="EnemyBridge.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="InventoryManager.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="MathManager.cpp" />
@@ -118,6 +122,7 @@
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
+    <ClCompile Include="NormalPattern.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PatternBridge.cpp" />
@@ -137,6 +142,7 @@
     <ClCompile Include="StageButton.cpp" />
     <ClCompile Include="StageResult.cpp" />
     <ClCompile Include="Stage_Back.cpp" />
+    <ClCompile Include="StateBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_Framework.rc" />

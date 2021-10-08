@@ -5,7 +5,7 @@
 #include "InputManager.h"
 #include "CollisionManager.h"
 #include "ScoreManager.h"
-
+#include "InventoryManager.h"
 
 Shop::Shop()
 {
@@ -56,13 +56,37 @@ void Shop::Update()
 
 	if (CollisionManager::RectCollision(Buttom[0], Mouse) && click == 1)
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
+
+	// 4 3
+	// 1 2
+
+	if (CollisionManager::RectCollision(Buttom[4], Mouse) && click == 1)
+	{
+		if(InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) < 6)
+			InventoryManager::GetInstance()->AddItem(INVENTORY::DAMAGE);
+	}
+	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
+	{
+		if (InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) < 6)
+			InventoryManager::GetInstance()->AddItem(INVENTORY::SPEED);
+	}
+	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
+	{
+			InventoryManager::GetInstance()->AddItem(INVENTORY::BOMB);
+	}
+	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
+	{
+			InventoryManager::GetInstance()->AddItem(INVENTORY::SHIELD);
+	}
+
+
 }
 
 void Shop::Render(HDC _hdc)
 {
 	StageBack->Render(ImageList["Buffer"]->GetMemDC());
 
-	ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
+//	ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
 
 	BitBlt(_hdc,
 		0, 0,
