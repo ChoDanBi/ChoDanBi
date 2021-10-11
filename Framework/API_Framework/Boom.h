@@ -3,6 +3,8 @@
 
 class Boom:public BulletBridge
 {
+private:
+
 public:
 	virtual void Initialize()override;
 	virtual int Update(Transform& _rTransInfo)override;

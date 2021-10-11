@@ -6,6 +6,7 @@
 
 #include "Bullet.h"
 #include "NormalBullet.h"
+#include "Boom.h"
 
 
 Player::Player()
@@ -48,6 +49,12 @@ int Player::Update()
 		if (Frame == 0) Frame = 1;
 		else if (Frame == 1) Frame = 0;
 	}
+	if (GetAsyncKeyState('Q') && InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB) > 0)
+	{
+		//InventoryManager::GetInstance()->UseItem(INVENTORY::BOMB);
+		//BulletList->push_back(CreateBullet<Boom>());
+	}
+
 
 	if (GetAsyncKeyState('W'))			//À§·Î
 		TransInfo.Position.y -= Speed;

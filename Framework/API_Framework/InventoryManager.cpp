@@ -39,3 +39,12 @@ void InventoryManager::UseItem(INVENTORY _Item)
 		(*iter).second--;
 	}
 }
+
+void InventoryManager::UseItem(INVENTORY _Item, int Count)
+{
+	map<INVENTORY, int>::iterator iter = Inventory.find(_Item);
+	if (iter != Inventory.end())
+	{
+		(*iter).second -= Count;
+	}
+}

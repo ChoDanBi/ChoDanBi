@@ -25,6 +25,7 @@ enum class SKILL
 
 enum class INVENTORY
 {
+	GOLD,
 	DAMAGE,
 	SPEED,
 	BOMB,

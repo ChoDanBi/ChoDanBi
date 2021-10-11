@@ -62,21 +62,37 @@ void Shop::Update()
 
 	if (CollisionManager::RectCollision(Buttom[4], Mouse) && click == 1)
 	{
-		if(InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) < 6)
+		if (InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) < 6
+			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >=
+			InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3)
+		{
 			InventoryManager::GetInstance()->AddItem(INVENTORY::DAMAGE);
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD,
+				InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3);
+		}
 	}
 	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
 	{
-		if (InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) < 6)
+		if (InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) < 6
+			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >=
+			InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) * 3)
+		{
 			InventoryManager::GetInstance()->AddItem(INVENTORY::SPEED);
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD,
+				InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) * 3);
+		}
 	}
-	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
+	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1
+		&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= 10)
 	{
 			InventoryManager::GetInstance()->AddItem(INVENTORY::BOMB);
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 	}
-	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
+	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1
+		&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= 10)
 	{
 			InventoryManager::GetInstance()->AddItem(INVENTORY::SHIELD);
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 	}
 
 
