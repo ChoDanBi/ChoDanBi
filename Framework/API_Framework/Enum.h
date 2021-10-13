@@ -30,3 +30,9 @@ enum class INVENTORY
 	BOMB,
 	SHIELD
 };
+
+enum class ANIMATION
+{
+	UPSWING,
+	DOWNSWING
+};

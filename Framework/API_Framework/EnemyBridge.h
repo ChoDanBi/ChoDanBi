@@ -4,9 +4,14 @@
 class EnemyBridge : public Bridge
 {
 protected:
-	float Speed;
 	int HitPoint;
+	int Speed;
+	int Frame;
+
+	ANIMATION Animation;
+
 	ULONGLONG Time;
+	ULONGLONG a_Time;
 	vector<Object*>* EBulletList;
 
 public:

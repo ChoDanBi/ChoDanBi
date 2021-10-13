@@ -22,9 +22,13 @@ void BossEnemy::Initialize()
     Speed = float(10);
     HitPoint = 10;
 
+    Frame = 0;
+    Animation = ANIMATION::UPSWING;
+    a_Time = GetTickCount64();
+
     Time = GetTickCount64();
 
-    TransInfo.Scale = Vector3(443.0f, 434.0f);
+    TransInfo.Scale = Vector3(400.0f, 625.0f);
     TransInfo.Position = Vector3(-1000.0f,-1000.0f);
 
     RealObject->SetScale(TransInfo.Scale);
@@ -37,6 +41,23 @@ void BossEnemy::Initialize()
 
 int BossEnemy::Update(Transform& _rTransInfo)
 {
+    if (a_Time + 200 < GetTickCount64())
+    {
+        a_Time = GetTickCount64();
+        switch (Animation)
+        {
+        case ANIMATION::UPSWING:
+            if (Frame <= 1)
+                Animation = ANIMATION::DOWNSWING;
+            Frame--;
+            break;
+        case ANIMATION::DOWNSWING:
+            if (Frame >= 1)
+                Animation = ANIMATION::UPSWING;
+            Frame++;
+            break;
+        }
+    }
 
     RealObject->SetColliderPosition(TransInfo.Position.x+50, TransInfo.Position.y + 90);
     return 0;
@@ -50,7 +71,8 @@ void BossEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         ImageList[DrawKey]->GetMemDC(),
-        0, 0,
+        int(TransInfo.Scale.x * Frame),
+        0,
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));

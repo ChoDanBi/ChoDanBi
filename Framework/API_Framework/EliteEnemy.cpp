@@ -21,10 +21,14 @@ void EliteEnemy::Initialize()
     Speed = 3.0f;
     HitPoint = 9;
 
+    Frame = 0;
+    Animation = ANIMATION::UPSWING;
+    a_Time = GetTickCount64();
+
     Time = GetTickCount64();
 
-    TransInfo.Scale = Vector3(212.0f, 162.0f);
-    TransInfo.Position = Vector3(-1000.0f, -1000.0f);
+    TransInfo.Scale = Vector3(150.0f, 200.0f);
+    TransInfo.Position = Vector3(0.0f, 0.0f);
 
     RealObject->SetScale(TransInfo.Scale);
     RealObject->SetHitPoint(HitPoint);
@@ -37,6 +41,24 @@ void EliteEnemy::Initialize()
 
 int EliteEnemy::Update(Transform& _rTransInfo)
 {
+    if (a_Time + 200 < GetTickCount64())
+    {
+        a_Time = GetTickCount64();
+        switch (Animation)
+        {
+        case ANIMATION::UPSWING:
+            if (Frame <= 1)
+                Animation = ANIMATION::DOWNSWING;
+            Frame--;
+            break;
+        case ANIMATION::DOWNSWING:
+            if (Frame >= 1)
+                Animation = ANIMATION::UPSWING;
+            Frame++;
+            break;
+        }
+    }
+
     if (TransInfo.Position.y < 0)
         TransInfo.Position.y += Speed;
     else if (TransInfo.Position.y > 720)
@@ -83,7 +105,8 @@ void EliteEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         ImageList[DrawKey]->GetMemDC(),
-        0, 0,
+        int(TransInfo.Scale.x * Frame),
+        0,
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));

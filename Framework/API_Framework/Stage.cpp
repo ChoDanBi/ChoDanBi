@@ -134,7 +134,7 @@ void Stage::Update()
 		}
 
 
-		if (PlayTime + 1000 <= GetTickCount64())
+		if (PlayTime + 30000 <= GetTickCount64())
 		{
 			((StageButton*)SelectButton)->StageClear(1);
 			Active = false;

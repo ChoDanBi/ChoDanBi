@@ -20,10 +20,14 @@ void NormalEnemy::Initialize()
     Speed = 8.0f;
     HitPoint = 5;
 
+    Frame = 0;
+    Animation = ANIMATION::UPSWING;
+    a_Time = GetTickCount64();
+
     Time = GetTickCount64();
 
-    TransInfo.Scale = Vector3(166.0f, 212.0f);
-    TransInfo.Position = Vector3(-1000.0f, -1000.0f);
+    TransInfo.Scale = Vector3(150.0f, 200.0f);
+    TransInfo.Position = Vector3(0.0f,0.0f);
 
     RealObject->SetScale(TransInfo.Scale);
     RealObject->SetHitPoint(HitPoint);
@@ -36,6 +40,24 @@ void NormalEnemy::Initialize()
 
 int NormalEnemy::Update(Transform& _rTransInfo)
 {
+    if (a_Time + 200 < GetTickCount64())
+    {
+        a_Time = GetTickCount64();
+        switch (Animation)
+        {
+        case ANIMATION::UPSWING:
+            if (Frame <= 1)
+                Animation = ANIMATION::DOWNSWING;
+            Frame--;
+            break;
+        case ANIMATION::DOWNSWING:
+            if (Frame >= 1)
+                Animation = ANIMATION::UPSWING;
+            Frame++;
+            break;
+        }
+    }
+
     TransInfo.Position.x -= Speed;
 
     RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y - 10);
@@ -51,7 +73,8 @@ void NormalEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         ImageList[DrawKey]->GetMemDC(),
-        0, 0,
+        int(TransInfo.Scale.x * Frame),
+        0,
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
