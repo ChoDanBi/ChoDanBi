@@ -18,7 +18,7 @@ void EliteEnemy::Initialize()
 {
     DrawKey = "EliteEnemy";
 
-    Speed = 4.0f;
+    Speed = 3.0f;
     HitPoint = 9;
 
     Time = GetTickCount64();
@@ -30,17 +30,44 @@ void EliteEnemy::Initialize()
     RealObject->SetHitPoint(HitPoint);
     RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 70, TransInfo.Scale.y - 100));
 
-
+    MTime = GetTickCount64();
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
+    Move = 2;
 }
 
 int EliteEnemy::Update(Transform& _rTransInfo)
 {
-    if (Time + 1000 <= GetTickCount64())
+    if (TransInfo.Position.y < 0)
+        TransInfo.Position.y += Speed;
+    else if (TransInfo.Position.y > 720)
+        TransInfo.Position.y -= Speed;
+
+    if (MTime + rand() % 4000 + 1000 < GetTickCount64())
+    {
+        MTime = GetTickCount64();
+        Move = rand() % 2 + 0;
+    }
+
+    switch (Move)
+    {
+    case 0:
+        TransInfo.Position.y -= Speed;
+        break;
+    case 1:
+        TransInfo.Position.y += Speed;
+        break;
+    case 2:
+        TransInfo.Position.y += 0;
+        break;
+    }
+
+    if (Time + 1500 <= GetTickCount64())
     {
         Time = GetTickCount64();
-        EBulletList->push_back(CreateBullet<EnemyBullet>());
+       for (int i = 0; i < 3; i++)
+         EBulletList->push_back(CreateBullet<EnemyBullet>(i));
     }
+
 
     TransInfo.Position.x -= Speed;
     RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y + 30);
@@ -67,11 +94,11 @@ void EliteEnemy::Release()
 }
 
 template<typename T>
-Object* EliteEnemy::CreateBullet()
+Object* EliteEnemy::CreateBullet(int _Pattern)
 {
     Bridge* pBridge = new T;
 
-    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,_Pattern);
 
     return pBullet;
 }

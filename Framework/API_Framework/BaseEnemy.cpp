@@ -18,7 +18,7 @@ void BaseEnemy::Initialize()
 { 
     DrawKey = "BaseEnemy";
 
-    Speed = float(rand()% 3 + 2 );
+    Speed = 2.0f;
     HitPoint = 3;
 
     Time = GetTickCount64();
@@ -36,6 +36,7 @@ void BaseEnemy::Initialize()
 int BaseEnemy::Update(Transform& _rTransInfo)
 {
     //_rTransInfo = TransInfo; //이런식으로 넘기는 대신 setter을 이용해도 된다
+    
 
     if (Time + rand() % 1000 + 3000 <= GetTickCount64())
     {

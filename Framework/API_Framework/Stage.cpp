@@ -13,6 +13,7 @@
 #include "StageButton.h"
 #include "Stage_Back.h"
 #include "StageResult.h"
+#include "Effect.h"
 
 
 Stage::Stage() 
@@ -36,10 +37,8 @@ void Stage::Initialize()
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 
-
 	for (int y = 0; y < 3; ++y)
 		EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
-
 
 	PlayTime = GetTickCount64();
 	Timer = GetTickCount64();
@@ -98,6 +97,7 @@ void Stage::Update()
 				}
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
+					//EffectList->push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 					Pb_iter = BulletList->erase(Pb_iter);
 					break;
@@ -111,6 +111,19 @@ void Stage::Update()
 				++E_iter;
 		}
 
+		/*
+		if (EffectList->empty())
+		{
+			for (vector<Object*>::iterator iter = EffectList->begin();
+				iter != EffectList->end(); iter++)
+			{
+				(*iter)->Update();
+				if (!(*iter)->GetActive())
+					EffectList->erase(iter);
+			}
+		}
+		*/
+
 		if (PlayTime > GetTickCount64() - 25000)
 		{
 			if (Timer + rand() % 1000 + 2000 < GetTickCount64())
@@ -121,7 +134,7 @@ void Stage::Update()
 		}
 
 
-		if (PlayTime + 30000 <= GetTickCount64())
+		if (PlayTime + 1000 <= GetTickCount64())
 		{
 			((StageButton*)SelectButton)->StageClear(1);
 			Active = false;
@@ -154,6 +167,15 @@ void Stage::Render(HDC _hdc)
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+
+	/*
+	if (EffectList->empty())
+	{
+		for (vector<Object*>::iterator iter = EffectList->begin();
+			iter != EffectList->end(); iter++)
+			(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+	}
+	*/
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 

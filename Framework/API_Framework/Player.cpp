@@ -22,10 +22,10 @@ Player::~Player()
 void Player::Initialize()
 {
 	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
-	TransInfo.Scale = Vector3(94.0f, 92.0f);
+	TransInfo.Scale = Vector3(63.5f, 63.0f);
 
 	Collider.Position = Vector3(0.0f,0.0f);
-	Collider.Scale = Vector3(85.0f, 83.0f);
+	Collider.Scale = Vector3(56.0f, 56.0f);
 
 	strKey = "Char";
 	Active = false;
@@ -39,6 +39,15 @@ void Player::Initialize()
 
 int Player::Update()
 {
+	if (TransInfo.Position.x < 0)
+		TransInfo.Position.x += Speed;
+	else if (TransInfo.Position.x > 1270)
+		TransInfo.Position.x -= Speed;
+
+	if (TransInfo.Position.y < 0)
+		TransInfo.Position.y += Speed;
+	else if (TransInfo.Position.y > 720)
+		TransInfo.Position.y -= Speed;
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -93,11 +102,14 @@ void Player::Render(HDC _hdc)
 		0, 0,
 		384- 128*(3-HitPoint),128,
 		RGB(255, 0, 255));
-	/*Ellipse(_hdc,
+
+	/*
+	Ellipse(_hdc,
 		int(Collider.Position.x - Collider.Scale.x / 2),
 		int(Collider.Position.y - Collider.Scale.y / 2),
 		int(Collider.Position.x + Collider.Scale.x / 2),
-		int(Collider.Position.y + Collider.Scale.y / 2) );*/
+		int(Collider.Position.y + Collider.Scale.y / 2) );
+	*/
 }
 
 void Player::Release()

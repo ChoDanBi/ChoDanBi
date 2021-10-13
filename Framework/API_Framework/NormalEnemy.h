@@ -12,9 +12,6 @@ public:
 	virtual void Render(HDC _hdc)override;
 	virtual void Release()override;
 
-public:
-	template <typename T>
-	Object* CreateBullet(int _Pattern);
 
 public:
 	NormalEnemy();

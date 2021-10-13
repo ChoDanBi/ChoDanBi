@@ -5,6 +5,8 @@ class EliteEnemy :public EnemyBridge
 {
 public:
 	//	Bridge* Pattern;
+	ULONGLONG MTime;
+	int Move;
 
 public:
 	virtual void Initialize()override;
@@ -14,7 +16,7 @@ public:
 
 public:
 	template <typename T>
-	Object* CreateBullet();
+	Object* CreateBullet(int _Pattern);
 
 public:
 	EliteEnemy();

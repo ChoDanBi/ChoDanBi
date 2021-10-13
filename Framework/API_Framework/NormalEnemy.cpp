@@ -17,7 +17,7 @@ NormalEnemy::~NormalEnemy()
 void NormalEnemy::Initialize()
 {
     DrawKey = "NormalEnemy";
-    Speed = 3.0f;
+    Speed = 8.0f;
     HitPoint = 5;
 
     Time = GetTickCount64();
@@ -36,14 +36,6 @@ void NormalEnemy::Initialize()
 
 int NormalEnemy::Update(Transform& _rTransInfo)
 {
-    if (Time + 1500 <= GetTickCount64())
-    {
-        Time = GetTickCount64();
-        EBulletList->push_back(CreateBullet<EnemyBullet>(0));
-        EBulletList->push_back(CreateBullet<EnemyBullet>(1));
-        EBulletList->push_back(CreateBullet<EnemyBullet>(2));
-    }
-
     TransInfo.Position.x -= Speed;
 
     RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y - 10);
@@ -69,12 +61,3 @@ void NormalEnemy::Release()
 {
 }
 
-template<typename T>
-Object* NormalEnemy::CreateBullet(int _Pattern)
-{
-    Bridge* pBridge = new T;
-    //((EnemyBullet*)pBridge)->SetPattern(1);
-    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,_Pattern);
-
-    return pBullet;
-}

@@ -117,8 +117,8 @@ void Stage2::Update()
 			if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 			{
 				Timer = GetTickCount64();
-				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
-				EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1300, rand() % 580 + 50)));
+				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1500, rand() % 580 + 50)));
+				EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1500, rand() % 580 + 50)));
 			}
 		}
 

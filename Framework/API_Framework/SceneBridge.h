@@ -6,7 +6,7 @@ class SceneBridge: public Scene
 {
 protected:
 	bool Active;
-//	int PlayerHitPoint;
+
 	ULONGLONG PlayTime;
 	ULONGLONG Timer;
 
@@ -18,6 +18,8 @@ protected:
 	vector<Object*>* BulletList;
 	vector<Object*>* EnemyList;
 	vector<Object*>* EBulletList;
+	vector<Object*>* EffectList;
+	
 
 	map<string, Bitmap*> ImageList;
 

@@ -22,6 +22,9 @@ void Boom::Initialize()
 	RealObject->SetColliderScale(TransInfo.Scale);
 
 	DrawKey = "Bomb";
+
+	Frame = 0;
+	Time = GetTickCount64();
 }
 
 int Boom::Update(Transform& _rTransInfo)
@@ -34,7 +37,7 @@ int Boom::Update(Transform& _rTransInfo)
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
 
-    return 0;
+    return 2;
 }
 
 void Boom::Render(HDC _hdc)

@@ -41,7 +41,7 @@ void Stage3::Initialize()
 
 	for (int y = 0; y < 3; ++y)
 		EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
-	EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 700 + 150)));
+	EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 600 + 150)));
 
 	PlayTime = GetTickCount64();
 	Timer = GetTickCount64();
@@ -118,8 +118,9 @@ void Stage3::Update()
 			if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 			{
 				Timer = GetTickCount64();
-				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
-				EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1300, rand() % 580 + 50)));
+				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1500, rand() % 580 + 50)));
+				EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1500, rand() % 580 + 50)));
+				EnemyList->push_back(CreateEnemy<EliteEnemy>(Vector3(1500, rand() % 580 + 50)));
 			}
 		}
 

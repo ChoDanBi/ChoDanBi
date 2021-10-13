@@ -41,7 +41,7 @@ void Logo::Initialize()
 
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
 
-	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char.bmp");			//94.0f,92.0f
+	ImageList["Char"] = (new Bitmap)->LoadBmp(L"../Resource/Char_.bmp");			//94.0f,92.0f
 	ImageList["BaseEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/BaseEnemy.bmp");	//120.0f,111.0f
 	ImageList["NormalEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/NormalEnemy.bmp");	//166.0f,212.0f
 	ImageList["EliteEnemy"] = (new Bitmap)->LoadBmp(L"../Resource/EliteEnemy.bmp");	//212.0f,162.0f

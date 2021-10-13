@@ -163,6 +163,9 @@
     <Filter Include="소스 파일\02. Object\UI\StateBar">
       <UniqueIdentifier>{5c83d5d5-eaf8-4231-b6ae-a34e9466eccf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\UI\Effect">
+      <UniqueIdentifier>{2c1cfdbf-379c-4aa2-b12c-d37237ebbb8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -324,6 +327,9 @@
     <ClInclude Include="StateBar.h">
       <Filter>소스 파일\02. Object\UI\StateBar</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>소스 파일\02. Object\UI\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -454,6 +460,9 @@
     </ClCompile>
     <ClCompile Include="StateBar.cpp">
       <Filter>소스 파일\02. Object\UI\StateBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>소스 파일\02. Object\UI\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

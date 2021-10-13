@@ -19,7 +19,7 @@ void EnemyBullet::Initialize()
         e_Pattern[i].Direction = Vector3(1.0f, 0.2f * (1 - i));
     }
 
-    Speed = 5.0f;
+    Speed = 8.0f;
     Damage = 1;
     PatternNumber = 0;
 
@@ -34,7 +34,6 @@ int EnemyBullet::Update(Transform& _rTransInfo)
 {
     _rTransInfo.Position.x -= _rTransInfo.Direction.x * Speed ;
     _rTransInfo.Position.y -= e_Pattern[PatternNumber].Direction.y * Speed ;
-    //_rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed ;
 
     RealObject->SetColliderPosition(_rTransInfo.Position.x, _rTransInfo.Position.y);
 
