@@ -51,6 +51,22 @@ public:
 		return pObj;
 	}
 
+	static Object* CreateObject(Vector3 _vPos, Bridge* pBridge,int _PatternNumber)
+	{
+		Object* pObj = new T;
+
+		pObj->Initialize();
+		pObj->SetPosition(_vPos);
+
+		pBridge->SetObject(pObj);
+		pBridge->Initialize();
+		pBridge->SetPosintion(_vPos);
+		pBridge->SetPattern(_PatternNumber);
+
+		((T*)pObj)->SetBridge(pBridge);
+
+		return pObj;
+	}
 	/*
 template<typename T>
 static Object* CreateBullet(Vector3 _vPos)

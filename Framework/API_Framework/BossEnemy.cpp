@@ -20,7 +20,7 @@ void BossEnemy::Initialize()
     DrawKey = "BossEnemy";
 
     Speed = float(10);
-    HitPoint = 500;
+    HitPoint = 10;
 
     Time = GetTickCount64();
 

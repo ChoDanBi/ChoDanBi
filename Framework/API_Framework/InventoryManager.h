@@ -21,6 +21,7 @@ public:
 
 	int GetItem(INVENTORY _Item);
 	void AddItem(INVENTORY _Item);
+	void AddItem(INVENTORY _Item,int _Count);
 	void UseItem(INVENTORY _Item);
 	void UseItem(INVENTORY _Item,int Count);
 

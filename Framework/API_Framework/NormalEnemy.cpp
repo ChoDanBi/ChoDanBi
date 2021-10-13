@@ -39,7 +39,9 @@ int NormalEnemy::Update(Transform& _rTransInfo)
     if (Time + 1500 <= GetTickCount64())
     {
         Time = GetTickCount64();
-        EBulletList->push_back(CreateBullet<EnemyBullet>());
+        EBulletList->push_back(CreateBullet<EnemyBullet>(0));
+        EBulletList->push_back(CreateBullet<EnemyBullet>(1));
+        EBulletList->push_back(CreateBullet<EnemyBullet>(2));
     }
 
     TransInfo.Position.x -= Speed;
@@ -68,11 +70,11 @@ void NormalEnemy::Release()
 }
 
 template<typename T>
-Object* NormalEnemy::CreateBullet()
+Object* NormalEnemy::CreateBullet(int _Pattern)
 {
     Bridge* pBridge = new T;
-
-    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+    //((EnemyBullet*)pBridge)->SetPattern(1);
+    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,_Pattern);
 
     return pBullet;
 }

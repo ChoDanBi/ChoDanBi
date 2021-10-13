@@ -4,7 +4,7 @@
 class StateBar :public Object
 {
 private:
-	Transform TransInfo;
+	Transform TransInform[2];
 
 public:
 	virtual void Initialize()override;

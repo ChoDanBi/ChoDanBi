@@ -72,7 +72,7 @@ Object* BaseEnemy::CreateBullet()
 {
     Bridge* pBridge = new T;
 
-    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,1);
 
     return pBullet;
 }

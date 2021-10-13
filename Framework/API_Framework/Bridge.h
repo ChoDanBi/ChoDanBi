@@ -6,6 +6,7 @@ class Bitmap;
 class Bridge
 {
 protected:
+	int PatternNumber;
 	string DrawKey;
 	Object* RealObject;
 	Transform TransInfo;
@@ -25,6 +26,8 @@ public:
 	static map<string, Bitmap*> GetImageList() { return ImageList; }
 
 	void SetPosition(Vector3 _position) { TransInfo.Position = _position; }
+	void SetPattern(int _PatterNum) { PatternNumber = _PatterNum; }
+
 public:
 	Bridge();
 	virtual ~Bridge();

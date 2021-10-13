@@ -19,8 +19,7 @@ enum class SKILL
 	ATTACK,
 	Dash,
 	NORMALPATTERN,
-	PATTERN2,
-	PATTERN3
+	THREEPATTERN
 };
 
 enum class INVENTORY

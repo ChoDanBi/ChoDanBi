@@ -4,13 +4,12 @@
 #include "ObjectManager.h"
 #include "CollisionManager.h"
 #include "ObjectFactory.h"
+#include "InventoryManager.h"
 
 #include "Player.h"
 #include "Enemy.h"
 #include "BaseEnemy.h"
 #include "NormalEnemy.h"
-//#include "EliteEnemy.h"
-//#include "BossEnemy.h"
 
 #include "StageButton.h"
 #include "Stage_Back.h"
@@ -94,6 +93,7 @@ void Stage2::Update()
 			{
 				if ((*E_iter)->GetHitPoint() <= 0)
 				{
+					InventoryManager::GetInstance()->AddItem(INVENTORY::GOLD);
 					iResult = 1;
 					break;
 				}
@@ -123,7 +123,7 @@ void Stage2::Update()
 		}
 
 
-		if (PlayTime + 1000 <= GetTickCount64())
+		if (PlayTime + 45000 <= GetTickCount64())
 		{
 			((StageButton*)SelectButton)->StageClear(2);
 			Active = false;

@@ -4,6 +4,7 @@
 #include "ObjectManager.h"
 #include "CollisionManager.h"
 #include "ObjectFactory.h"
+#include "InventoryManager.h"
 
 #include "Player.h"
 #include "Enemy.h"
@@ -89,6 +90,7 @@ void Stage4::Update()
 			{
 				if ((*E_iter)->GetHitPoint() <= 0)
 				{
+					InventoryManager::GetInstance()->AddItem(INVENTORY::GOLD,20);
 					iResult = 1;
 					break;
 				}
@@ -107,7 +109,7 @@ void Stage4::Update()
 				++E_iter;
 		}
 
-		if (PlayTime + 100000 <= GetTickCount64())
+		if (EnemyList->begin() == EnemyList->end())
 		{
 			((StageButton*)SelectButton)->StageClear(4);
 			Active = false;

@@ -31,6 +31,15 @@ void InventoryManager::AddItem(INVENTORY _Item)
 	}
 }
 
+void InventoryManager::AddItem(INVENTORY _Item, int _Count)
+{
+	map<INVENTORY, int>::iterator iter = Inventory.find(_Item);
+	if (iter != Inventory.end())
+	{
+		(*iter).second += _Count;
+	}
+}
+
 void InventoryManager::UseItem(INVENTORY _Item)
 {
 	map<INVENTORY, int>::iterator iter = Inventory.find(_Item);

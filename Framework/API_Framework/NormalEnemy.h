@@ -14,7 +14,7 @@ public:
 
 public:
 	template <typename T>
-	Object* CreateBullet();
+	Object* CreateBullet(int _Pattern);
 
 public:
 	NormalEnemy();

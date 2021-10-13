@@ -7,6 +7,7 @@ class Shop :public Scene
  private:
 	int click;
 	Object* StageBack;
+	Object* State;
 	Transform Buttom[5];
 	map<string, Bitmap*> ImageList;
 
