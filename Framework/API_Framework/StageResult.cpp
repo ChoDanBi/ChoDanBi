@@ -35,8 +35,7 @@ int StageResult::Update()
 		Mouse.Scale = Vector3(5.0f, 5.0f);
 		Mouse.Position = InputManager::GetInstance()->GetMousePosition();
 
-		DWORD dwKey = InputManager::GetInstance()->GetKey();
-		if (dwKey & KEY_LBUTTON)	Click = 1;
+		if (GetAsyncKeyState(VK_LBUTTON) & 0x0001)  Click = 1;
 		else							Click = 0;
 
 		if (Clear)

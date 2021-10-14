@@ -166,6 +166,9 @@
     <Filter Include="소스 파일\02. Object\UI\Effect">
       <UniqueIdentifier>{2c1cfdbf-379c-4aa2-b12c-d37237ebbb8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage\SceneBridge\Stage">
+      <UniqueIdentifier>{1a517532-b017-453d-9140-9bc859bc457f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -215,9 +218,6 @@
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>소스 파일\01. Scene\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage.h">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>소스 파일\99. Manager\InputManager</Filter>
@@ -291,15 +291,6 @@
     <ClInclude Include="PatternBridge.h">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2.h">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage3.h">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage4.h">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="StageResult.h">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
     </ClInclude>
@@ -330,6 +321,18 @@
     <ClInclude Include="Effect.h">
       <Filter>소스 파일\02. Object\UI\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -358,9 +361,6 @@
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>소스 파일\01. Scene\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage.cpp">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>소스 파일\99. Manager\InputManager</Filter>
@@ -425,15 +425,6 @@
     <ClCompile Include="PatternBridge.cpp">
       <Filter>소스 파일\02. Object\EnemyPattern</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2.cpp">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage3.cpp">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage4.cpp">
-      <Filter>소스 파일\01. Scene\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="StageResult.cpp">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
     </ClCompile>
@@ -463,6 +454,18 @@
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>소스 파일\02. Object\UI\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

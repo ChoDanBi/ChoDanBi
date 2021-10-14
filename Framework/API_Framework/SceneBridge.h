@@ -18,7 +18,7 @@ protected:
 	vector<Object*>* BulletList;
 	vector<Object*>* EnemyList;
 	vector<Object*>* EBulletList;
-	vector<Object*>* EffectList;
+	vector<Object*> EffectList;
 	
 
 	map<string, Bitmap*> ImageList;

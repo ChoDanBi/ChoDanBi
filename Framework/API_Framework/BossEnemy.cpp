@@ -19,8 +19,8 @@ void BossEnemy::Initialize()
 {
     DrawKey = "BossEnemy";
 
-    Speed = float(10);
-    HitPoint = 10;
+    Speed = 10;
+    HitPoint = 1000;
 
     Frame = 0;
     Animation = ANIMATION::UPSWING;
@@ -29,11 +29,11 @@ void BossEnemy::Initialize()
     Time = GetTickCount64();
 
     TransInfo.Scale = Vector3(400.0f, 625.0f);
-    TransInfo.Position = Vector3(-1000.0f,-1000.0f);
+    TransInfo.Position = Vector3(0.0f,0.0f);
 
     RealObject->SetScale(TransInfo.Scale);
     RealObject->SetHitPoint(HitPoint);
-    RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 150, TransInfo.Scale.y - 300));
+    RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 150, TransInfo.Scale.y - 540));
 
 
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
@@ -59,7 +59,12 @@ int BossEnemy::Update(Transform& _rTransInfo)
         }
     }
 
-    RealObject->SetColliderPosition(TransInfo.Position.x+50, TransInfo.Position.y + 90);
+
+    TransInfo.Position.y -= Speed;
+    TransInfo.Position.y += Speed;
+
+
+    RealObject->SetColliderPosition(TransInfo.Position.x + 25, TransInfo.Position.y + 20);
     return 0;
 }
 

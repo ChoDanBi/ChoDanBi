@@ -20,6 +20,7 @@ void Shop::Initialize()
 {
 	click = 0;
 
+
 	State = new StateBar;
 	State->Initialize();
 
@@ -50,13 +51,15 @@ void Shop::Initialize()
 
 void Shop::Update()
 {
+	ScoreManager::GetInstance()->MakeScoreNumber();
+
+
 	Transform Mouse;
 
 	Mouse.Scale = Vector3(10.0f, 10.0f);
 	Mouse.Position = InputManager::GetInstance()->GetMousePosition();
 
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
-	if (dwKey & KEY_LBUTTON)	click = 1;
+	if (GetAsyncKeyState(VK_LBUTTON) & 0x0001 )  click = 1;
 	else							click = 0;
 
 	if (CollisionManager::RectCollision(Buttom[0], Mouse) && click == 1)
@@ -68,36 +71,32 @@ void Shop::Update()
 	if (CollisionManager::RectCollision(Buttom[4], Mouse) && click == 1)
 	{
 		if (InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) < 6
-			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >=
-			InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 4)
+			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3)
 		{
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3);
 			InventoryManager::GetInstance()->AddItem(INVENTORY::DAMAGE);
-			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD,
-				InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3);
 		}
 	}
 	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
 	{
-		if (InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) < 8
-			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >=
-			InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED))
+		if (InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED)  <  7
+			&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED))
 		{
-			InventoryManager::GetInstance()->AddItem(INVENTORY::SPEED);
-			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD,
-				InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) * 3);
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) );
+			InventoryManager::GetInstance()->AddItem(INVENTORY::SPEED); //스피드 받음
 		}
 	}
-	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1
+	if (CollisionManager::RectCollision(Buttom[1], Mouse) && click == 1
 		&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= 10)
 	{
+			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 			InventoryManager::GetInstance()->AddItem(INVENTORY::BOMB);
-			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 	}
-	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1
+	if (CollisionManager::RectCollision(Buttom[2], Mouse) && click == 1
 		&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= 10)
 	{
-			InventoryManager::GetInstance()->AddItem(INVENTORY::SHIELD);
 			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
+			InventoryManager::GetInstance()->AddItem(INVENTORY::SHIELD);
 	}
 
 
@@ -106,10 +105,21 @@ void Shop::Update()
 void Shop::Render(HDC _hdc)
 {
 	StageBack->Render(ImageList["Buffer"]->GetMemDC());
+	/*
+	for (int i = 0; i < 4; i++)
+	{
+
+	Rectangle(_hdc,
+		Buttom[i].Position.x - Buttom[i].Scale.x / 2,
+		Buttom[i].Position.y - Buttom[i].Scale.y / 2,
+		Buttom[i].Position.x + Buttom[i].Scale.x / 2,
+		Buttom[i].Position.y + Buttom[i].Scale.y / 2);
+	}
+	*/
 
 	State->Render(ImageList["Buffer"]->GetMemDC());
 
-//	ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
+	ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
 
 	BitBlt(_hdc,
 		0, 0,

@@ -46,8 +46,7 @@ void SelectStage::Update()
 	Mouse.Scale = Vector3(10.0f, 10.0f);
 	Mouse.Position = InputManager::GetInstance()->GetMousePosition();
 
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
-	if (dwKey & KEY_LBUTTON)	click = 1;
+	if (GetAsyncKeyState(VK_LBUTTON) & 0x0001)  click = 1;
 	else							click = 0;
 
 	if (CollisionManager::RectCollision(BackButtom, Mouse) && click == 1)

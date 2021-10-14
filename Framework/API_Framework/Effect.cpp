@@ -16,23 +16,23 @@ void Effect::Initialize()
 	Time = GetTickCount64();
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(75.0f,54.0f);
+	TransInfo.Scale = Vector3(75.0f, 150.0f / 3);
 
 	Active = true;
 }
 
 int Effect::Update()
 {
-	if (Frame >= 3)
-	{
-		Frame = 0;
-		Active = false;
-	}
-
-	if (Time + 40 < GetTickCount64())
+	if (Time + 50 < GetTickCount64())
 	{
 		Time = GetTickCount64();
 		Frame++;
+
+		if (Frame >= 3)
+		{
+			Frame = 0;
+			Active = false;
+		}
 	}
 
 	return 0;

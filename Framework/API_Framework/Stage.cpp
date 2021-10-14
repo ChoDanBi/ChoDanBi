@@ -32,15 +32,16 @@ void Stage::Initialize()
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);	
 
 
+	EffectList.clear();
+
 	SelectButton = ObjectManager::GetInstance()->GetButton();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 
-	for (int y = 0; y < 3; ++y)
-		EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1400, rand() % 200 + 150 + y * 150)));
 
 	PlayTime = GetTickCount64();
+
 	Timer = GetTickCount64();
 	Active = true;
 
@@ -59,8 +60,10 @@ void Stage::Update()
 {
 	if (Active)
 	{
+		//플레이어 업뎃
 		m_pPlayer->Update();
 
+		//플레이어 탄환 업뎃
 		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
 			Pb_iter != BulletList->end(); Pb_iter++)
 		{
@@ -69,22 +72,32 @@ void Stage::Update()
 				Pb_iter = BulletList->erase(Pb_iter);
 		}
 
+		//적 탄환과 플레이어 상호작용
 		for (vector<Object*>::iterator iter = EBulletList->begin();
 			iter != EBulletList->end(); ++iter)
 		{
 			(*iter)->Update();
-			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
+			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()) && m_pPlayer->GetActive())
 			{
-				iter = EBulletList->erase(iter);
+				m_pPlayer->SetActive(false);
 				m_pPlayer->CrashHitPoint(1);
+				iter = EBulletList->erase(iter);
 				break;
 			}
 		}
 
+		//적과 플레이어 탄환 상호작용
 		for (vector<Object*>::iterator E_iter = EnemyList->begin();
 			E_iter != EnemyList->end(); )
 		{
 			int iResult = (*E_iter)->Update();
+
+			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*E_iter)->GetCollider()) && m_pPlayer->GetActive())
+			{
+				m_pPlayer->SetActive(false);
+				m_pPlayer->CrashHitPoint(1);
+				break;
+			}
 
 			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
 				Pb_iter != BulletList->end(); )
@@ -97,7 +110,7 @@ void Stage::Update()
 				}
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
-					//EffectList->push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
+					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 					Pb_iter = BulletList->erase(Pb_iter);
 					break;
@@ -111,18 +124,22 @@ void Stage::Update()
 				++E_iter;
 		}
 
-		/*
-		if (EffectList->empty())
+		
+		if (!EffectList.empty())
 		{
-			for (vector<Object*>::iterator iter = EffectList->begin();
-				iter != EffectList->end(); iter++)
+			for (vector<Object*>::iterator iter = EffectList.begin();
+				iter != EffectList.end(); )
 			{
 				(*iter)->Update();
+
 				if (!(*iter)->GetActive())
-					EffectList->erase(iter);
+					iter = EffectList.erase(iter);
+				else
+					iter++;
 			}
 		}
-		*/
+		
+		
 
 		if (PlayTime > GetTickCount64() - 25000)
 		{
@@ -168,14 +185,15 @@ void Stage::Render(HDC _hdc)
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 
-	/*
-	if (EffectList->empty())
+	
+	if (!EffectList.empty())
 	{
-		for (vector<Object*>::iterator iter = EffectList->begin();
-			iter != EffectList->end(); iter++)
+		for (vector<Object*>::iterator iter = EffectList.begin();
+			iter != EffectList.end(); iter++)
 			(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 	}
-	*/
+	
+	
 
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 
@@ -214,6 +232,7 @@ void Stage::Release()
 	}
 
 	m_pPlayer->SetHitPoint(3);
+	m_pPlayer->SetActive(true);
 }
 
 template<typename T>

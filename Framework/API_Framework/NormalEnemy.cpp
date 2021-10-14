@@ -17,7 +17,7 @@ NormalEnemy::~NormalEnemy()
 void NormalEnemy::Initialize()
 {
     DrawKey = "NormalEnemy";
-    Speed = 8.0f;
+    Speed = 10.0f;
     HitPoint = 5;
 
     Frame = 0;
@@ -60,7 +60,7 @@ int NormalEnemy::Update(Transform& _rTransInfo)
 
     TransInfo.Position.x -= Speed;
 
-    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y - 10);
+    RealObject->SetColliderPosition(TransInfo.Position.x , TransInfo.Position.y + 5);
 
     return 0;
 }

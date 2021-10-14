@@ -5,7 +5,8 @@ class Player : public Object
 {
 private:
 	int Frame;
-	ULONGLONG Time;
+	int nTime;
+	ULONGLONG Time[2];
 
 	vector<Object*>* BulletList;
 public:

@@ -25,7 +25,7 @@ void Logo::Initialize()
 
 	map<INVENTORY, int> Inventory;
 
-	Inventory.insert(make_pair(INVENTORY::GOLD, 0));
+	Inventory.insert(make_pair(INVENTORY::GOLD, 10));
 	Inventory.insert(make_pair(INVENTORY::DAMAGE, 1));
 	Inventory.insert(make_pair(INVENTORY::SPEED, 2));
 	Inventory.insert(make_pair(INVENTORY::BOMB, 0));

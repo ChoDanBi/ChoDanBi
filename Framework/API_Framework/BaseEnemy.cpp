@@ -32,7 +32,7 @@ void BaseEnemy::Initialize()
 
    RealObject->SetScale(TransInfo.Scale);
    RealObject->SetHitPoint(HitPoint);
-   RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 30, TransInfo.Scale.y - 40));
+   RealObject->SetColliderScale(Vector3(TransInfo.Scale.x - 50, TransInfo.Scale.y -100));
 
     EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 }
@@ -67,7 +67,7 @@ int BaseEnemy::Update(Transform& _rTransInfo)
     }
 
     TransInfo.Position.x -= Speed;
-    RealObject->SetColliderPosition(TransInfo.Position.x, TransInfo.Position.y +10);
+    RealObject->SetColliderPosition(TransInfo.Position.x-10, TransInfo.Position.y+10);
 
     return 0;
 }

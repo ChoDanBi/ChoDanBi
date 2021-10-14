@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "InputManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "InventoryManager.h"
@@ -28,11 +27,14 @@ void Player::Initialize()
 	Collider.Scale = Vector3(56.0f, 56.0f);
 
 	strKey = "Char";
-	Active = false;
+	Active = true;
 	HitPoint = 3;
 	Speed = InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED);
 	Frame = 0;
-	Time = GetTickCount64();
+
+	Time[0] = GetTickCount64();
+	Time [1]= GetTickCount64();
+	nTime = 0;
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
@@ -49,21 +51,31 @@ int Player::Update()
 	else if (TransInfo.Position.y > 720)
 		TransInfo.Position.y -= Speed;
 
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
-
-	if (Time + 300 <= GetTickCount64())
+	if (Time[0] + 300 <= GetTickCount64())
 	{
-		Time = GetTickCount64();
+		Time[0] = GetTickCount64();
 		BulletList->push_back(CreateBullet<NormalBullet>());
 		if (Frame == 0) Frame = 1;
 		else if (Frame == 1) Frame = 0;
 	}
-	if (GetAsyncKeyState('Q') && InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB) > 0)
+	if (GetAsyncKeyState('Q') &0x0001 && InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB) > 0)
 	{
 		//InventoryManager::GetInstance()->UseItem(INVENTORY::BOMB);
 		//BulletList->push_back(CreateBullet<Boom>());
 	}
 
+
+	if (!Active && Time[1] + 200 < GetTickCount64())
+	{
+		Time[1] = GetTickCount64();
+		nTime++;
+
+		if (nTime >= 11)
+		{
+			nTime = 0;
+			Active = true;
+		}
+	}
 
 	if (GetAsyncKeyState('W'))			//À§·Î
 		TransInfo.Position.y -= Speed;
@@ -81,17 +93,20 @@ int Player::Update()
 
 void Player::Render(HDC _hdc)
 {
-	TransparentBlt(_hdc, 
-		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
-		int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
-		int(TransInfo.Scale.x),
-		int(TransInfo.Scale.y),
-		ImageList[strKey]->GetMemDC(),
-		int(TransInfo.Scale.x * Frame),
-		int(TransInfo.Scale.y * 0),
-		int(TransInfo.Scale.x),
-		int(TransInfo.Scale.y),
-		RGB(255, 0, 255));
+	if (Active || !Active && nTime % 2 == 0)
+	{
+		TransparentBlt(_hdc,
+			int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
+			int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
+			int(TransInfo.Scale.x),
+			int(TransInfo.Scale.y),
+			ImageList[strKey]->GetMemDC(),
+			int(TransInfo.Scale.x * Frame),
+			int(TransInfo.Scale.y * 0),
+			int(TransInfo.Scale.x),
+			int(TransInfo.Scale.y),
+			RGB(255, 0, 255));
+	}
 	
 	TransparentBlt(_hdc, 
 		860,
