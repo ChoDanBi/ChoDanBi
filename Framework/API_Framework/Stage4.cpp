@@ -60,14 +60,18 @@ void Stage4::Update()
 {
 	if (Active)
 	{
+		//ÇÃ·¹ÀÌ¾î ¾÷µ«
 		m_pPlayer->Update();
 
+		//ÇÃ·¹ÀÌ¾î ÅºÈ¯ ¾÷µ«
 		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
-			Pb_iter != BulletList->end(); Pb_iter++)
+			Pb_iter != BulletList->end();)
 		{
 			int iResult = (*Pb_iter)->Update();
 			if (iResult == 1)
 				Pb_iter = BulletList->erase(Pb_iter);
+			else
+				Pb_iter++;
 		}
 
 		for (vector<Object*>::iterator iter = EBulletList->begin();
@@ -106,9 +110,14 @@ void Stage4::Update()
 				}
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
+					if ((*Pb_iter)->Update() == 1)
+						Pb_iter = BulletList->erase(Pb_iter);
+					else if ((*Pb_iter)->Update() == 2 && !(*Pb_iter)->GetActive())
+						(*Pb_iter)->SetActive(true);
+
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
-					Pb_iter = BulletList->erase(Pb_iter);
+
 					break;
 				}
 				else Pb_iter++;

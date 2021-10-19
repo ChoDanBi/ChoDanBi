@@ -7,6 +7,8 @@ class Bridge
 {
 protected:
 	int PatternNumber;
+	bool Active;
+
 	string DrawKey;
 	Object* RealObject;
 	Transform TransInfo;
@@ -27,6 +29,9 @@ public:
 
 	void SetPosition(Vector3 _position) { TransInfo.Position = _position; }
 	void SetPattern(int _PatterNum) { PatternNumber = _PatterNum; }
+
+	bool GetActive() { return Active; }
+	void SetActive(bool _Active) { Active = _Active; }
 
 public:
 	Bridge();

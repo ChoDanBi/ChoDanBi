@@ -151,9 +151,6 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom">
       <UniqueIdentifier>{39b819ae-c595-42cb-b4bb-797d68403de2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99. Manager\ScoreManager">
-      <UniqueIdentifier>{045e3517-d8b7-4929-a48a-c1954362858a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager\InventoryManager">
       <UniqueIdentifier>{2c3dee22-0068-468e-945e-8d7365d8bb9b}</UniqueIdentifier>
     </Filter>
@@ -168,6 +165,9 @@
     </Filter>
     <Filter Include="소스 파일\01. Scene\Stage\SceneBridge\Stage">
       <UniqueIdentifier>{1a517532-b017-453d-9140-9bc859bc457f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\UI\Number">
+      <UniqueIdentifier>{2760c6bf-4758-46db-8fe1-f6499fb4c063}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -306,9 +306,6 @@
     <ClInclude Include="Boom.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom</Filter>
     </ClInclude>
-    <ClInclude Include="ScoreManager.h">
-      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
-    </ClInclude>
     <ClInclude Include="InventoryManager.h">
       <Filter>소스 파일\99. Manager\InventoryManager</Filter>
     </ClInclude>
@@ -332,6 +329,9 @@
     </ClInclude>
     <ClInclude Include="Stage4.h">
       <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>소스 파일\02. Object\UI\Number</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -440,9 +440,6 @@
     <ClCompile Include="Boom.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\PlayerBullet\Boom</Filter>
     </ClCompile>
-    <ClCompile Include="ScoreManager.cpp">
-      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
-    </ClCompile>
     <ClCompile Include="InventoryManager.cpp">
       <Filter>소스 파일\99. Manager\InventoryManager</Filter>
     </ClCompile>
@@ -466,6 +463,9 @@
     </ClCompile>
     <ClCompile Include="Stage4.cpp">
       <Filter>소스 파일\01. Scene\Stage\SceneBridge\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Number.cpp">
+      <Filter>소스 파일\02. Object\UI\Number</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

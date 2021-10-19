@@ -58,14 +58,18 @@ void Stage2::Update()
 {
 	if (Active)
 	{
+		//ÇÃ·¹ÀÌ¾î ¾÷µ«
 		m_pPlayer->Update();
 
+		//ÇÃ·¹ÀÌ¾î ÅºÈ¯ ¾÷µ«
 		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
-			Pb_iter != BulletList->end(); Pb_iter++)
+			Pb_iter != BulletList->end();)
 		{
 			int iResult = (*Pb_iter)->Update();
 			if (iResult == 1)
 				Pb_iter = BulletList->erase(Pb_iter);
+			else
+				Pb_iter++;
 		}
 
 		for (vector<Object*>::iterator iter = EBulletList->begin();
@@ -104,9 +108,14 @@ void Stage2::Update()
 				}
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
+					if ((*Pb_iter)->Update() == 1)
+						Pb_iter = BulletList->erase(Pb_iter);
+					else if ((*Pb_iter)->Update() == 2 && !(*Pb_iter)->GetActive())
+						(*Pb_iter)->SetActive(true);
+
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
-					Pb_iter = BulletList->erase(Pb_iter);
+
 					break;
 				}
 				else Pb_iter++;
@@ -132,18 +141,15 @@ void Stage2::Update()
 			}
 		}
 
-		if (PlayTime > GetTickCount64() - 25000)
+
+		if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 		{
-			if (Timer + rand() % 1000 + 2000 < GetTickCount64())
-			{
-				Timer = GetTickCount64();
-				EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1500, rand() % 580 + 50)));
-				EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1500, rand() % 580 + 50)));
-			}
+			Timer = GetTickCount64();
+			EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
+			EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1300, rand() % 580 + 50)));
 		}
 
-
-		if (PlayTime + 30000 <= GetTickCount64())
+		if (PlayTime + 60000 <= GetTickCount64())
 		{
 			((StageButton*)SelectButton)->StageClear(2);
 			Active = false;

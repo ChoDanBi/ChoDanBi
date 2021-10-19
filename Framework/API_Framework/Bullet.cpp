@@ -29,12 +29,17 @@ void Bullet::Initialize()
 
 int Bullet::Update()
 {
-	if (BridgeObject)
-		BridgeObject->Update(TransInfo);
+	BridgeObject->SetActive(Active);
 
-	if (TransInfo.Position.x >= 2000 || TransInfo.Position.x <= -2000
-		|| TransInfo.Position.y >= 2000 || TransInfo.Position.y <= -2000)
+	if (TransInfo.Position.x >= 1400 || TransInfo.Position.x <= -100)
 		return 1;
+
+	if (BridgeObject)
+	{
+		int Result = BridgeObject->Update(TransInfo);
+		return Result;
+	}
+
 
 	return 0;
 }
@@ -43,6 +48,13 @@ void Bullet::Render(HDC _hdc)
 {
 	if (BridgeObject)
 		BridgeObject->Render(_hdc);
+
+	Ellipse(_hdc,
+		Collider.Position.x - Collider.Scale.x / 2,
+		Collider.Position.y - Collider.Scale.y / 2,
+		Collider.Position.x + Collider.Scale.x / 2,
+		Collider.Position.y + Collider.Scale.y / 2);
+
 }
 
 void Bullet::Release()

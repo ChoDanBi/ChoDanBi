@@ -75,6 +75,7 @@
     <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="NormalPattern.h" />
+    <ClInclude Include="Number.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -86,7 +87,6 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneBridge.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SelectStage.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Stage.h" />
@@ -125,6 +125,7 @@
     <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="NormalPattern.cpp" />
+    <ClCompile Include="Number.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PatternBridge.cpp" />
@@ -134,7 +135,6 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneBridge.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="SelectStage.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Stage.cpp" />

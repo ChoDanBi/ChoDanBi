@@ -6,7 +6,6 @@ class Boom:public BulletBridge
 private:
 	int Frame;
 	ULONGLONG Time;
-	Transform p_Boom;
 
 public:
 	virtual void Initialize()override;

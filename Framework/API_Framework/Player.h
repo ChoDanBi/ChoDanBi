@@ -5,8 +5,10 @@ class Player : public Object
 {
 private:
 	int Frame;
-	int nTime;
-	ULONGLONG Time[2];
+	int nTime[2];
+	bool s_Active;
+
+	ULONGLONG Time[3];
 
 	vector<Object*>* BulletList;
 public:
@@ -20,7 +22,7 @@ public:
 	int GetSwing() { return Frame; }
 
 	template <typename T>
-	Object* CreateBullet();
+	Object* CreateBullet(int _Pattern);
 public:
 	Player();
 	Player(const Transform& _rTransInfo) : Object(_rTransInfo) { }

@@ -28,13 +28,17 @@ void Player::Initialize()
 
 	strKey = "Char";
 	Active = true;
+	s_Active = true;
+
 	HitPoint = 3;
 	Speed = InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED);
 	Frame = 0;
 
 	Time[0] = GetTickCount64();
 	Time [1]= GetTickCount64();
-	nTime = 0;
+	Time [2]= GetTickCount64();
+	nTime[0] = 0;
+	nTime[1] = 0;
 
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
@@ -51,32 +55,6 @@ int Player::Update()
 	else if (TransInfo.Position.y > 720)
 		TransInfo.Position.y -= Speed;
 
-	if (Time[0] + 300 <= GetTickCount64())
-	{
-		Time[0] = GetTickCount64();
-		BulletList->push_back(CreateBullet<NormalBullet>());
-		if (Frame == 0) Frame = 1;
-		else if (Frame == 1) Frame = 0;
-	}
-	if (GetAsyncKeyState('Q') &0x0001 && InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB) > 0)
-	{
-		//InventoryManager::GetInstance()->UseItem(INVENTORY::BOMB);
-		//BulletList->push_back(CreateBullet<Boom>());
-	}
-
-
-	if (!Active && Time[1] + 200 < GetTickCount64())
-	{
-		Time[1] = GetTickCount64();
-		nTime++;
-
-		if (nTime >= 11)
-		{
-			nTime = 0;
-			Active = true;
-		}
-	}
-
 	if (GetAsyncKeyState('W'))			//위로
 		TransInfo.Position.y -= Speed;
 	if (GetAsyncKeyState('S'))			//아래로
@@ -85,15 +63,80 @@ int Player::Update()
 		TransInfo.Position.x -= Speed;
 	if (GetAsyncKeyState('D'))			//오른쪽으로
 		TransInfo.Position.x += Speed;
-
+	
 	Collider.Position = TransInfo.Position;
+	if (Time[0] + 200 <= GetTickCount64())
+	{
+		Time[0] = GetTickCount64();
+	/*
+		if (InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) / 6 == 1)
+		{
+			BulletList->push_back(CreateBullet<NormalBullet>(0));
+			BulletList->push_back(CreateBullet<NormalBullet>(2));
+		}
+		
+		BulletList->push_back(CreateBullet<NormalBullet>(1));
+	*/
+
+		if (Frame == 0) Frame = 1;
+		else if (Frame == 1) Frame = 0;
+	}
+	if (GetAsyncKeyState('Q') &0x0001 && InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB) > 0)
+	{
+		InventoryManager::GetInstance()->UseItem(INVENTORY::BOMB);
+		BulletList->push_back(CreateBullet<Boom>(0));
+	}
+	if ( Active && GetAsyncKeyState('E') & 0x0001 && InventoryManager::GetInstance()->GetItem(INVENTORY::SHIELD) > 0)
+	{
+		InventoryManager::GetInstance()->UseItem(INVENTORY::SHIELD);
+		Active = s_Active = false;
+	}
+
+	if (!s_Active && Time[2] + 350 < GetTickCount64())
+	{
+		Time[2] = GetTickCount64();
+		nTime[1]++;
+
+		if (nTime[1] >= 11)
+		{
+			nTime[1] = 0;
+			Active = s_Active = true;
+		}
+	}
+
+	if (!Active && Time[1] + 350 < GetTickCount64() && s_Active)
+	{
+		Time[1] = GetTickCount64();
+		nTime[0]++;
+
+		if (nTime[0] >= 11)
+		{
+			nTime[0] = 0;
+			Active = true;
+		}
+	}
+
+
 
 	return 0;
 }
 
 void Player::Render(HDC _hdc)
 {
-	if (Active || !Active && nTime % 2 == 0)
+	if (!s_Active)
+		TransparentBlt(_hdc,
+			int(TransInfo.Position.x - (216 / 2)),
+			int(TransInfo.Position.y - (179 / 2)),
+			216,
+			179,
+			ImageList["Shild"]->GetMemDC(),
+			0,
+			0,
+			216,
+			179,
+			RGB(255, 0, 255));
+
+	if (Active || !Active && nTime[0] % 2 == 0)
 	{
 		TransparentBlt(_hdc,
 			int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
@@ -133,11 +176,11 @@ void Player::Release()
 }
 
 template <typename T>
-Object* Player::CreateBullet()
+Object* Player::CreateBullet(int _Pattern)
 {
 	Bridge* pBridge = new T;
 
-	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge, _Pattern);
 
 	return pBullet;
 }

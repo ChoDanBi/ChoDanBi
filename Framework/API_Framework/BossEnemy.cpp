@@ -60,6 +60,8 @@ int BossEnemy::Update(Transform& _rTransInfo)
     }
 
 
+
+
     TransInfo.Position.y -= Speed;
     TransInfo.Position.y += Speed;
 

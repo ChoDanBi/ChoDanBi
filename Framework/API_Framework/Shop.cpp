@@ -1,11 +1,12 @@
 #include "Shop.h"
 #include "Stage_Back.h"
 #include "StateBar.h"
+#include "Number.h"
 
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "CollisionManager.h"
-#include "ScoreManager.h"
+//#include "ScoreManager.h"
 #include "InventoryManager.h"
 
 Shop::Shop()
@@ -46,13 +47,27 @@ void Shop::Initialize()
 	// 4 3
 	// 1 2
 
+	s_Numbers[0] = new Number;
+	s_Numbers[0]->Initialize(Vector3(755.0f, 75.0f),
+		InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD));
+
+	s_Numbers[1] = new Number;
+	s_Numbers[1]->Initialize(Vector3(975.0f, 635.0f)
+	, InventoryManager::GetInstance()->GetItem(INVENTORY::SHIELD));
+
+	s_Numbers[2] = new Number;
+	s_Numbers[2]->Initialize(Vector3(455.0f, 625.0f)
+	, InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB));
+
 	ImageList = Object::GetImageList();
 }
 
 void Shop::Update()
 {
-	ScoreManager::GetInstance()->MakeScoreNumber();
-
+	//ScoreManager::GetInstance()->MakeScoreNumber();
+	s_Numbers[0]->MakeScoreNumber(InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD));
+	s_Numbers[1]->MakeScoreNumber(InventoryManager::GetInstance()->GetItem(INVENTORY::SHIELD));
+	s_Numbers[2]->MakeScoreNumber(InventoryManager::GetInstance()->GetItem(INVENTORY::BOMB));
 
 	Transform Mouse;
 
@@ -119,7 +134,10 @@ void Shop::Render(HDC _hdc)
 
 	State->Render(ImageList["Buffer"]->GetMemDC());
 
-	ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
+	for (int i = 0; i < 3; i++)
+		s_Numbers[i]->Render(ImageList["Buffer"]->GetMemDC());
+	
+	//ScoreManager::GetInstance()->Render(ImageList["Buffer"]->GetMemDC());
 
 	BitBlt(_hdc,
 		0, 0,

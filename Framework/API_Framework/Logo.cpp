@@ -25,11 +25,11 @@ void Logo::Initialize()
 
 	map<INVENTORY, int> Inventory;
 
-	Inventory.insert(make_pair(INVENTORY::GOLD, 10));
+	Inventory.insert(make_pair(INVENTORY::GOLD, 1000));
 	Inventory.insert(make_pair(INVENTORY::DAMAGE, 1));
 	Inventory.insert(make_pair(INVENTORY::SPEED, 2));
-	Inventory.insert(make_pair(INVENTORY::BOMB, 0));
-	Inventory.insert(make_pair(INVENTORY::SHIELD, 0));
+	Inventory.insert(make_pair(INVENTORY::BOMB, 100));
+	Inventory.insert(make_pair(INVENTORY::SHIELD, 100));
 
 	InventoryManager::GetInstance()->SetInventory(Inventory);
 
@@ -58,7 +58,7 @@ void Logo::Initialize()
 	ImageList["Select"] = (new Bitmap)->LoadBmp(L"../Resource/SelectStage.bmp");
 	ImageList["Star"] = (new Bitmap)->LoadBmp(L"../Resource/Star.bmp"); //128.0f,64.0f
 
-	ImageList["PBullet"] = (new Bitmap)->LoadBmp(L"../Resource/PlayerBullet.bmp"); //128.0f,64.0f
+	ImageList["PBullet"] = (new Bitmap)->LoadBmp(L"../Resource/PlayerBullet_.bmp"); //128.0f,64.0f
 	ImageList["EBullet"] = (new Bitmap)->LoadBmp(L"../Resource/EnemyBullet.bmp"); //128.0f,64.0f
 
 	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/Heart.bmp"); //384.0f,128.0f
@@ -68,6 +68,7 @@ void Logo::Initialize()
 	ImageList["Bar"] = (new Bitmap)->LoadBmp(L"../Resource/StateBar.bmp"); //759.0f,587.0f
 	ImageList["Shop"] = (new Bitmap)->LoadBmp(L"../Resource/Store.bmp"); //759.0f,587.0f
 
+	ImageList["Shild"] = (new Bitmap)->LoadBmp(L"../Resource/Shild.bmp");
 	ImageList["Bomb"] = (new Bitmap)->LoadBmp(L"../Resource/Boom.bmp");
 	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
 	

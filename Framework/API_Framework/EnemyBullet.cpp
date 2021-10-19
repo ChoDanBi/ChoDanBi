@@ -37,10 +37,8 @@ int EnemyBullet::Update(Transform& _rTransInfo)
 
     RealObject->SetColliderPosition(_rTransInfo.Position.x, _rTransInfo.Position.y);
 
-    if (_rTransInfo.Position.x <= 0)
+    if (_rTransInfo.Position.x <= -100)
         return 1;
-
-
 
     return 0;
 }
