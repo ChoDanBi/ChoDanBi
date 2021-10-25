@@ -58,7 +58,7 @@ int StageButton::Update()
 	else							click = 0;
 
 	if (CollisionManager::RectCollision(ButtonPos[0], Mouse) && click == 1)
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
 
 	if (CollisionManager::RectCollision(ButtonPos[1], Mouse) && click == 1)
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE2);

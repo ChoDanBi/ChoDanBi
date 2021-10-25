@@ -23,7 +23,7 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
 	TransInfo.Scale = Vector3(63.5f, 63.0f);
 
-	Collider.Position = Vector3(0.0f,0.0f);
+	Collider.Position = Vector3(0.0f,-500.0f);
 	Collider.Scale = Vector3(56.0f, 56.0f);
 
 	strKey = "Char";
@@ -65,10 +65,11 @@ int Player::Update()
 		TransInfo.Position.x += Speed;
 	
 	Collider.Position = TransInfo.Position;
+
 	if (Time[0] + 200 <= GetTickCount64())
 	{
 		Time[0] = GetTickCount64();
-	/*
+	
 		if (InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) / 6 == 1)
 		{
 			BulletList->push_back(CreateBullet<NormalBullet>(0));
@@ -76,7 +77,7 @@ int Player::Update()
 		}
 		
 		BulletList->push_back(CreateBullet<NormalBullet>(1));
-	*/
+	
 
 		if (Frame == 0) Frame = 1;
 		else if (Frame == 1) Frame = 0;

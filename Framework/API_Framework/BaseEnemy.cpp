@@ -66,14 +66,15 @@ int BaseEnemy::Update(Transform& _rTransInfo)
         EBulletList->push_back(CreateBullet<EnemyBullet>());
     }
 
-    TransInfo.Position.x -= Speed;
-    RealObject->SetColliderPosition(TransInfo.Position.x-10, TransInfo.Position.y+10);
+    _rTransInfo.Position.x -= Speed;
+    RealObject->SetColliderPosition(_rTransInfo.Position.x-10, _rTransInfo.Position.y+10);
 
     return 0;
 }
 
 void BaseEnemy::Render(HDC _hdc)
 {
+    /*
     TransparentBlt(_hdc,
         int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
         int(TransInfo.Position.y - (TransInfo.Scale.y / 2)),
@@ -84,6 +85,17 @@ void BaseEnemy::Render(HDC _hdc)
         0,
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
+        RGB(255, 0, 255));
+    */
+    TransparentBlt(_hdc, // ** 최종 출력 위치
+        int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+        int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+        int(RealObject->GetScale().x),
+        int(RealObject->GetScale().y),
+        ImageList[DrawKey]->GetMemDC(),
+        int(RealObject->GetScale().x) * Frame, 0,
+        int(RealObject->GetScale().x),
+        int(RealObject->GetScale().y),
         RGB(255, 0, 255));
 }
 
@@ -96,7 +108,7 @@ Object* BaseEnemy::CreateBullet()
 {
     Bridge* pBridge = new T;
 
-    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,1);
+    Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge,2);
 
     return pBullet;
 }

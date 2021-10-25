@@ -48,12 +48,20 @@ void Bullet::Render(HDC _hdc)
 {
 	if (BridgeObject)
 		BridgeObject->Render(_hdc);
-
+	/*
 	Ellipse(_hdc,
 		Collider.Position.x - Collider.Scale.x / 2,
 		Collider.Position.y - Collider.Scale.y / 2,
 		Collider.Position.x + Collider.Scale.x / 2,
 		Collider.Position.y + Collider.Scale.y / 2);
+	*/
+	/*
+	Ellipse(_hdc,
+		TransInfo.Position.x - TransInfo.Scale.x / 2,
+		TransInfo.Position.y - TransInfo.Scale.y / 2,
+		TransInfo.Position.x + TransInfo.Scale.x / 2,
+		TransInfo.Position.y + TransInfo.Scale.y / 2);
+	*/
 
 }
 

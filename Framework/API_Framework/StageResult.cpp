@@ -14,7 +14,7 @@ StageResult::~StageResult()
 
 void StageResult::Initialize()
 {
-	TransInfo.Position = Vector3(WindowsWidth / 2, WindowsHeight / 2);
+	TransInfo.Position = Vector3(WindowsWidth / 2,-587.0f);
 	TransInfo.Scale = Vector3(759.0f,587.0f);
 
 	for (int i = 0; i < 2; i++)
@@ -30,6 +30,10 @@ void StageResult::Initialize()
 
 int StageResult::Update()
 {
+	if (TransInfo.Position.y >= WindowsHeight / 2)
+		TransInfo.Position.y = WindowsHeight / 2;
+	else TransInfo.Position.y += 20;
+
 		Transform Mouse;
 
 		Mouse.Scale = Vector3(5.0f, 5.0f);
@@ -67,6 +71,8 @@ int StageResult::Update()
 		if(Click == 1)
 			SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 	}
+
+
 
 	return 0;
 }

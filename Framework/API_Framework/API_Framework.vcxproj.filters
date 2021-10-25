@@ -127,9 +127,6 @@
     <Filter Include="소스 파일\02. Object\EnemyPattern\Pattern">
       <UniqueIdentifier>{96d2e6b6-5034-4bd2-baf2-f8434aeb83df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99. Manager\PatternManager">
-      <UniqueIdentifier>{8f580cae-d4e5-4773-b16a-f582872ef7dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\UI\StageResult">
       <UniqueIdentifier>{03c3f0db-6728-44c2-9629-9d30a81491b9}</UniqueIdentifier>
     </Filter>
@@ -168,6 +165,9 @@
     </Filter>
     <Filter Include="소스 파일\02. Object\UI\Number">
       <UniqueIdentifier>{2760c6bf-4758-46db-8fe1-f6499fb4c063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\SoundManager">
+      <UniqueIdentifier>{4abf2075-63fd-44af-aabf-2d0aa9edf3b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +333,9 @@
     <ClInclude Include="Number.h">
       <Filter>소스 파일\02. Object\UI\Number</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>소스 파일\99. Manager\SoundManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -466,6 +469,9 @@
     </ClCompile>
     <ClCompile Include="Number.cpp">
       <Filter>소스 파일\02. Object\UI\Number</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>소스 파일\99. Manager\SoundManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

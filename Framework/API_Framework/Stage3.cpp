@@ -109,7 +109,7 @@ void Stage3::Update()
 				}
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
-					if ((*Pb_iter)->Update() == 1)
+					if ((*Pb_iter)->Update() == 0)
 						Pb_iter = BulletList->erase(Pb_iter);
 					else if ((*Pb_iter)->Update() == 2 && !(*Pb_iter)->GetActive())
 						(*Pb_iter)->SetActive(true);

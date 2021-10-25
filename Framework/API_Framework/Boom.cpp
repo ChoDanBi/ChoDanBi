@@ -55,7 +55,7 @@ int Boom::Update(Transform& _rTransInfo)
 	//if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		//return 1;
 
-    return 2;
+    return 0;
 }
 
 void Boom::Render(HDC _hdc)

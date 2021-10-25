@@ -16,9 +16,10 @@ enum class SCENEID
 
 enum class SKILL
 {
+	WAIT,
 	ATTACK,
-	Dash,
-	NORMALPATTERN,
+	DASH,
+	STRINGPATTERN,
 	THREEPATTERN
 };
 
@@ -35,4 +36,13 @@ enum class ANIMATION
 {
 	UPSWING,
 	DOWNSWING
+};
+
+enum class MOVE
+{
+	UP,
+	DOWN,
+	BACK,
+	FORWARD,
+	STAY
 };

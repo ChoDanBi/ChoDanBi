@@ -14,9 +14,9 @@ void EnemyBullet::Initialize()
     TransInfo.Scale = Vector3(16.0f,12.0f);
     TransInfo.Position = Vector3(0.0f, 0.0f);
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 5; i++)
     {
-        e_Pattern[i].Direction = Vector3(1.0f, 0.2f * (1 - i));
+        e_Pattern[i].Direction = Vector3(1.0f, 0.2f * (2 - i));
     }
 
     Speed = 8.0f;

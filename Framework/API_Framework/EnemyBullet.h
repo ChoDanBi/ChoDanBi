@@ -3,7 +3,7 @@
 class EnemyBullet:public BulletBridge
 {
 private:
-	Transform e_Pattern[3];
+	Transform e_Pattern[5];
 
 public:
 	virtual void Initialize()override;

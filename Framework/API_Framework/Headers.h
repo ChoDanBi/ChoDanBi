@@ -29,6 +29,13 @@ using namespace std;
 
 */
 
+// ** Sound
+#pragma comment(lib, "fmod_vc.lib")
+#include <fmod.hpp>
+using namespace FMOD;
+
+#include "Struct.h"
+#include "Constant.h"
 
 extern HWND g_hWnd;
 

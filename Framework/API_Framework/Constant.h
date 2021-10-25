@@ -12,7 +12,9 @@ const DWORD KEY_ENTER	= 0x00000040;
 // ** 마우스 좌측 키 입력 확인.
 const DWORD KEY_LBUTTON = 0x00000080;
 
-
+#define SOUND_VOLUME 0.1f
+#define SOUND_VOLUME_MAX 1.0f
+#define SOUND_VOLUME_MIN 0.0f
 
 
 

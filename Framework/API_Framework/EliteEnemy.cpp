@@ -86,7 +86,7 @@ int EliteEnemy::Update(Transform& _rTransInfo)
     if (Time + 1500 <= GetTickCount64())
     {
         Time = GetTickCount64();
-       for (int i = 0; i < 3; i++)
+       for (int i = 1; i < 4; i++)
          EBulletList->push_back(CreateBullet<EnemyBullet>(i));
     }
 

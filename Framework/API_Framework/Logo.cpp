@@ -27,7 +27,7 @@ void Logo::Initialize()
 
 	Inventory.insert(make_pair(INVENTORY::GOLD, 1000));
 	Inventory.insert(make_pair(INVENTORY::DAMAGE, 1));
-	Inventory.insert(make_pair(INVENTORY::SPEED, 2));
+	Inventory.insert(make_pair(INVENTORY::SPEED, 3));
 	Inventory.insert(make_pair(INVENTORY::BOMB, 100));
 	Inventory.insert(make_pair(INVENTORY::SHIELD, 100));
 
@@ -71,6 +71,12 @@ void Logo::Initialize()
 	ImageList["Shild"] = (new Bitmap)->LoadBmp(L"../Resource/Shild.bmp");
 	ImageList["Bomb"] = (new Bitmap)->LoadBmp(L"../Resource/Boom.bmp");
 	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
+
+	ImageList["HitPoint1"] = (new Bitmap)->LoadBmp(L"../Resource/HitPointBar1.bmp");
+	ImageList["HitPoint2"] = (new Bitmap)->LoadBmp(L"../Resource/HitPointBar2.bmp");
+
+	ImageList["BossHitPoint1"] = (new Bitmap)->LoadBmp(L"../Resource/BossHitPointBar1.bmp");
+	ImageList["BossHitPoint2"] = (new Bitmap)->LoadBmp(L"../Resource/BossHitPointBar2.bmp");
 	
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨

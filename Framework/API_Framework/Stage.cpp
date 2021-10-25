@@ -73,21 +73,28 @@ void Stage::Update()
 			else
 				Pb_iter++;
 		}
-
+		
 		//적 탄환과 플레이어 상호작용
 		for (vector<Object*>::iterator iter = EBulletList->begin();
 			iter != EBulletList->end(); ++iter)
 		{
 			(*iter)->Update();
+
 			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()) && m_pPlayer->GetActive())
 			{
 				m_pPlayer->SetActive(false);
+				iter = EBulletList->erase(iter);
 				m_pPlayer->CrashHitPoint(1);
+				break;
+			}
+			if ((*iter)->GetPosition().x <= -10)
+			{
 				iter = EBulletList->erase(iter);
 				break;
 			}
 		}
 
+		
 		//적과 플레이어 탄환 상호작용
 		for (vector<Object*>::iterator E_iter = EnemyList->begin();
 			E_iter != EnemyList->end(); )
@@ -102,7 +109,7 @@ void Stage::Update()
 			}
 
 			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
-				Pb_iter != BulletList->end(); )
+				Pb_iter != BulletList->end();Pb_iter++)
 			{
 				if ((*E_iter)->GetHitPoint() <= 0)
 				{
@@ -110,19 +117,26 @@ void Stage::Update()
 					iResult = 1;
 					break;
 				}
+				
+				
+					/*
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
-					if ((*Pb_iter)->Update() == 1)
-						Pb_iter = BulletList->erase(Pb_iter);
+					if ((*Pb_iter)->Update() == 0)
+					{
+					}
 					else if ((*Pb_iter)->Update() == 2 && !(*Pb_iter)->GetActive())
+					{
 						(*Pb_iter)->SetActive(true);
+					}
 
-					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
-
+					Pb_iter = BulletList->erase(Pb_iter);
+					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					break;
 				}
-				else Pb_iter++;
+					*/
+				//else Pb_iter++;
 			}
 
 			if (iResult == 1)
@@ -130,6 +144,7 @@ void Stage::Update()
 			else
 				++E_iter;
 		}
+			
 
 		
 		if (!EffectList.empty())
