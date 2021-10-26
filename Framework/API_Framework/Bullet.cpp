@@ -62,7 +62,6 @@ void Bullet::Render(HDC _hdc)
 		TransInfo.Position.x + TransInfo.Scale.x / 2,
 		TransInfo.Position.y + TransInfo.Scale.y / 2);
 	*/
-
 }
 
 void Bullet::Release()

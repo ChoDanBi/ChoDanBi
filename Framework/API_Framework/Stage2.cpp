@@ -72,29 +72,53 @@ void Stage2::Update()
 				Pb_iter++;
 		}
 
+		//적 탄환과 플레이어 상호작용
 		for (vector<Object*>::iterator iter = EBulletList->begin();
 			iter != EBulletList->end(); ++iter)
 		{
 			(*iter)->Update();
-			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()) && m_pPlayer->GetActive())
+
+			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
 			{
 				m_pPlayer->SetActive(false);
 				iter = EBulletList->erase(iter);
 				m_pPlayer->CrashHitPoint(1);
 				break;
 			}
+			if ((*iter)->GetPosition().x <= -10)
+			{
+				iter = EBulletList->erase(iter);
+				break;
+			}
 		}
 
+		//적과 플레이어 탄환 상호작용
 		for (vector<Object*>::iterator E_iter = EnemyList->begin();
 			E_iter != EnemyList->end(); )
 		{
 			int iResult = (*E_iter)->Update();
 
-			if (CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*E_iter)->GetCollider()) && m_pPlayer->GetActive())
+
+			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*E_iter)->GetCollider()))
 			{
 				m_pPlayer->SetActive(false);
 				m_pPlayer->CrashHitPoint(1);
+				SoundManager::GetInstance()->OnPlaySound("Crash");
 				break;
+			}
+
+			if (!EffectList.empty())
+			{
+				for (vector<Object*>::iterator iter = EffectList.begin();
+					iter != EffectList.end(); )
+				{
+					(*iter)->Update();
+
+					if (!(*iter)->GetActive())
+						iter = EffectList.erase(iter);
+					else
+						iter++;
+				}
 			}
 
 			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
@@ -102,23 +126,29 @@ void Stage2::Update()
 			{
 				if ((*E_iter)->GetHitPoint() <= 0)
 				{
-					InventoryManager::GetInstance()->AddItem(INVENTORY::GOLD);
+					InventoryManager::GetInstance()->AddItem(INVENTORY::GOLD, 20);
 					iResult = 1;
 					break;
 				}
+
+				//이 부분에서 아 오류남
+
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
-					if ((*Pb_iter)->Update() == 0)
-						Pb_iter = BulletList->erase(Pb_iter);
-					else if ((*Pb_iter)->Update() == 2 && !(*Pb_iter)->GetActive())
-						(*Pb_iter)->SetActive(true);
 
-					EffectList.push_back(ObjectFactory<Effect>::CreateObject((*Pb_iter)->GetPosition()));
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
+					SoundManager::GetInstance()->OnPlaySound("Hit");
+
+					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
+						(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,
+						(*Pb_iter)->GetPosition().y + rand() % 20 + 10));
+
+					Pb_iter = BulletList->erase(Pb_iter);
 					break;
 				}
-				else Pb_iter++;
+				else
+					Pb_iter++;
 			}
 
 			if (iResult == 1)
@@ -127,26 +157,12 @@ void Stage2::Update()
 				++E_iter;
 		}
 
-		if (!EffectList.empty())
-		{
-			for (vector<Object*>::iterator iter = EffectList.begin();
-				iter != EffectList.end(); )
-			{
-				(*iter)->Update();
-
-				if (!(*iter)->GetActive())
-					iter = EffectList.erase(iter);
-				else
-					iter++;
-			}
-		}
-
 
 		if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 		{
 			Timer = GetTickCount64();
-			EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300, rand() % 580 + 50)));
-			EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1300, rand() % 580 + 50)));
+			EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300.0f, float(rand() % 580 + 50))));
+			EnemyList->push_back(CreateEnemy<NormalEnemy>(Vector3(1300.0f, float(rand() % 580 + 50))));
 		}
 
 		if (PlayTime + 60000 <= GetTickCount64())

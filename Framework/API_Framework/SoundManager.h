@@ -1,5 +1,8 @@
 #pragma once
 #include "Headers.h"
+#include "Include.h"
+
+
 
 class SoundManager
 {
@@ -27,8 +30,8 @@ public:
 	void VolumeUp();
 	void VolumeDown();
 private:
-	SoundManager() { };
+	SoundManager() { }
 public:
-	~SoundManager() { Release(); };
+	~SoundManager() { Release(); }
 };
 

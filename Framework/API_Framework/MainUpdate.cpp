@@ -17,6 +17,7 @@ MainUpdate::~MainUpdate()
 void MainUpdate::Initialize()
 {
 	m_hdc = GetDC(g_hWnd);
+
 	SoundManager::GetInstance()->Initialize();
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Hit by jeckkech Id-391668.wav", "Hit");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/«ì«Ù«ë«¢«Ã«×.mp3", "Clear");

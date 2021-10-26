@@ -336,6 +336,9 @@
     <ClInclude Include="SoundManager.h">
       <Filter>소스 파일\99. Manager\SoundManager</Filter>
     </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">

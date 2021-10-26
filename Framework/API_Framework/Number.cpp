@@ -53,7 +53,7 @@ void Number::Render(HDC _hdc)
 		RGB(255, 0, 255));
 	*/
 		
-	for (int i = 0; i < NumberList.size(); i++)
+	for (int i = 0; i < int(NumberList.size()); ++i)
 	{
 		TransparentBlt(_hdc, // ** 최종 출력 위치
 			int(TransInfo.Position.x - (TransInfo.Scale.x / 2)) + i * int(35),
@@ -66,9 +66,8 @@ void Number::Render(HDC _hdc)
 			int(TransInfo.Scale.x),
 			int(TransInfo.Scale.y),
 			RGB(255, 0, 255));
-
 	}
-		
+
 	/*
 	TransparentBlt(_hdc,
 		int(ButtonPos[i].Position.x - (ButtonPos[i].Scale.x/2)),

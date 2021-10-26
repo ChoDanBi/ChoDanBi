@@ -131,7 +131,7 @@ void BossEnemy::Render(HDC _hdc)
         ImageList["BossHitPoint2"]->GetMemDC(),
         0,
         0,
-        86 + (HitPoint * 8.14f),
+        int(86 + (HitPoint * 8.14f)),
         50,
         RGB(255, 0, 255));
 }
@@ -173,7 +173,7 @@ void BossEnemy::Pattern(SKILL _Skill)
         Move = MOVE::FORWARD;
         if (TransInfo.Position.x < -100)
         {
-            TransInfo.Position = Vector3(1300, 100 + 100 * (rand() % 5));
+            TransInfo.Position = Vector3((float)1300, float(100 * (rand() % 5) + 100));
             Tick++;
             if (Tick == 3)
                 TransInfo.Position.y = 350;

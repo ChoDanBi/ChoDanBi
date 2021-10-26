@@ -169,6 +169,7 @@ void Player::Render(HDC _hdc)
 		int(Collider.Position.x + Collider.Scale.x / 2),
 		int(Collider.Position.y + Collider.Scale.y / 2) );
 	*/
+	
 }
 
 void Player::Release()

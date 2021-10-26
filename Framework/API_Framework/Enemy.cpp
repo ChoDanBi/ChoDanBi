@@ -43,15 +43,13 @@ void Enemy::Render(HDC _hdc)
 	if (BridgeObject)
 		BridgeObject->Render(_hdc);
 	
-	
+	/*
 	Ellipse(_hdc,
-		Collider.Position.x - Collider.Scale.x / 2,
-		Collider.Position.y - Collider.Scale.y / 2,
-		Collider.Position.x + Collider.Scale.x / 2,
-		Collider.Position.y + Collider.Scale.y / 2 );
-	
-
-	
+		int(Collider.Position.x - Collider.Scale.x / 2),
+		int(Collider.Position.y - Collider.Scale.y / 2),
+		int(Collider.Position.x + Collider.Scale.x / 2),
+		int(Collider.Position.y + Collider.Scale.y / 2) );
+	*/	
 }
 
 void Enemy::Release()

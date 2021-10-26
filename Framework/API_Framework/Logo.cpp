@@ -81,7 +81,10 @@ void Logo::Initialize()
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨
 
+	Image = (new Bitmap)->LoadBmp(L"../Resource/Logo.bmp");
 	
+	TransInfo.Position = Vector3(1280.0f, 720.0f);
+	TransInfo.Scale = Vector3(1280.0f , 720.0f);
 }
 
 void Logo::Update()
@@ -93,6 +96,13 @@ void Logo::Update()
 
 void Logo::Render(HDC _hdc)
 {
+	BitBlt(_hdc,
+		0, 0,
+		WindowsWidth,
+		WindowsHeight,
+		Image->GetMemDC(),
+		0, 0,
+		SRCCOPY);
 }
 
 void Logo::Release()

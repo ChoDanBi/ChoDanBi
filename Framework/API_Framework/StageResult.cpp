@@ -20,7 +20,7 @@ void StageResult::Initialize()
 	for (int i = 0; i < 2; i++)
 	{
 		Buttom[i].Scale = Vector3(280.0f, 90.0f);
-		Buttom[i].Position = Vector3(460 + 370 * i,590);
+		Buttom[i].Position = Vector3(float(460 + 370 * i),590.0f);
 	}
 
 	StageNumber = 0;

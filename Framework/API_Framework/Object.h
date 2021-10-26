@@ -14,7 +14,7 @@ protected:
 
 	string strKey;
 	bool Active;
-	float Speed;
+	int Speed;
 	int HitPoint;
 	int Damage;
 

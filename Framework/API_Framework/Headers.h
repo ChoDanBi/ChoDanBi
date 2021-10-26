@@ -10,32 +10,26 @@
 
 using namespace std;
 
-#include "Struct.h"
 #include "Enum.h"
 #include "Constant.h"
 #include "Define.h"
 #include "Bitmap.h"
 
-#pragma comment(lib, "msimg32.lib")
-
-/*
 // ** 이미지
 #pragma comment(lib, "msimg32.lib")
 
 
-// ** 동영상
-#include <Vfw.h>
-#pragma comment(lib, "vfw32.lib")
 
-*/
-
-// ** Sound
-#pragma comment(lib, "fmod_vc.lib")
-#include <fmod.hpp>
-using namespace FMOD;
 
 #include "Struct.h"
 #include "Constant.h"
+
+/*
+// ** 동영상
+#include <Vfw.h>
+#pragma comment(lib, "vfw32.lib")
+*/
+
 
 extern HWND g_hWnd;
 

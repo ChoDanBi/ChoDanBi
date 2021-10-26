@@ -60,7 +60,6 @@ void NormalBullet::Render(HDC _hdc)
 		int(RealObject->GetScale().x),
 		int(RealObject->GetScale().y),
 		RGB(255, 0, 255));
-
 }
 
 void NormalBullet::Release()

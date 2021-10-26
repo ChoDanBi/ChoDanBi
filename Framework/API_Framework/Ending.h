@@ -7,6 +7,8 @@ class Ending:public Scene
 private:
 	Object* StageBack;
 	map<string, Bitmap*> ImageList;
+	Bitmap* Image;
+	Transform TransInfo;
 
 public:
 	virtual void Initialize()override;

@@ -5,7 +5,7 @@ class EnemyBridge : public Bridge
 {
 protected:
 	int HitPoint;
-	int Speed;
+	float Speed;
 	int Frame;
 
 	ANIMATION Animation;

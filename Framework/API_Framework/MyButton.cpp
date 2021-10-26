@@ -21,7 +21,7 @@ void MyButton::Initialize()
 
 	strKey = "";
 	Active = false;
-	Speed = 3.0f;
+	Speed = 3;
 
 	MOVE = false;
 	Horizontal = false;
