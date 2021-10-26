@@ -77,12 +77,10 @@
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="NormalEnemy.h" />
-    <ClInclude Include="NormalPattern.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
-    <ClInclude Include="PatternBridge.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="RenderManager.h" />
@@ -128,11 +126,9 @@
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
-    <ClCompile Include="NormalPattern.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
-    <ClCompile Include="PatternBridge.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Prototype.cpp" />
     <ClCompile Include="RenderManager.cpp" />

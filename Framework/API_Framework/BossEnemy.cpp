@@ -62,7 +62,7 @@ int BossEnemy::Update(Transform& _rTransInfo)
             break;
         }  
     }
-    /*
+    
 
     if (Time + 3000 < GetTickCount64() && Skill == SKILL::WAIT)
     {
@@ -87,9 +87,9 @@ int BossEnemy::Update(Transform& _rTransInfo)
     else if (Time + 3000 < GetTickCount64() && Skill != SKILL::WAIT)
         Time = GetTickCount64();
 
-    MoveAnimation(Move);
-    Pattern(Skill);
-    */
+    //MoveAnimation(Move);
+    //Pattern(Skill);
+    
 
     RealObject->SetColliderPosition(
         TransInfo.Position.x + 25, TransInfo.Position.y + 20);
@@ -110,19 +110,7 @@ void BossEnemy::Render(HDC _hdc)
         int(TransInfo.Scale.x),
         int(TransInfo.Scale.y),
         RGB(255, 0, 255));
-
-    TransparentBlt(_hdc,
-        WindowsWidth/2 - 450,
-        50,
-        900,
-        50,
-        ImageList["BossHitPoint1"]->GetMemDC(),
-        0,
-        0,
-        900,
-        50,
-        RGB(255, 0, 255));
-
+    
     TransparentBlt(_hdc,
         WindowsWidth / 2 - 450,
         50,
@@ -131,9 +119,31 @@ void BossEnemy::Render(HDC _hdc)
         ImageList["BossHitPoint2"]->GetMemDC(),
         0,
         0,
-        int(86 + (HitPoint * 8.14f)),
+        900,
         50,
         RGB(255, 0, 255));
+    
+
+    TransparentBlt(_hdc,
+        WindowsWidth / 2 - 450 + 86, 50,
+        int(HitPoint * 8.14f),50,
+        ImageList["BossHitPoint1"]->GetMemDC(),
+        86, 0,
+        int(HitPoint * 8.14f), 50,
+        RGB(255, 0, 255));
+    
+    
+    /*
+    TransparentBlt(_hdc, 
+		860,
+		570,
+		384 - 128 * (3 - HitPoint),
+		128,
+		ImageList["Heart"]->GetMemDC(),
+		0, 0,
+		384- 128*(3-HitPoint),128,
+		RGB(255, 0, 255));
+        */
 }
 
 void BossEnemy::Release()

@@ -121,12 +121,6 @@
     <Filter Include="소스 파일\99. Manager\MathManager">
       <UniqueIdentifier>{137836cd-84c4-4169-b9e4-6d74da496c31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\EnemyPattern">
-      <UniqueIdentifier>{9bfa326b-b945-4b9c-90f7-3dd4471768bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\EnemyPattern\Pattern">
-      <UniqueIdentifier>{96d2e6b6-5034-4bd2-baf2-f8434aeb83df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\UI\StageResult">
       <UniqueIdentifier>{03c3f0db-6728-44c2-9629-9d30a81491b9}</UniqueIdentifier>
     </Filter>
@@ -150,9 +144,6 @@
     </Filter>
     <Filter Include="소스 파일\99. Manager\InventoryManager">
       <UniqueIdentifier>{2c3dee22-0068-468e-945e-8d7365d8bb9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern">
-      <UniqueIdentifier>{443e1fd0-418e-4c3b-a07b-b3a7de5ec6a0}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\UI\StateBar">
       <UniqueIdentifier>{5c83d5d5-eaf8-4231-b6ae-a34e9466eccf}</UniqueIdentifier>
@@ -288,9 +279,6 @@
     <ClInclude Include="StageButton.h">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClInclude>
-    <ClInclude Include="PatternBridge.h">
-      <Filter>소스 파일\02. Object\EnemyPattern</Filter>
-    </ClInclude>
     <ClInclude Include="StageResult.h">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
     </ClInclude>
@@ -308,9 +296,6 @@
     </ClInclude>
     <ClInclude Include="InventoryManager.h">
       <Filter>소스 파일\99. Manager\InventoryManager</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalPattern.h">
-      <Filter>소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern</Filter>
     </ClInclude>
     <ClInclude Include="StateBar.h">
       <Filter>소스 파일\02. Object\UI\StateBar</Filter>
@@ -428,9 +413,6 @@
     <ClCompile Include="StageButton.cpp">
       <Filter>소스 파일\02. Object\UI\StageButton</Filter>
     </ClCompile>
-    <ClCompile Include="PatternBridge.cpp">
-      <Filter>소스 파일\02. Object\EnemyPattern</Filter>
-    </ClCompile>
     <ClCompile Include="StageResult.cpp">
       <Filter>소스 파일\02. Object\UI\StageResult</Filter>
     </ClCompile>
@@ -448,9 +430,6 @@
     </ClCompile>
     <ClCompile Include="InventoryManager.cpp">
       <Filter>소스 파일\99. Manager\InventoryManager</Filter>
-    </ClCompile>
-    <ClCompile Include="NormalPattern.cpp">
-      <Filter>소스 파일\02. Object\EnemyPattern\Pattern\NormalPattern</Filter>
     </ClCompile>
     <ClCompile Include="StateBar.cpp">
       <Filter>소스 파일\02. Object\UI\StateBar</Filter>
