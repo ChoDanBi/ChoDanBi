@@ -5,6 +5,7 @@
 #include "CollisionManager.h"
 #include "ObjectFactory.h"
 #include "InventoryManager.h"
+#include "SoundManager.h"
 
 #include "Player.h"
 #include "Enemy.h"
@@ -38,7 +39,6 @@ void Stage::Initialize()
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
-
 
 	PlayTime = GetTickCount64();
 
@@ -105,7 +105,7 @@ void Stage::Update()
 			{
 				m_pPlayer->SetActive(false);
 				m_pPlayer->CrashHitPoint(1);
-				SoundManager::GetInstance()->OnPlaySound("Crash");
+				SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 				break;
 			}
 
@@ -140,7 +140,7 @@ void Stage::Update()
 
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
-					SoundManager::GetInstance()->OnPlaySound("Hit");
+					SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
 						(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,

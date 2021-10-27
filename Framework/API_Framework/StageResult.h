@@ -6,6 +6,7 @@ class StageResult:public Object
 private:
 	int StageNumber;
 	int Click;
+	int Soundplaytime;
 	bool Clear;
 	Transform Buttom[2];
 

@@ -5,8 +5,11 @@ class Logo : public Scene
 {
 private:
 	map<string, Bitmap*> ImageList;
-	Bitmap* Image;
+	Bitmap* Image[3];
 	Transform TransInfo;
+	HDC		m_hdc;
+	ULONGLONG Time;
+	int Frame;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

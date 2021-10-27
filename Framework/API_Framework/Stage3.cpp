@@ -5,6 +5,7 @@
 #include "CollisionManager.h"
 #include "ObjectFactory.h"
 #include "InventoryManager.h"
+#include "SoundManager.h"
 
 #include "Player.h"
 #include "Enemy.h"
@@ -34,6 +35,7 @@ void Stage3::Initialize()
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);
 
 	EffectList.clear();
+
 
 	SelectButton = ObjectManager::GetInstance()->GetButton();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
@@ -104,7 +106,7 @@ void Stage3::Update()
 				{
 					m_pPlayer->SetActive(false);
 					m_pPlayer->CrashHitPoint(1);
-					SoundManager::GetInstance()->OnPlaySound("Crash");
+					SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 					break;
 				}
 
@@ -139,7 +141,7 @@ void Stage3::Update()
 
 						(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
-						SoundManager::GetInstance()->OnPlaySound("Hit");
+						SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 						EffectList.push_back(ObjectFactory<Effect>::CreateObject(
 							(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,

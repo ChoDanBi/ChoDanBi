@@ -18,6 +18,9 @@ void MainUpdate::Initialize()
 {
 	m_hdc = GetDC(g_hWnd);
 
+	Image = (new Bitmap)->LoadBmp(L"../Resource/Loading.bmp");
+	BitBlt(m_hdc, 0, 0, WindowsWidth, WindowsHeight, Image->GetMemDC(), 0, 0, SRCCOPY);
+
 	SoundManager::GetInstance()->Initialize();
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Hit by jeckkech Id-391668.wav", "Hit");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/«ì«Ù«ë«¢«Ã«×.mp3", "Clear");
@@ -29,6 +32,7 @@ void MainUpdate::Initialize()
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Ì½ïÒ¡¢«Ü«¿«óäãù»46.mp3", "Buy");
 
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
+
 }
 
 void MainUpdate::Update()
@@ -41,6 +45,7 @@ void MainUpdate::Update()
 void MainUpdate::Render()
 {
 	SceneManager::GetInstance()->Render(m_hdc);
+	
 }
 
 void MainUpdate::Release()

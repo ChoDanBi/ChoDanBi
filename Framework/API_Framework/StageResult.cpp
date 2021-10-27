@@ -2,6 +2,7 @@
 
 #include "InputManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 #include "CollisionManager.h"
 
 StageResult::StageResult()
@@ -23,6 +24,7 @@ void StageResult::Initialize()
 		Buttom[i].Position = Vector3(float(460 + 370 * i),590.0f);
 	}
 
+	Soundplaytime = 0;
 	StageNumber = 0;
 	Click = 0;
 	Clear = false;
@@ -44,6 +46,11 @@ int StageResult::Update()
 
 		if (Clear)
 		{
+			if (Soundplaytime == 0)
+			{
+				SoundManager::GetInstance()->OnPlaySound("Clear");
+				Soundplaytime++;
+			}
 			if (CollisionManager::RectCollision(Buttom[0], Mouse) && Click == 1)
 			SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 
@@ -53,15 +60,23 @@ int StageResult::Update()
 			{
 			case 1:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE2);
+				SoundManager::GetInstance()->StopSound("Stage");
+				SoundManager::GetInstance()->OnPlaySound("Stage");
 				break;
 			case 2:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE3);
+				SoundManager::GetInstance()->StopSound("Stage");
+				SoundManager::GetInstance()->OnPlaySound("Stage");
 				break;
 			case 3:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
+				SoundManager::GetInstance()->StopSound("Stage");
+				SoundManager::GetInstance()->OnPlaySound("Boss");
 				break;
 			case 4:
 				SceneManager::GetInstance()->SetScene(SCENEID::END);
+				SoundManager::GetInstance()->StopSound("Boss");
+				SoundManager::GetInstance()->OnPlaySound("Ending");
 				break;
 			}
 		}
@@ -118,5 +133,6 @@ void StageResult::Render(HDC _hdc)
 
 void StageResult::Release()
 {
+	
 }
 

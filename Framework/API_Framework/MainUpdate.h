@@ -5,6 +5,7 @@ class MainUpdate
 {
 private:
 	HDC		m_hdc;
+	Bitmap* Image;
 public:
 	void Initialize();
 	void Update();

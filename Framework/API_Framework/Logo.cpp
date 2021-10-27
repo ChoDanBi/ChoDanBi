@@ -21,6 +21,7 @@ Logo::~Logo()
 
 void Logo::Initialize()
 {
+
 	ObjectManager::GetInstance()->Initialize();
 
 	map<INVENTORY, int> Inventory;
@@ -81,10 +82,16 @@ void Logo::Initialize()
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨
 
-	Image = (new Bitmap)->LoadBmp(L"../Resource/Logo.bmp");
+	Image[1] = (new Bitmap)->LoadBmp(L"../Resource/Logo.bmp");
+	Image[2] = (new Bitmap)->LoadBmp(L"../Resource/Touch.bmp");
 	
+	Time = GetTickCount64();
+	Frame = 0;
+
 	TransInfo.Position = Vector3(1280.0f, 720.0f);
 	TransInfo.Scale = Vector3(1280.0f , 720.0f);
+
+	SoundManager::GetInstance()->OnPlaySound("Wait");
 }
 
 void Logo::Update()
@@ -92,6 +99,17 @@ void Logo::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 	if (dwKey & KEY_LBUTTON)
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
+
+	if (Time + 1000 < GetTickCount64())
+		switch (Frame)
+		{
+		case 0:
+			Frame = 1;
+			break;
+		case 1:
+			Frame = 0;
+			break;
+		}
 }
 
 void Logo::Render(HDC _hdc)
@@ -100,9 +118,18 @@ void Logo::Render(HDC _hdc)
 		0, 0,
 		WindowsWidth,
 		WindowsHeight,
-		Image->GetMemDC(),
+		Image[1]->GetMemDC(),
 		0, 0,
 		SRCCOPY);
+
+
+	TransparentBlt(_hdc,
+		WindowsWidth / 2 - 231/2, 600,
+		231, 40,
+		Image[2]->GetMemDC(),
+		Frame * 231, 0,
+		231, 40,
+		RGB(255, 0, 255));
 }
 
 void Logo::Release()

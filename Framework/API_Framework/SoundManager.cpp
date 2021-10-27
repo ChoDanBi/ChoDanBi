@@ -53,13 +53,58 @@ void SoundManager::OnPlaySound(string _Key)
 		return;
 	}
 
-	// ** 사운드를 재생 시킴..
+	if( iter->second->SoundChannel->isPlaying(&Playing))
+	{
+		// ** 사운드를 재생 시킴..
+		if (FMOD_OK != m_pSystem->playSound(iter->second->SoundObj, 0, false, &iter->second->SoundChannel))
+		{
+			cout << "문제가 생겼습니다." << endl;
+			return;
+		}
+	}
+
+}
+
+void SoundManager::OnPlaySoundDot(string _Key)
+{
+	// ** 사운드를 찾는다.
+	map<string, SOUNDINFO*>::iterator iter = SoundList.find(_Key);
+
+	// ** 만약에 찾는 사운드가 없다면...
+	if (iter == SoundList.end())
+	{
+		// ** 사운드 데이터가 없다는 메시지를 띄운후 종료시킴..
+		cout << "Sound date does not exits." << endl;
+		return;
+	}
+
+		// ** 사운드를 재생 시킴..
 	if (FMOD_OK != m_pSystem->playSound(iter->second->SoundObj, 0, false, &iter->second->SoundChannel))
 	{
 		cout << "문제가 생겼습니다." << endl;
 		return;
+
 	}
 }
+
+void SoundManager::StopSound(string _Key)
+{
+	// ** 사운드를 찾는다.
+	map<string, SOUNDINFO*>::iterator iter = SoundList.find(_Key);
+
+	// ** 만약에 찾는 사운드가 없다면...
+	if (iter == SoundList.end())
+	{
+		// ** 사운드 데이터가 없다는 메시지를 띄운후 종료시킴..
+		cout << "Sound date does not exits." << endl;
+		return;
+	}
+
+	//**사운드가 재생중이면 종료
+	if (!iter->second->SoundChannel->isPlaying(&Playing))
+		iter->second->SoundChannel->stop();
+}
+
 
 void SoundManager::Release()
 {

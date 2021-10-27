@@ -6,6 +6,7 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "CollisionManager.h"
+#include "SoundManager.h"
 #include "ObjectManager.h"
 
 SelectStage::SelectStage()
@@ -20,6 +21,8 @@ void SelectStage::Initialize()
 {
 
 	click = 0;
+
+	SoundManager::GetInstance()->OnPlaySound("Wait");
 
 	BackButtom.Scale = Vector3(195.0f, 70.0f);
 	BackButtom.Position = Vector3(130.0f, 70.0f);

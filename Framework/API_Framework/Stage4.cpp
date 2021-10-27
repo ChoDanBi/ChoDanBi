@@ -28,7 +28,6 @@ Stage4::~Stage4()
 
 void Stage4::Initialize()
 {
-	SoundManager::GetInstance()->OnPlaySound("Boss");
 
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);
@@ -107,7 +106,7 @@ void Stage4::Update()
 			{
 				m_pPlayer->SetActive(false);
 				m_pPlayer->CrashHitPoint(1);
-				SoundManager::GetInstance()->OnPlaySound("Crash");
+				SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 				break;
 			}
 
@@ -135,14 +134,13 @@ void Stage4::Update()
 					break;
 				}
 
-				//이 부분에서 아 오류남
 				
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
 					
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
-					SoundManager::GetInstance()->OnPlaySound("Hit");
+					SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
 						(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,
@@ -244,6 +242,7 @@ void Stage4::Release()
 
 	m_pPlayer->SetHitPoint(3);
 	m_pPlayer->SetActive(true);
+
 }
 
 template<typename T>
