@@ -60,7 +60,7 @@ int StageButton::Update()
 
 	if (CollisionManager::RectCollision(ButtonPos[0], Mouse) && click == 1)
 	{
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
 		SoundManager::GetInstance()->StopSound("Wait");
 		SoundManager::GetInstance()->OnPlaySound("Stage");
 	}

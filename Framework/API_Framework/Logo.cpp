@@ -26,11 +26,11 @@ void Logo::Initialize()
 
 	map<INVENTORY, int> Inventory;
 
-	Inventory.insert(make_pair(INVENTORY::GOLD, 1000));
+	Inventory.insert(make_pair(INVENTORY::GOLD, 100));
 	Inventory.insert(make_pair(INVENTORY::DAMAGE, 1));
-	Inventory.insert(make_pair(INVENTORY::SPEED, 3));
-	Inventory.insert(make_pair(INVENTORY::BOMB, 100));
-	Inventory.insert(make_pair(INVENTORY::SHIELD, 100));
+	Inventory.insert(make_pair(INVENTORY::SPEED, 2));
+	Inventory.insert(make_pair(INVENTORY::BOMB, 10));
+	Inventory.insert(make_pair(INVENTORY::SHIELD, 10));
 
 	InventoryManager::GetInstance()->SetInventory(Inventory);
 
@@ -71,6 +71,7 @@ void Logo::Initialize()
 
 	ImageList["Shild"] = (new Bitmap)->LoadBmp(L"../Resource/Shild.bmp");
 	ImageList["Bomb"] = (new Bitmap)->LoadBmp(L"../Resource/Boom.bmp");
+	ImageList["TBomb"] = (new Bitmap)->LoadBmp(L"../Resource/BoomThrow.bmp");
 	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
 
 	ImageList["HitPoint1"] = (new Bitmap)->LoadBmp(L"../Resource/HitPointBar1.bmp");
@@ -82,8 +83,9 @@ void Logo::Initialize()
 	Object::SetImageList(ImageList);
 	Bridge::SetImageList(ImageList);	//이거 없으면 브릿지 이미지 안됨
 
-	Image[1] = (new Bitmap)->LoadBmp(L"../Resource/Logo.bmp");
-	Image[2] = (new Bitmap)->LoadBmp(L"../Resource/Touch.bmp");
+	Image[0] = (new Bitmap)->LoadBmp(L"../Resource/Logo.bmp");
+	//Image[1] = (new Bitmap)->LoadBmp(L"../Resource/Touch.bmp");
+	Image[1] = (new Bitmap)->LoadBmp(L"../Resource/Star.bmp");
 	
 	Time = GetTickCount64();
 	Frame = 0;
@@ -101,15 +103,10 @@ void Logo::Update()
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 
 	if (Time + 1000 < GetTickCount64())
-		switch (Frame)
-		{
-		case 0:
-			Frame = 1;
-			break;
-		case 1:
-			Frame = 0;
-			break;
-		}
+	{
+		Time = GetTickCount64();
+		Frame = !Frame;
+	}
 }
 
 void Logo::Render(HDC _hdc)
@@ -118,18 +115,32 @@ void Logo::Render(HDC _hdc)
 		0, 0,
 		WindowsWidth,
 		WindowsHeight,
-		Image[1]->GetMemDC(),
+		Image[0]->GetMemDC(),
 		0, 0,
 		SRCCOPY);
 
-
+	/*
+	* 
 	TransparentBlt(_hdc,
 		WindowsWidth / 2 - 231/2, 600,
 		231, 40,
-		Image[2]->GetMemDC(),
+		Image[1]->GetMemDC(),
 		Frame * 231, 0,
 		231, 40,
 		RGB(255, 0, 255));
+	*/
+
+
+	/*
+	* 확인용
+	TransparentBlt(_hdc,
+		WindowsWidth / 2 - 231 / 2, 600,
+		128, 64,
+		Image[1]->GetMemDC(),
+		Frame * 128, 0,
+		128, 64,
+		RGB(255, 0, 255));
+	*/
 }
 
 void Logo::Release()

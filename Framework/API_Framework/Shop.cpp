@@ -5,6 +5,7 @@
 
 #include "SceneManager.h"
 #include "InputManager.h"
+#include "ObjectManager.h"
 #include "CollisionManager.h"
 #include "SoundManager.h"
 #include "InventoryManager.h"
@@ -101,6 +102,10 @@ void Shop::Update()
 		{
 			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED) );
 			InventoryManager::GetInstance()->AddItem(INVENTORY::SPEED); //스피드 받음
+
+			ObjectManager::GetInstance()->GetPlayer()->SetSpeed(
+				InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED));
+
 			SoundManager::GetInstance()->OnPlaySoundDot("Buy");
 		}
 	}

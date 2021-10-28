@@ -40,7 +40,7 @@ void Stage4::Initialize()
 	EBulletList = ObjectManager::GetInstance()->GetEnemyBullet();
 
 
-	EnemyList->push_back(CreateEnemy<BossEnemy>(Vector3(1000, 360)));
+	EnemyList->push_back(CreateEnemy<BossEnemy>(Vector3(1300, 360)));
 
 	PlayTime = GetTickCount64();
 	Timer = GetTickCount64();
@@ -65,6 +65,7 @@ void Stage4::Update()
 		m_pPlayer->Update();
 
 		//플레이어 탄환 업뎃
+		
 		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
 			Pb_iter != BulletList->end();)
 		{
@@ -101,7 +102,7 @@ void Stage4::Update()
 		{
 			int iResult = (*E_iter)->Update();
 
-
+			//플레이어가 맞음
 			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*E_iter)->GetCollider()))
 			{
 				m_pPlayer->SetActive(false);
@@ -124,29 +125,30 @@ void Stage4::Update()
 				}
 			}
 
+			//플레이어 탄환이 적을 맞춤
 			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
 				Pb_iter != BulletList->end(); )
 			{
 				if ((*E_iter)->GetHitPoint() <= 0)
 				{
 					InventoryManager::GetInstance()->AddItem(INVENTORY::GOLD, 20);
-					iResult = 1;
+					(*E_iter)->SetActive(false);
 					break;
 				}
-
-				
 				if (CollisionManager::RectCollision((*E_iter)->GetCollider(), (*Pb_iter)->GetCollider()))
 				{
-					
+
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
+					if ((*Pb_iter)->Update() == 2)
+						(*Pb_iter)->SetActive(false);
 					SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
-						(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,
+						(*Pb_iter)->GetPosition().x + rand() % 30 + 20,
 						(*Pb_iter)->GetPosition().y + rand() % 20 + 10));
-
-					Pb_iter = BulletList->erase(Pb_iter);
+					if ((*Pb_iter)->Update() == 0)
+						Pb_iter = BulletList->erase(Pb_iter);
 					break;
 				}
 				else

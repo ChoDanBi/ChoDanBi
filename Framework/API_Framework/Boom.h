@@ -1,10 +1,10 @@
 #pragma once
 #include "BulletBridge.h"
 
-class Boom:public BulletBridge
+class Boom :public BulletBridge
 {
 private:
-	int Frame;
+	int Frame[2];
 	ULONGLONG Time;
 
 public:
