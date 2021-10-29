@@ -29,6 +29,8 @@ public:
 
 	virtual Object* Clone()PURE;
 public:
+	void SetSpeed(int _Speed) { Speed = _Speed; }
+
 	// ** map으로 생성된 Image 보관 컨테이너틑 Setting
 	static void SetImageList(const map<string, Bitmap*>& _ImageList) { ImageList = _ImageList; }
 

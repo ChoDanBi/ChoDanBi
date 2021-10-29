@@ -4,9 +4,12 @@
 class BossEnemy :public EnemyBridge
 {
 public:
+	Bitmap* Image;
 	SKILL Skill;
 	MOVE Move;
 	float Tick;
+	bool Moveing;
+	bool Event;
 
 public:
 	virtual void Initialize()override;
@@ -15,12 +18,12 @@ public:
 	virtual void Release()override;
 
 public:
-	void CreateBullet();
-	void MoveAnimation(MOVE _Move);
-	void Pattern(SKILL _Skill);
+	void CreateBullet(Transform& _rTransInfo);
+	void MoveAnimation(MOVE _Move, Transform& _rTransInfo);
+	void Pattern(SKILL _Skill, Transform& _rTransInfo);
 
 	template <typename T>
-	Object* CreateBullet(int _Pattern);
+	Object* CreateBullet(int _Pattern, Transform& _rTransInfo);
 
 public:
 	BossEnemy();

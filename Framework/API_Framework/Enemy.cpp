@@ -29,11 +29,17 @@ void Enemy::Initialize()
 
 int Enemy::Update()
 {
-	if (BridgeObject)
-		BridgeObject->Update(TransInfo);
+	BridgeObject->SetActive(Active);
 
 	if (TransInfo.Position.x <= -1000)
 		return 1;
+
+	if (BridgeObject)
+	{
+		int Result = BridgeObject->Update(TransInfo);
+		return Result;
+	}
+
 
 	return 0;
 }

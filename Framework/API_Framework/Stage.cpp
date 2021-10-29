@@ -140,13 +140,15 @@ void Stage::Update()
 
 					(*E_iter)->CrashHitPoint((*Pb_iter)->GetDamage());
 
+					if ((*Pb_iter)->Update() == 2)
+						(*Pb_iter)->SetActive(false);
 					SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
-						(*Pb_iter)->GetPosition().x + 50 + rand() % 30 + 20,
+						(*Pb_iter)->GetPosition().x +  rand() % 30 + 20,
 						(*Pb_iter)->GetPosition().y + rand() % 20 + 10));
-
-					Pb_iter = BulletList->erase(Pb_iter);
+					if ((*Pb_iter)->Update() == 0)
+						Pb_iter = BulletList->erase(Pb_iter);
 					break;
 				}
 				else

@@ -4,11 +4,12 @@
 class Player : public Object
 {
 private:
-	int Frame;
+	int Frame[3];
 	int nTime[2];
-	bool s_Active;
+	bool s_Active[3];
+	Bitmap* Image[2];
 
-	ULONGLONG Time[3];
+	ULONGLONG Time[5];
 
 	vector<Object*>* BulletList;
 public:
@@ -19,7 +20,7 @@ public:
 	
 	virtual Object* Clone()override { return new Player(*this); }
 public:
-	int GetSwing() { return Frame; }
+	int GetSwing() { return Frame[0]; }
 
 	template <typename T>
 	Object* CreateBullet(int _Pattern);

@@ -20,7 +20,7 @@ enum class SKILL
 	ATTACK,
 	DASH,
 	STRINGPATTERN,
-	THREEPATTERN
+	END
 };
 
 enum class INVENTORY
