@@ -29,6 +29,9 @@ Stage4::~Stage4()
 void Stage4::Initialize()
 {
 
+
+	SoundManager::GetInstance()->OnPlaySound("Boss");
+
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);
 
@@ -53,6 +56,7 @@ void Stage4::Initialize()
 	Result = new StageResult;
 	Result->Initialize();
 	((StageResult*)Result)->SetStageNumber(4);
+	((StageResult*)Result)->SetClick(0);
 
 	ImageList = Object::GetImageList();
 }
@@ -84,6 +88,7 @@ void Stage4::Update()
 
 			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
 			{
+				SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 				m_pPlayer->SetActive(false);
 				iter = EBulletList->erase(iter);
 				m_pPlayer->CrashHitPoint(1);
@@ -109,20 +114,6 @@ void Stage4::Update()
 				m_pPlayer->CrashHitPoint(1);
 				SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 				break;
-			}
-
-			if (!EffectList.empty())
-			{
-				for (vector<Object*>::iterator iter = EffectList.begin();
-					iter != EffectList.end(); )
-				{
-					(*iter)->Update();
-
-					if (!(*iter)->GetActive())
-						iter = EffectList.erase(iter);
-					else
-						iter++;
-				}
 			}
 
 			//플레이어 탄환이 적을 맞춤
@@ -161,7 +152,19 @@ void Stage4::Update()
 				++E_iter;
 		}
 
+		if (!EffectList.empty())
+		{
+			for (vector<Object*>::iterator iter = EffectList.begin();
+				iter != EffectList.end(); )
+			{
+				(*iter)->Update();
 
+				if (!(*iter)->GetActive())
+					iter = EffectList.erase(iter);
+				else
+					iter++;
+			}
+		}
 
 
 
@@ -241,10 +244,12 @@ void Stage4::Release()
 		BulletList->clear();
 		BulletList = nullptr;
 	}
-
+	((Stage_Back*)State_Back)->SetFrame(0);
+	((Player*)m_pPlayer)->Setter();
 	m_pPlayer->SetHitPoint(3);
 	m_pPlayer->SetActive(true);
 
+	((StageResult*)Result)->SetClear(false);
 }
 
 template<typename T>

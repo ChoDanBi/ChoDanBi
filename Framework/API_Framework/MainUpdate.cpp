@@ -24,7 +24,7 @@ void MainUpdate::Initialize()
 	SoundManager::GetInstance()->Initialize();
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Hit by jeckkech Id-391668.wav", "Hit");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/«ì«Ù«ë«¢«Ã«×.mp3", "Clear");
-	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/á³«­«Ã«¯.mp3", "Crash");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/340861__passairmangrace__babybirdchirp-single-mono-bip.wav", "Crash");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/bensound-funnysong.mp3", "Stage");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/bensound-inspire.mp3", "Wait");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/bensound-clearday.mp3", "Ending");

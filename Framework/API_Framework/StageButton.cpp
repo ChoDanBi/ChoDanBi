@@ -60,37 +60,37 @@ int StageButton::Update()
 
 	if (CollisionManager::RectCollision(ButtonPos[0], Mouse) && click == 1)
 	{
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
 		SoundManager::GetInstance()->StopSound("Wait");
-		SoundManager::GetInstance()->OnPlaySound("Stage");
+		click = 0;
 	}
 
 	if (CollisionManager::RectCollision(ButtonPos[1], Mouse) && click == 1)
 	{
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE2);
 		SoundManager::GetInstance()->StopSound("Wait");
-		SoundManager::GetInstance()->OnPlaySound("Stage");
+		click = 0;
 	}
 
 	if (CollisionManager::RectCollision(ButtonPos[2], Mouse) && click == 1)
 	{
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE3);
 		SoundManager::GetInstance()->StopSound("Wait");
-		SoundManager::GetInstance()->OnPlaySound("Stage");
+		click = 0;
 	}
 
 	if (CollisionManager::RectCollision(ButtonPos[3], Mouse) && click == 1)
 	{
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
 		SoundManager::GetInstance()->StopSound("Wait");
-		SoundManager::GetInstance()->OnPlaySound("Boss");
+		click = 0;
 	}
 
 	if (CollisionManager::RectCollision(ButtonPos[4], Mouse) && click == 1)
 	{
 		SceneManager::GetInstance()->SetScene(SCENEID::END);
 		SoundManager::GetInstance()->StopSound("Wait");
-		SoundManager::GetInstance()->OnPlaySound("Ending");
+		click = 0;
 	}
 
 	return 0;

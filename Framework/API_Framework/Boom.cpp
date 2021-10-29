@@ -63,23 +63,13 @@ int Boom::Update(Transform& _rTransInfo)
 				return 1;
 		}
 	}
+
+	return 2;
 }
 
 void Boom::Render(HDC _hdc)
 {
-	if (!Active)
-		TransparentBlt(_hdc, // ** 최종 출력 위치
-			int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-			int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-			int(RealObject->GetScale().x),
-			int(RealObject->GetScale().y),
-			ImageList[DrawKey]->GetMemDC(),
-			int(RealObject->GetScale().x) * Frame[1],
-			0,
-			int(RealObject->GetScale().x),
-			int(RealObject->GetScale().y),
-			RGB(255, 0, 255));
-	else
+	if (Active)
 		TransparentBlt(_hdc, // ** 최종 출력 위치
 			int(RealObject->GetPosition().x - (124 / 2)),
 			int(RealObject->GetPosition().y - (124 / 2)),
@@ -90,6 +80,18 @@ void Boom::Render(HDC _hdc)
 			0,
 			124,
 			124,
+			RGB(255, 0, 255));
+	else
+		TransparentBlt(_hdc, // ** 최종 출력 위치
+			int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+			int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+			int(RealObject->GetScale().x),
+			int(RealObject->GetScale().y),
+			ImageList[DrawKey]->GetMemDC(),
+			int(RealObject->GetScale().x) * Frame[1],
+			0,
+			int(RealObject->GetScale().x),
+			int(RealObject->GetScale().y),
 			RGB(255, 0, 255));
 }
 

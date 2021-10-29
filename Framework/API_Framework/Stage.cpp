@@ -29,9 +29,11 @@ Stage::~Stage()
 
 void Stage::Initialize()
 {
+
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 	m_pPlayer->SetPosition(200.0f, WindowsHeight / 2);	
 
+	SoundManager::GetInstance()->OnPlaySound("Stage");
 
 	EffectList.clear();
 
@@ -52,6 +54,7 @@ void Stage::Initialize()
 	Result = new StageResult;
 	Result->Initialize();
 	((StageResult*)Result)->SetStageNumber(1);
+	((StageResult*)Result)->SetClick(0);
 
 	ImageList = Object::GetImageList();
 }
@@ -60,8 +63,12 @@ void Stage::Update()
 {
 	if (Active)
 	{
+		State_Back->Update();
+
 		//ÇÃ·¹ÀÌ¾î ¾÷µ«
 		m_pPlayer->Update();
+
+
 
 		//ÇÃ·¹ÀÌ¾î ÅºÈ¯ ¾÷µ«
 		for (vector<Object*>::iterator Pb_iter = BulletList->begin();
@@ -82,6 +89,7 @@ void Stage::Update()
 
 			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*iter)->GetCollider()))
 			{
+				SoundManager::GetInstance()->OnPlaySoundDot("Crash");
 				m_pPlayer->SetActive(false);
 				iter = EBulletList->erase(iter);
 				m_pPlayer->CrashHitPoint(1);
@@ -100,7 +108,7 @@ void Stage::Update()
 		{
 			int iResult = (*E_iter)->Update();
 
-
+			//ÇÃ·¹ÀÌ¾î HP±ïÀÓ
 			if (m_pPlayer->GetActive() && CollisionManager::RectCollision(m_pPlayer->GetCollider(), (*E_iter)->GetCollider()))
 			{
 				m_pPlayer->SetActive(false);
@@ -109,20 +117,7 @@ void Stage::Update()
 				break;
 			}
 
-			if (!EffectList.empty())
-			{
-				for (vector<Object*>::iterator iter = EffectList.begin();
-					iter != EffectList.end(); )
-				{
-					(*iter)->Update();
-
-					if (!(*iter)->GetActive())
-						iter = EffectList.erase(iter);
-					else
-						iter++;
-				}
-			}
-
+			
 			for (vector<Object*>::iterator Pb_iter = BulletList->begin();
 				Pb_iter != BulletList->end(); )
 			{
@@ -145,7 +140,7 @@ void Stage::Update()
 					SoundManager::GetInstance()->OnPlaySoundDot("Hit");
 
 					EffectList.push_back(ObjectFactory<Effect>::CreateObject(
-						(*Pb_iter)->GetPosition().x +  rand() % 30 + 20,
+						(*Pb_iter)->GetPosition().x + rand() % 30 + 20,
 						(*Pb_iter)->GetPosition().y + rand() % 20 + 10));
 					if ((*Pb_iter)->Update() == 0)
 						Pb_iter = BulletList->erase(Pb_iter);
@@ -161,13 +156,27 @@ void Stage::Update()
 				++E_iter;
 		}
 		
+		if (!EffectList.empty())
+		{
+			for (vector<Object*>::iterator iter = EffectList.begin();
+				iter != EffectList.end(); )
+			{
+				(*iter)->Update();
+
+				if (!(*iter)->GetActive())
+					iter = EffectList.erase(iter);
+				else
+					iter++;
+			}
+		}
+
 		if (Timer + rand() % 1000 + 2000 < GetTickCount64())
 		{
 			Timer = GetTickCount64();
 			EnemyList->push_back(CreateEnemy<BaseEnemy>(Vector3(1300.0f , float(rand() % 580 + 50))));
 		}
 
-		if (PlayTime + 60000 <= GetTickCount64())
+		if (PlayTime + 45000 <= GetTickCount64())
 		{
 			((StageButton*)SelectButton)->StageClear(1);
 			Active = false;
@@ -179,7 +188,7 @@ void Stage::Update()
 			((StageResult*)Result)->SetClear(false);
 		}
 	}
-	if (!Active)
+	else
 	{
 		Result->Update();
 	}
@@ -247,8 +256,12 @@ void Stage::Release()
 		BulletList = nullptr;
 	}
 
+	((Stage_Back*)State_Back)->SetFrame(0);
+	((Player*)m_pPlayer)->Setter();
 	m_pPlayer->SetHitPoint(3);
 	m_pPlayer->SetActive(true);
+
+	((StageResult*)Result)->SetClear(false);
 }
 
 template<typename T>

@@ -18,6 +18,7 @@ public:
 
 public:
 	void StageClear(int _Clear);
+	void SetClick(int _click) { click = _click; }
 
 public:
 	StageButton();

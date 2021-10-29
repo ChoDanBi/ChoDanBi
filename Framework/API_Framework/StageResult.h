@@ -21,6 +21,7 @@ public:
 public:
 	bool GetClear() { return Clear; }
 	void SetClear(bool _Clear) { Clear = _Clear; }
+	void SetClick(int _Click) { Click = _Click; }
 
 	void SetStageNumber(int _Num) { StageNumber = _Num; }
 

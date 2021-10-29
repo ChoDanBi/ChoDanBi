@@ -15,6 +15,8 @@ Ending::~Ending()
 
 void Ending::Initialize()
 {
+	SoundManager::GetInstance()->OnPlaySound("Ending");
+
 	StageBack = new Stage_Back;
 	StageBack->Initialize();
 	((Stage_Back*)StageBack)->SetStageState(1);

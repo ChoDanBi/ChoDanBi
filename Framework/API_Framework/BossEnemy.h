@@ -10,6 +10,7 @@ public:
 	float Tick;
 	bool Moveing;
 	bool Event;
+	int NumSkill;
 
 public:
 	virtual void Initialize()override;

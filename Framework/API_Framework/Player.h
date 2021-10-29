@@ -20,7 +20,10 @@ public:
 	
 	virtual Object* Clone()override { return new Player(*this); }
 public:
-	int GetSwing() { return Frame[0]; }
+	void Setter() {
+		s_Active[1] = s_Active[2] = true;
+		Frame[1] = Frame[2] = 0;
+	}
 
 	template <typename T>
 	Object* CreateBullet(int _Pattern);

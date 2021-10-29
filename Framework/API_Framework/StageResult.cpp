@@ -52,38 +52,38 @@ int StageResult::Update()
 				Soundplaytime++;
 			}
 			if (CollisionManager::RectCollision(Buttom[0], Mouse) && Click == 1)
-			SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+			{
+				SoundManager::GetInstance()->StopSound("Stage");
+				SoundManager::GetInstance()->StopSound("Boss");
+				SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
+			}
 
 		if (CollisionManager::RectCollision(Buttom[1], Mouse) && Click == 1)
 		{
+				SoundManager::GetInstance()->StopSound("Stage");
+				SoundManager::GetInstance()->StopSound("Boss");
 			switch (StageNumber)
 			{
 			case 1:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE2);
-				SoundManager::GetInstance()->StopSound("Stage");
-				SoundManager::GetInstance()->OnPlaySound("Stage");
 				break;
 			case 2:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE3);
-				SoundManager::GetInstance()->StopSound("Stage");
-				SoundManager::GetInstance()->OnPlaySound("Stage");
 				break;
 			case 3:
 				SceneManager::GetInstance()->SetScene(SCENEID::STAGE4);
-				SoundManager::GetInstance()->StopSound("Stage");
-				SoundManager::GetInstance()->OnPlaySound("Boss");
 				break;
 			case 4:
 				SceneManager::GetInstance()->SetScene(SCENEID::END);
-				SoundManager::GetInstance()->StopSound("Boss");
-				SoundManager::GetInstance()->OnPlaySound("Ending");
 				break;
 			}
 		}
 	}
 	else if (!Clear)
 	{
-		if(Click == 1)
+		SoundManager::GetInstance()->StopSound("Stage");
+		SoundManager::GetInstance()->StopSound("Boss");
+		if(GetAsyncKeyState(' ') & 0x0001)
 			SceneManager::GetInstance()->SetScene(SCENEID::SELECTSTAGE);
 	}
 

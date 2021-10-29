@@ -41,6 +41,7 @@ void BossEnemy::Initialize()
     Moveing = false;
     Event = true;
     Active = false;
+    NumSkill = 1;
 
     RealObject->SetScale(TransInfo.Scale);
     RealObject->SetHitPoint(HitPoint);
@@ -103,8 +104,13 @@ int BossEnemy::Update(Transform& _rTransInfo)
             if (Time + 3000 < GetTickCount64() && Skill == SKILL::WAIT)
             {
                 Time = GetTickCount64();
+                while (true)
+                {
                 int i = rand() % 3 + 1;
-                switch (i)
+                if (NumSkill != i)
+                    NumSkill = i; break;
+                }
+                switch (NumSkill)
                 {
                 case 1:
                     Skill = SKILL::ATTACK;

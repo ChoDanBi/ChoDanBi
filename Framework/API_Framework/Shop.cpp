@@ -92,7 +92,6 @@ void Shop::Update()
 		{
 			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, InventoryManager::GetInstance()->GetItem(INVENTORY::DAMAGE) * 3);
 			InventoryManager::GetInstance()->AddItem(INVENTORY::DAMAGE);
-			SoundManager::GetInstance()->OnPlaySoundDot("Buy");
 		}
 	}
 	if (CollisionManager::RectCollision(Buttom[3], Mouse) && click == 1)
@@ -106,7 +105,6 @@ void Shop::Update()
 			ObjectManager::GetInstance()->GetPlayer()->SetSpeed(
 				InventoryManager::GetInstance()->GetItem(INVENTORY::SPEED));
 
-			SoundManager::GetInstance()->OnPlaySoundDot("Buy");
 		}
 	}
 	if (CollisionManager::RectCollision(Buttom[1], Mouse) && click == 1
@@ -114,14 +112,12 @@ void Shop::Update()
 	{
 			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 			InventoryManager::GetInstance()->AddItem(INVENTORY::BOMB);
-			SoundManager::GetInstance()->OnPlaySoundDot("Buy");
 	}
 	if (CollisionManager::RectCollision(Buttom[2], Mouse) && click == 1
 		&& InventoryManager::GetInstance()->GetItem(INVENTORY::GOLD) >= 10)
 	{
 			InventoryManager::GetInstance()->UseItem(INVENTORY::GOLD, 10);
 			InventoryManager::GetInstance()->AddItem(INVENTORY::SHIELD);
-			SoundManager::GetInstance()->OnPlaySoundDot("Buy");
 	}
 
 
