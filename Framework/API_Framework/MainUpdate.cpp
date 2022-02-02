@@ -37,6 +37,8 @@ void MainUpdate::Initialize()
 
 void MainUpdate::Update()
 {
+	SoundManager::GetInstance()->StramingUpdate();
+
 	SceneManager::GetInstance()->Update();
 
 	InputManager::GetInstance()->CheckKey();
